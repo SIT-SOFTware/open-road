@@ -1,0 +1,26 @@
+/*General*/
+* {
+  font-family: "Teko";
+}
+
+body {
+  background-color: #D9D9D9;
+}
+
+/*Navigation*/
+.custom-chevron {
+  font-size: 0.7em;
+  padding-left: 5px;
+}
+
+/*Dropdown on hover*/
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* remove the gap so it doesn't close */
+}
+
+/*Footer*/
+
+.footerText {
+  font-size: 0.8em;
+}
