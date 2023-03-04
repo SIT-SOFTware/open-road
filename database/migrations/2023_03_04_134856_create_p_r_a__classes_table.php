@@ -13,16 +13,13 @@ return new class extends Migration
     {
         Schema::create('pra_classes', function (Blueprint $table) {
             $table->string('CLASS_ID', 6)->primary();
-            $table->string('COURSE_ID', 3);
-            $table->string('PRIMARY_INST', 5);
-            $table->string('SECONDARY_INST', 5)->nullable();
+            $table->string('COURSE_ID', 3)->foreign('COURSE_ID')->references('COURSE_ID')->on('courses');
+            $table->string('PRIMARY_INST', 5)->foreign('PRIMARY_INST')->references('STUFF_ID')->on('stuffs');
+            $table->string('SECONDARY_INST', 5)->foreign('SECONDARY_INST')->references('STUFF_ID')->on('stuffs')->nullable();
             $table->date('CLASS_START');
             $table->date('CLASS_END');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('COURSE_ID')->references('COURSE_ID')->on('courses');
-            $table->foreign('PRIMARY_INST')->references('STUFF_ID')->on('stuffs');
-            $table->foreign('SECONDARY_INST')->references('STUFF_ID')->on('stuffs');
         });
     }
 
