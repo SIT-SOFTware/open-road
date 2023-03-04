@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::get('/', [testController::class, 'index']);
 Route::get('/test', function () {
     return view('test');
 });
+
+Route::resource('/courses', CourseController::class);
 
 Route::middleware([
     'auth:sanctum',
