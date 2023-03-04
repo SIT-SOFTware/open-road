@@ -1,0 +1,2 @@
+user default on +@all ~* >RvjhkH9amQxHyHy4Cz
+# copy and paste the text AFTER the '>' into the open_road .env file so REDIS_PASSWORD=RvjhkH9amQxHyHy4Cz (required)
