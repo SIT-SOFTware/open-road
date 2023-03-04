@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {            
             $table->unsignedSmallInteger('ADVERTISEMENT_ID')->primary();
-            $table->unsignedSmallInteger('USER_ID');
             $table->string('AD_TITLE', 20);
             $table->string('AD_DESCRIPTION', 256);
             $table->string('AD_URL', 256)->nullable();
@@ -26,9 +25,9 @@ return new class extends Migration
             $table->dateTime('LAST_UPDATED');
             $table->dateTime('DELETED')->nullable();
 
-            $table->foreign('USER_ID')
-                ->references('USER_ID')
-                ->on('user_login')
+            $table->foreignId('id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('restrict');
         });
     }
