@@ -1,0 +1,4 @@
+*.conf
+redis.conf:*
+*.acl
+users.acl:*
