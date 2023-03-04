@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            $table->char('CLASS_ID', 6)->primary();
-            $table->char('COURSE_ID', 3);
-            $table->char('PRIMARY_INST', 5);
-            $table->char('SECONDARY_INST', 5)->nullable();
-            $table->date('CLASS_START');
-            $table->date('CLASS_END');
-            $table->foreign('COURSE_ID')->references('COURSE_ID')->on('courses');
-            $table->foreign('PRIMARY_INST')->references('STUFF_ID')->on('stuffs');
-            $table->foreign('SECONDARY_INST')->references('STUFF_ID')->on('stuffs');
+            $table->string('VEHICLE_STOCK_NUM', 17)->primary();
+            $table->string('VEHICLE_VIN', 17)->unique();
+            $table->char('VEHICLE_YEAR', 4);
+            $table->string('VEHICLE_MAKE', 20);
+            $table->string('VEHICLE_MODEL', 40);
+            $table->char('VEHICLE_ODO', 10);
+            $table->unsignedInteger('VEHICLE_TYPE');
+            $table->string('VEHICLE_COLOR', 10)->nullable();
+            $table->string('VEHICLE_SIZE', 4);
+            $table->unsignedInteger('AVAIL_STATUS');
+            $table->string('NOTES', 256)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
