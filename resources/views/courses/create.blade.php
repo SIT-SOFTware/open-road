@@ -8,7 +8,7 @@
     
     <x-slot name="content">
         <div>
-            <form action="{{ route('courses.create') }}" method="post">
+            <form action="{{ route('courses.store') }}" method="post">
                 <div class="border rounded p-3 bg-black text-white">
                     <a href="" style="font-size: 2.0rem;">{{ $course->COURSE_NAME }}</a>
                     <div class="row">
