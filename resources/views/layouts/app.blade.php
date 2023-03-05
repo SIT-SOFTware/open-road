@@ -107,7 +107,7 @@
         </nav>
         <!-- checks to see if the url is localhost/admin/dashboard and displays the content from
         admin/dashboard.blade.php if true. Otherwise displays homepage content -->
-        @if(request()->routeIs('admin.dashboard'))
+        @if(request()->routeIs('admin.*'))
         
         {{ $content }}
 
