@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 class CourseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show a list of all the courses
      */
     public function index()
     {
@@ -19,7 +19,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new course
      */
     public function create()
     {
@@ -27,7 +27,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created course in the course table
      */
     public function store(Request $request)
     {
@@ -43,7 +43,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a single course
      */
     public function show(Course $course)
     {
@@ -51,7 +51,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified course
      */
     public function edit(Course $course)
     {
@@ -59,7 +59,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified course in the course table
      */
     public function update(Request $request, Course $course)
     {
@@ -67,7 +67,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Soft Delete the course
      */
     public function destroy(Course $course)
     {
