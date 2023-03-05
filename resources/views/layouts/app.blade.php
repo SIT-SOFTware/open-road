@@ -99,12 +99,19 @@
                             <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-person-badge"></i></a>
+                            <a href="{{ route('admin.dashboard') }}" class="nav-link"><i class="bi bi-person-badge"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- checks to see if the url is localhost/admin/dashboard and displays the content from
+        admin/dashboard.blade.php if true. Otherwise displays homepage content -->
+        @if(request()->routeIs('admin.dashboard'))
+        
+        {{ $content }}
+
+        @else
         {{ $slide }}
         <!-- Main Content -->
         <div class="container p-3">
@@ -112,7 +119,7 @@
             <br>
             {{ $content }}
         </div>
-
+        @endif
         <!-- Footer -->
         <footer class="container-fluid bg-danger text-bg-danger">
             <div class="row justify-content-around  p-3">
