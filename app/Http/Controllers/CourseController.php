@@ -14,8 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::paginate(5);
-        return view('courses.index', compact('courses'));
+        $courses = Course::all();
+        return view('courses.index')->with('courses', $courses);
     }
 
     /**
@@ -31,7 +31,15 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Course::create([
+            'COURSE_ID' => $request->courseID,
+            'COURSE_NAME' => $request->courseName,
+            'COURSE_DOCS' => $request->courseDocs,
+            'COURSE_MAX_SEATS' => $request->courseMax,
+            'COURSE_FEE' => $request->courseFee
+        ]);
+
+        return to_route('admin.courses.index');
     }
 
     /**
@@ -39,7 +47,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+
     }
 
     /**

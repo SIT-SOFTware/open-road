@@ -8,7 +8,7 @@
 
 <x-slot name="content">
     <div>
-        <a href="{{ route('courses.create') }}" class="">Add Class</a>
+        <a href="{{ route('admin.courses.create') }}" class="btn btn-black">Add Course</a>
         @foreach ( $courses as $course )
             <div class="border rounded p-3 bg-black text-white">
                 <a href="" style="font-size: 2.0rem;">{{ $course->COURSE_NAME }}</a>
