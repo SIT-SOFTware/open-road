@@ -21,7 +21,7 @@ class CourseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create()
     {
         return view('courses.create');
     }
@@ -29,7 +29,7 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         //
     }
@@ -37,7 +37,7 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Course $course): Response
+    public function show(Course $course)
     {
         //
     }
@@ -45,7 +45,7 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Course $course): Response
+    public function edit(Course $course)
     {
         //
     }
@@ -53,7 +53,7 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Course $course): RedirectResponse
+    public function update(Request $request, Course $course)
     {
         //
     }
@@ -61,7 +61,7 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Course $course): RedirectResponse
+    public function destroy(Course $course)
     {
         //
     }
