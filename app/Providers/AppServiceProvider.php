@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //This makes $advertisement available across all views
         $advertisement = Advertisement::all();
-        View::share('advertisement', $advertisement);
+        View::share('advertisement', $advertisement); 
     }
 }

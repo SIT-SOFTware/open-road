@@ -14,6 +14,6 @@ class Advertisement extends Model
     protected $fillable = [
         'ADVERTISEMENT_ID', 'USER_ID', 'AD_TITLE', 'AD_DESCRIPTION', 'AD_URL', 'AD_PATH', 'AD_SPACE_TYPE', 
         'AD_LOCATION', 'START_DATE', 'END_DATE', 'CREATED', 'LAST_UPDATED', 'DELETED'
-    ];
+    ]; 
 
 }

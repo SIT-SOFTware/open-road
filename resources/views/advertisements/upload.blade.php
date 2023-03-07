@@ -19,7 +19,7 @@
             <input type="hidden" name="ADVERTISEMENT_ID" value="4">
             <button class="btn btn-sm">Upload</button>
         </form>
-    </div>
+    </div> 
 </x-slot>
 
 </x-app-layout>

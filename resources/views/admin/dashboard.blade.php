@@ -29,7 +29,7 @@
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="#" class="text-decoration-none text-white">
-                            <div class="card-body p-5">
+                            <div class="card-body p-5"> 
                                 View <br> Classes <br> <i class="bi bi-file-text"></i>
                             </div>
                         </a>

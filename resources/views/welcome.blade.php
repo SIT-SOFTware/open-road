@@ -5,7 +5,7 @@
 <x-slot name="content">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col"> 
 
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Esse est culpa dolorum ab ducimus repudiandae ex voluptas 

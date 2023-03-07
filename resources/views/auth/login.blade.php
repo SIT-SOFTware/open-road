@@ -8,7 +8,7 @@
 
                     <x-slot name="logo">
                         <!-- PRA ICON -->
-                    </x-slot>
+                    </x-slot> 
             
                     <x-validation-errors class="mb-4" />
             

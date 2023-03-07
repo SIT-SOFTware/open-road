@@ -30,7 +30,7 @@ Route::get('/admin', function () {
 Route::resource('/advertisements', AdvertisementController::class);
 
 
-Route::middleware([
+Route::middleware([ 
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'

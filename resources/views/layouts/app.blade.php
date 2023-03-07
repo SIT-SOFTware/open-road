@@ -175,7 +175,7 @@
         <div class="container-fluid bg-black text-bg-dark text-center fst-italic">
             <div class="row">
                 <div class="col-12">© 2023 Precision Powersports Ltd.</div>
-            </div>
+            </div> 
         </div>
 </body>
 </html>
