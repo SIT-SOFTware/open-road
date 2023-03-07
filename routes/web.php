@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\testController;
+use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/test', function () {
 });
 
 Route::resource('/courses', CourseController::class);
+
+Route::resource('/info', StuffController::class)->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

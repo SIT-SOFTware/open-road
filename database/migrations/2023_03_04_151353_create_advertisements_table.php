@@ -21,11 +21,10 @@ return new class extends Migration
             $table->string('AD_LOCATION', 256)->nullable();
             $table->date('START_DATE');
             $table->date('END_DATE')->nullable();
-            $table->dateTime('CREATED');
-            $table->dateTime('LAST_UPDATED');
-            $table->dateTime('DELETED')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
-            $table->foreignId('id')
+            $table->uuid('id')->foreign('id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('restrict');
