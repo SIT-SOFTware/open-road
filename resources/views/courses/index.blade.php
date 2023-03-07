@@ -4,14 +4,12 @@
     Bryan
 </x-slot>
 
-<x-carousel name="slide"/>
-
 <x-slot name="content">
     <div>
         <a href="{{ route('admin.courses.create') }}" class="btn btn-black">Add Course</a>
         @foreach ( $courses as $course )
             <div class="border rounded p-3 bg-black text-white">
-                <a href="" style="font-size: 2.0rem;">{{ $course->COURSE_NAME }}</a>
+                <a href="{{ route('admin.courses.show', $course->COURSE_ID) }}" style="font-size: 2.0rem;">{{ $course->COURSE_NAME }}</a>
                 <div class="row">
                     <div class="col">
                         <div class="font-weight-bold"><u>Course ID:</u></div>
