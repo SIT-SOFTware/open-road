@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdvertisementController;
+use App\Models\Advertisement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin');
+
+Route::resource('/advertisements', AdvertisementController::class);
+
 
 Route::middleware([
     'auth:sanctum',

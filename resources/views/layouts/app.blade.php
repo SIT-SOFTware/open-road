@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,23 +18,28 @@
         <link rel="stylesheet" href="{{ asset('css/common.css'); }}">
 
         <!-- Bootstrap Icons https://icons.getbootstrap.com/ -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         
-        <title>Home</title>
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <title>Precision Riding Academy Ltd.</title>
 
     </head>
     <body>
 
         <!-- Header -->
-        <div class="container-fluid bg-black bg-gradient text-bg-dark ">
+        <div class="container-fluid bg-black bg-gradient text-bg-dark fs-4">
             <div class="row align-items-center">
                 <div class="col text-center" style="font-size: 0.8em; ">
                     <div class="row"> <div class="col"><a target="0" href="https://www.google.ca/maps/place/Precision+Powersports+Ltd/@49.698519,-112.794592,15z/data=!4m6!3m5!1s0x536e86ffe8a81009:0x4033014a260ea341!8m2!3d49.6979318!4d-112.8199665!16s%2Fg%2F1tfby3ss" class=" text-decoration-none text-danger"><i class="bi bi-map-fill"></i>  View Map</a></div></div>
                     <div class="row"><div class="col">1505 2nd Avenue South</div></div>
                     <div class="row"><div class="col">Lethbridge, AB T1J 0E8</div></div>
                 </div>
-                <div class="col">
-                    <img src="{{ asset('images/PRA-Logo.png'); }}" class="img-fluid" alt="Responsive image">
+                <div class="col-3">
+                    <a href="{{ route('welcome') }}">
+                        <img src="{{ asset('images/PRA-Logo.png'); }}" class="img-fluid" alt="Responsive image">
+                    </a>
                 </div>
                 <div class="col text-center">
                     <div class="row ">
@@ -56,15 +60,15 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="navbar py-0 navbar-expand-sm navbar-dark bg-dark" >
+        <nav class="navbar py-0 navbar-expand-sm navbar-dark bg-dark fs-4 shadow-lg" >
             <div class="container text-center">
                 <button class="navbar-toggler mx-auto" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
                     <div class="navbar-toggler-icon"></div>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="nav">
                     <ul class="navbar-nav ">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link active">Home</a>
+                        <li class="nav-item">
+                            <a href="{{ route('welcome') }}" class="nav-link {{ Route::is('welcome') ? 'active' : '' }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             
@@ -90,35 +94,38 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">PPS</a>
+                            <a href="https://precisionpowersportsltd.com/" target=0 class="nav-link">PPS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-person-circle"></i></a>
+                            <a href="{{ route('login') }}" class="nav-link {{ Route::is('login') ? 'active' : '' }}"><i class="bi bi-person-circle"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
+                            <a href="#" class="nav-link "><i class="bi bi-search"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-person-badge"></i></a>
+                            <a href="{{ route('admin') }}" class="nav-link {{ Route::is('admin') ? 'active' : '' }}"><i class="bi bi-person-badge"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        {{ $slide }}
+        
+        @isset($slide)  
+            {{ $slide }}
+        @endisset
+
         <!-- Main Content -->
         <div class="container p-3">
-            {{ $name }}
             <br>
             {{ $content }}
         </div>
 
         <!-- Footer -->
-        <footer class="container-fluid bg-danger text-bg-danger">
+        <footer class="container-fluid bg-danger text-bg-danger mt-3 shadow-lg" >
             <div class="row justify-content-around  p-3">
                 <div class="col-sm-3 text-center text-sm-start py-4">
                     <div class="row fs-5"><div class="col">QUICK LINKS</div></div>
-                    <hr class="border border-dark" />
+                    <hr class="border mb-3 border-dark" />
                     <div class="footerText ">
                         <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">New Inventory</div></div></a>
                         <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">NON-CURRENT INVENTORY</div></div></a>
@@ -139,7 +146,7 @@
                 </div>
                 <div class="col-sm-3 py-4 text-center text-sm-start">
                 <div class="row fs-5"><div class="col">NEWSLETTER SIGNUP</div></div>
-                <hr class="border border-dark" />
+                <hr class="border border-dark  mb-3" />
                     <form action="">
                         <div class="form-floating text-dark">
                             <input class="form-control" type="email" id="email" placeholder="email">
@@ -150,7 +157,7 @@
                 </div>
                 <div class="col-sm-3 text-center text-sm-start py-4">
                     <div class="row fs-5"><div class="col">PRECISION POWERSPORTS</div></div>
-                    <hr class="border border-dark" />
+                    <hr class="border border-dark  mb-3" />
                     <div class="row-cols-1">
                         <div class="col">1505 2nd Avenue South</div>
                         <div class="col">Lethbridge, AB T1J 0E8</div>
