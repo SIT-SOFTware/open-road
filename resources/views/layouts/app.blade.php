@@ -50,7 +50,7 @@
                     </div>
                     <div class="row">
                         <div class="col" style="font-size: 0.8em;">TF: (888) 494-6228</div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>

@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <x-button class="rounded bg-black">Add Course</x-button>
+                <x-button class="rounded bg-black">Create Course</x-button>
             </form>
         </div>
     </x-slot>
