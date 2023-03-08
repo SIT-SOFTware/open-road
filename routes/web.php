@@ -17,14 +17,12 @@ use App\Http\Controllers\CourseController;
 
 Route::get('/', function(){
     return view('welcome');
-});
+})->name('welcome');
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/courses', CourseController::class);
-});
-
-
+})->name('admin');
 
 Route::middleware([
     'auth:sanctum',
