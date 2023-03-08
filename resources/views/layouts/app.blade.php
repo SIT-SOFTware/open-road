@@ -105,13 +105,9 @@
                 </div>
             </div>
         </nav>
-        <!-- checks to see if the url is localhost/admin/dashboard and displays the content from
-        admin/dashboard.blade.php if true. Otherwise displays homepage content -->
-        @if(request()->routeIs('admin.dashboard'))
-        
-        {{ $content }}
-
-        @else
+        <!-- checks to see if the slide element is in the blade being called and renders it conditionally -->
+ 
+        @isset($slide)
         {{ $slide }}
         <!-- Main Content -->
         <div class="container p-3">

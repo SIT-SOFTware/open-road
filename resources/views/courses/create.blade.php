@@ -1,5 +1,5 @@
 <x-app-layout>
-
+ 
     <x-slot name="name">
         Bryan
     </x-slot>
