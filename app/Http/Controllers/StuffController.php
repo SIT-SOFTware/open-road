@@ -53,7 +53,7 @@ class StuffController extends Controller
         $newStuffID = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 5);
 
         $stuff = new Stuff;
-        $stuff->id = Auth::user()->id;
+        $stuff->user_id = Auth::user()->id;
         $stuff->STUFF_ID = $newStuffID;
         $stuff->STUFF_LEVEL = '1';
         $stuff->STUFF_PNAME = $request->pName;
