@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CourseController;
 
 /*
@@ -22,6 +23,7 @@ Route::get('/', function(){
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/courses', CourseController::class);
+    Route::resource('/classes', ClassController::class);
 });
 
 
