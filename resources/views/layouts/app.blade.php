@@ -109,13 +109,11 @@
  
         @isset($slide)
         {{ $slide }}
+        @endisset
         <!-- Main Content -->
         <div class="container p-3">
-            {{ $name }}
-            <br>
             {{ $content }}
         </div>
-        @endif
         <!-- Footer -->
         <footer class="container-fluid bg-danger text-bg-danger">
             <div class="row justify-content-around  p-3">
