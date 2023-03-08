@@ -32,7 +32,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         Course::create([
-            'COURSE_ID' => $request->courseID,
+            'id' => $request->courseID,
             'COURSE_NAME' => $request->courseName,
             'COURSE_DOCS' => $request->courseDocs,
             'COURSE_MAX_SEATS' => $request->courseMax,
@@ -44,10 +44,15 @@ class CourseController extends Controller
 
     /**
      * Display a single course
+     * Model-route binding should be working but for some reason it really doesn't want to
      */
     public function show(Course $course)
     {
+        //finds the course entry in the database 
+        //$course = Course::where('id', $id)->firstOrFail();
 
+        //sends the user to the show page with the course they clicked on
+        return view('courses.show')->with('course', $course);
     }
 
     /**
@@ -55,7 +60,11 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        //finds the course entry in the database 
+        //$course = Course::where('COURSE_ID', $id)->firstOrFail();
+
+        //sends the user to the edit page with the course they clicked on
+        return view('courses.edit')->with('course', $course);
     }
 
     /**
@@ -63,7 +72,20 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        //finds the course entry in the database 
+        //$course = Course::where('id', $id)->firstOrFail();
+
+        //updates the DB entry
+        $course->update([
+            'id' => $request->courseID,
+            'COURSE_NAME' => $request->courseName,
+            'COURSE_DOCS' => $request->courseDocs,
+            'COURSE_MAX_SEATS' => $request->courseMax,
+            'COURSE_FEE' => $request->courseFee
+        ]);
+
+        //sends the user to the show page with the edited course
+        return to_route('admin.courses.index', $course);
     }
 
     /**
