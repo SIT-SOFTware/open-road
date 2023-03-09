@@ -19,7 +19,7 @@
                                 <select class="custom-select col-6" id="CourseID">
                                     <option selected>Choose Course</option>
                                     @foreach($courses as $course)
-                                    <option value="$course->id" name="courseID">{{ $course->COURSE_NAME }}</option>
+                                    <option value="{{ $course->id }}" name="courseID">{{ $course->COURSE_NAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -38,7 +38,7 @@
                                 <select class="custom-select col-6" id="InstructorID">
                                     <option selected>Choose Primary Instructor</option>
                                     @foreach($stuff as $stuf)
-                                    <option value="$stuf->id" name="instructorID">{{ $stuf->STUFF_FNAME }}</option>
+                                    <option value="{{ $stuf->id }}" name="instructorID">{{ $stuf->STUFF_FNAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
