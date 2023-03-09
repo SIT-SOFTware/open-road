@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('EMERGCONT_NAME', 40)->nullable();
             $table->unsignedInteger('STUFF_WAIVER');
             $table->char('EMERGCONT_PHONE', 12)->nullable();
-            $table->foreignId('user_id')->constrained();
+            $table->uuid('user_id')->foreign('id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
