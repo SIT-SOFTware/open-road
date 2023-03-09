@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
             // updated configuration required for Spatie/laravel-permission package
             // with unsignedBigInteger $table->unsignedBigInteger('id);
             // with uuid $table->uuid('id');
