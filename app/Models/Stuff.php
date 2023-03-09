@@ -13,6 +13,8 @@ class Stuff extends Model
 
     protected $primaryKey = 'STUFF_ID';
 
+    protected $keyType = 'string';
+
     protected $guarded = [];
 
     public function getRouteKeyName()
