@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -12,6 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stuffs', function (Blueprint $table) {
+            $table->uuid('id')->default(Uuid::uuid4()->toString());
             $table->char('STUFF_ID', 5)->primary();
             $table->char('STUFF_LEVEL', 1);
             $table->string('STUFF_PNAME', 20)->nullable();
@@ -28,9 +30,9 @@ return new class extends Migration
             $table->string('STUFF_COUNTRY', 30);
             $table->string('STUFF_POST_ZIP', 7);
             $table->string('EMERGCONT_NAME', 40)->nullable();
-            $table->unsignedInteger('STUFF_WAIVER')->nullable();
+            $table->unsignedInteger('STUFF_WAIVER');
             $table->char('EMERGCONT_PHONE', 12)->nullable();
-            $table->uuid('id')->foreign('id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

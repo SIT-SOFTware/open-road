@@ -20,6 +20,8 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
+
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/courses', CourseController::class);

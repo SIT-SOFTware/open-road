@@ -23,7 +23,6 @@ class CourseController extends Controller
      * Show the form for creating a new course
      */
     public function create()
-
     {
         return view('courses.create');
     }
@@ -98,4 +97,3 @@ class CourseController extends Controller
         //
     }
 }
-

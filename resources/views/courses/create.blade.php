@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
     <x-slot name="content">
         <div>
             <!-- Form stores the course in the DB -->
