@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->char('COURSE_ID', 3)->primary();
+            $table->char('id', 3)->primary();
             $table->string('COURSE_NAME', 15);
             $table->string('COURSE_DOCS', 256)->nullable();
             $table->unsignedInteger('COURSE_MAX_SEATS');

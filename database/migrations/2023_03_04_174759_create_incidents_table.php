@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('incidents', function (Blueprint $table) {
             $table->unsignedSmallInteger('INCIDENT_ID')->primary();
             $table->date('INCIDENT_DATE');
-            $table->char('CLASS_ID', 6);
+            $table->char('id', 6);
             $table->longText('INCIDENT_DETAILS');
             $table->unsignedTinyInteger('EMERG_SERV_CALLED');
             $table->unsignedTinyInteger('EMERG_CONTACT_CALLED');
-            $table->foreign('CLASS_ID')->references('CLASS_ID')->on('pra_classes');
+            $table->foreign('id')->references('id')->on('pra_classes');
         });
     }
 
