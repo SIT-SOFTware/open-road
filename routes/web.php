@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\testController;
-use App\Http\Controllers\StuffController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CourseController;
 
 /*
@@ -16,15 +16,18 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get('/', [testController::class, 'index']);
-
-Route::get('/test', function () {
-    return view('test');
+Route::get('/', function(){
+    return view('welcome');
 });
 
-Route::resource('/courses', CourseController::class);
-
 Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
+
+Route::prefix('/admin')->name('admin.')->group(function(){
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/courses', CourseController::class);
+    Route::resource('/classes', ClassController::class);
+});
+
 
 Route::middleware([
     'auth:sanctum',
