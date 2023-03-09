@@ -105,6 +105,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- checks to see if the slide element is in the blade being called and renders it conditionally -->
  
         @isset($slide)

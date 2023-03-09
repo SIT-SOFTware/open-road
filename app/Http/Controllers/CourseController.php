@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 class CourseController extends Controller
 {
     /**
+
      * Show a list of all the courses
      */
     public function index()
@@ -22,6 +23,7 @@ class CourseController extends Controller
      * Show the form for creating a new course
      */
     public function create()
+
     {
         return view('courses.create');
     }
@@ -96,3 +98,4 @@ class CourseController extends Controller
         //
     }
 }
+
