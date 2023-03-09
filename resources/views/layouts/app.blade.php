@@ -99,20 +99,22 @@
                             <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-person-badge"></i></a>
+                            <a href="{{ route('admin.dashboard') }}" class="nav-link"><i class="bi bi-person-badge"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!-- checks to see if the slide element is in the blade being called and renders it conditionally -->
+ 
+        @isset($slide)
         {{ $slide }}
+        @endisset
         <!-- Main Content -->
         <div class="container p-3">
-            {{ $name }}
-            <br>
             {{ $content }}
         </div>
-
         <!-- Footer -->
         <footer class="container-fluid bg-danger text-bg-danger">
             <div class="row justify-content-around  p-3">

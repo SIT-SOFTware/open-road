@@ -1,5 +1,6 @@
 <?php
 
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +17,7 @@ return new class extends Migration
             $table->date('TRANSACTION_DATE');
             $table->time('TRANSACTION_TIME');
             $table->char('TRANSACTION_IP_ADDR', 15);
-            $table->foreignId('id')->references('id')->on('users');
+            $table->uuid('id')->foreign('id')->references('id')->on('users');
         });
     }
 
