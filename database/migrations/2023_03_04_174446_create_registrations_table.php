@@ -19,9 +19,8 @@ return new class extends Migration
             $table->string('VEHICLE_STOCK_NUM', 17)->foreign('VEHICLE_STOCK_NUM')->references('VEHICLE_STOCK_NUM')->on('vehicles')->notNull();
             $table->unsignedTinyInteger('REGISTRATION_CANCELLED')->notNull();
             $table->unsignedTinyInteger('REGISTRATION_WAITLIST')->notNull();
-            $table->dateTime('CREATED')->notNull();
-            $table->dateTime('LAST_UPDATED')->notNull();
-            $table->dateTime('DELETED')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
             // $table->foreign('CLASS_ID')->references('CLASS_ID')->on('pra_classes');
             // $table->foreign('INVOICE_ID')->references('INVOICE_ID')->on('invoice');
             // $table->foreign('STUFF_ID')->references('STUFF_ID')->on('stuffs');

@@ -76,7 +76,9 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
+
                                 <li><a class="dropdown-item" href="{{ route('faq') }}">FAQ</a></li>
+                                
                                 <li><a class="dropdown-item" href="#">Meet the Team</a></li>
                             </ul>
                         </li>
@@ -102,13 +104,21 @@
                             <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-person-badge"></i></a>
+
+                            <a href="{{ route('admin.dashboard') }}" class="nav-link"><i class="bi bi-person-badge"></i></a>
+
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        {{-- {{ $slide }} --}}
+        
+        <!-- checks to see if the slide element is in the blade being called and renders it conditionally -->
+ 
+        @isset($slide)
+        {{ $slide }}
+        @endisset
+        
         <!-- Main Content -->
         <div class="container p-3">
             {{ $content }}
