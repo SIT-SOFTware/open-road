@@ -118,7 +118,7 @@
             <div class="row justify-content-center collapse" id="userMgmt">
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="#" class="text-decoration-none text-white">
+                        <a href="{{ route('info.create') }}" class="text-decoration-none text-white">
                             <div class="card-body p-5">
                                 Create <br> User <br> <i class="bi bi-person-add"></i>
                             </div>
@@ -128,7 +128,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="#" class="text-decoration-none text-white">
+                        <a href="{{ route('info.index') }}" class="text-decoration-none text-white">
                             <div class="card-body p-5">
                                 Edit <br> User <br> <i class="bi bi-person-gear"></i>
                             </div>
