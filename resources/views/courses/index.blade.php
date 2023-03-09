@@ -1,6 +1,5 @@
 <x-app-layout>
 
-
 <x-slot name="content">
     <div>
         <!-- Add Course Button -->
@@ -17,18 +16,21 @@
                         <div>{{ $course->id }}</div>
                     </div>
                     <!-- Course Docs Display (WIP) -->
+
                     <div class="col">
                         <div class="font-weight-bold"><u>Course Documents:</u></div>
                         <div>{{ $course->COURSE_DOCS }}</div>
                     </div>
 
                     <!-- Max Seats Display -->
+
                     <div class="col">
                         <div class="font-weight-bold"><u>Course Max Seats:</u></div>
                         <div>{{ $course->COURSE_MAX_SEATS }}</div>
                     </div>
 
                     <!-- Course Fee Display -->
+
                     <div class="col">
                         <div class="font-weight-bold"><u>Course Fee:</u></div>
                         <div>{{ $course->COURSE_FEE }}</div>

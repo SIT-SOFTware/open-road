@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -12,7 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->char('id', 3)->primary();
+            $table->uuid('id')->default(Uuid::uuid4()->toString());
+            $table->char('COURSE_ID', 3)->primary();
             $table->string('COURSE_NAME', 15);
             $table->string('COURSE_DOCS', 256)->nullable();
             $table->unsignedInteger('COURSE_MAX_SEATS');
