@@ -32,7 +32,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         Course::create([
-            'id' => $request->courseID,
+            'COURSE_ID' => $request->courseID,
             'COURSE_NAME' => $request->courseName,
             'COURSE_DOCS' => $request->courseDocs,
             'COURSE_MAX_SEATS' => $request->courseMax,
