@@ -30,7 +30,7 @@
                     </div>
 
                     <!-- Course Fee Display -->
-
+                    
                     <div class="col">
                         <div class="font-weight-bold"><u>Course Fee:</u></div>
                         <div>{{ $course->COURSE_FEE }}</div>

@@ -20,6 +20,14 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
+Route::get('/editfaq', function () {
+    return view('editfaq');
+})->name('editfaq');
+
 Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
 
 Route::prefix('/admin')->name('admin.')->group(function(){
@@ -27,7 +35,6 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::resource('/courses', CourseController::class);
     Route::resource('/classes', ClassController::class);
 });
-
 
 Route::middleware([
     'auth:sanctum',
