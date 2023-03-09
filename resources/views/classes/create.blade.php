@@ -6,7 +6,7 @@
     
     <x-slot name="content">
         <div>
-            <form action="{{ route('admin.classes.store') }}" class="border rounded p-3 bg-grey text-black" method="post">
+            <form action="{{ route('admin.classes.store') }}" class="border rounded p-3 bg-grey text-black" method="post" name="classForm">
                 @csrf
                     <a href="" style="font-size: 2.0rem;">New Class</a>
                     <div class="row">
@@ -16,10 +16,10 @@
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="CourseID">Course</label>
                                 </div>
-                                <select class="custom-select col-6" id="CourseID">
+                                <select class="custom-select col-6" name='courseID' id="CourseID" form="classForm">
                                     <option selected>Choose Course</option>
                                     @foreach($courses as $course)
-                                    <option value="{{ $course->id }}" name="courseID">{{ $course->COURSE_NAME }}</option>
+                                    <option value="{{ $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
