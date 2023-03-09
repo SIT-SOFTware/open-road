@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('STUFF_LNAME', 20);
             $table->char('STUFF_PHONE', 12);
             $table->string('STUFF_EMAIL', 40);
-            $table->date('STUFF_DOB');
-            $table->char('STUFF_DLN', 10);
+            $table->date('STUFF_DOB')->nullable();
+            $table->char('STUFF_DLN', 10)->nullable();
             $table->string('STUFF_ADDR1', 30);
             $table->string('STUFF_ADDR2', 30)->nullable();
             $table->string('STUFF_CITY', 30);
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('STUFF_COUNTRY', 30);
             $table->string('STUFF_POST_ZIP', 7);
             $table->string('EMERGCONT_NAME', 40)->nullable();
-            $table->unsignedInteger('STUFF_WAIVER');
+            $table->unsignedInteger('STUFF_WAIVER')->nullable();
             $table->char('EMERGCONT_PHONE', 12)->nullable();
             $table->uuid('id')->foreign('id')->references('id')->on('users');
             $table->timestamps();

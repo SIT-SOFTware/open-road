@@ -1,5 +1,6 @@
 <?php
 
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->foreign('STUFF_ID')->references('STUFF_ID')->on('stuffs')->nullable();
+            $table->uuid('id')->primary()->default(Uuid::uuid4()->toString());
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
