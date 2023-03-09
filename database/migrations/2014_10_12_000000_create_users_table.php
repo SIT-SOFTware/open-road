@@ -14,6 +14,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            // updated configuration required for Spatie/laravel-permission package
+            // with unsignedBigInteger $table->unsignedBigInteger('id);
+            // with uuid $table->uuid('id');
+            // configuration in Spatie required if using uuids
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

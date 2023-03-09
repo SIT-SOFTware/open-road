@@ -33,6 +33,8 @@ return new class extends Migration
             $table->unsignedInteger('STUFF_WAIVER');
             $table->char('EMERGCONT_PHONE', 12)->nullable();
             $table->uuid('user_id')->foreign('id')->references('id')->on('users');
+            // optimizes existing column and allows 'NULL' values. Use if you'd like :)
+            // $table->foreignUuid('id')->nullable()->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
