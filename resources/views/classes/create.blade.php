@@ -10,6 +10,7 @@
                 @csrf
                     <a href="" style="font-size: 2.0rem;">New Class</a>
                     <div class="row">
+                        <!-- Dropdown for course selection -->
                         <div class="col">
                             <div class="input-group mb-3 pt-3">
                                 <div class="input-group-prepend">
@@ -23,10 +24,12 @@
                                 </select>
                             </div>
                         </div>
+                        <!-- Class Code input -->
                         <div class="col-sm">
                             <div class="font-weight-bold"><u>Class Code:</u></div>
                             <input type="number" name="classCode" placeholder="Class Code">
                         </div>
+                        <!-- Innstructor Select -->
                         <div class="col">
                             <div class="input-group mb-3 pt-3">
                                 <div class="input-group-prepend">
@@ -40,6 +43,7 @@
                                 </select>
                             </div>
                         </div>
+                        <!-- Class Start Selection -->
                         <div class="col-sm">
                             <div class="font-weight-bold"><u>Class Start</u></div>
                             <input type="date" id="startDate" name="startDate">

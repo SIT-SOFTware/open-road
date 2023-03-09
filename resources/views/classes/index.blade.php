@@ -1,10 +1,6 @@
 <x-app-layout>
  
-<x-slot name="name">
-    Bryan
-</x-slot>
-
-<x-carousel name="slide"/>
+<!-- This page is not done :) -->
 
 <x-slot name="content">
     <div>
