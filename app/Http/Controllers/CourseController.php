@@ -10,7 +10,6 @@ use Illuminate\Http\Response;
 class CourseController extends Controller
 {
     /**
-
      * Show a list of all the courses
      */
     public function index()
