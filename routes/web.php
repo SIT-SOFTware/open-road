@@ -24,7 +24,7 @@ Route::get('/test', function () {
 
 Route::resource('/courses', CourseController::class);
 
-Route::resource('/info', StuffController::class)->middleware('auth');
+Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
 
 Route::middleware([
     'auth:sanctum',

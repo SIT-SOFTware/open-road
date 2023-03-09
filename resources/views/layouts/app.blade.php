@@ -105,7 +105,9 @@
                 </div>
             </div>
         </nav>
+        @isset($slide)
         {{ $slide }}
+        @endisset
         <!-- Main Content -->
         <div class="container p-3">
             {{ $name }}

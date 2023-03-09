@@ -11,6 +11,8 @@ class Stuff extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $primaryKey = 'STUFF_ID';
+
     protected $guarded = [];
 
     public function getRouteKeyName()
