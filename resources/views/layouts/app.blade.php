@@ -17,11 +17,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/common.css'); }}">
+        
+        <!-- JavaScript -->
+        <script language="Javascript" type="text/javascript" src="{{ asset('js/common.js'); }}"></script>
 
         <!-- Bootstrap Icons https://icons.getbootstrap.com/ -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
         
-        <title>Home</title>
+        <title>{{ config('app.name') }}</title>
 
     </head>
     <body>
@@ -73,7 +76,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
-                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="{{ route('faq') }}">FAQ</a></li>
                                 <li><a class="dropdown-item" href="#">Meet the Team</a></li>
                             </ul>
                         </li>
@@ -105,11 +108,9 @@
                 </div>
             </div>
         </nav>
-        {{ $slide }}
+        {{-- {{ $slide }} --}}
         <!-- Main Content -->
         <div class="container p-3">
-            {{ $name }}
-            <br>
             {{ $content }}
         </div>
 

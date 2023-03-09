@@ -21,6 +21,14 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
+Route::get('/editfaq', function () {
+    return view('editfaq');
+})->name('editfaq');
+
 Route::resource('/courses', CourseController::class);
 
 Route::middleware([
