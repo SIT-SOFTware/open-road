@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\AdvertisementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,13 +30,19 @@ Route::get('/editfaq', function () {
     return view('editfaq');
 })->name('editfaq');
 
-Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
-
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/courses', CourseController::class);
     Route::resource('/classes', ClassController::class);
 });
+
+//Resource Controllers 
+
+Route::resource('/advertisements', AdvertisementController::class);
+
+Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
+
+//Middleware Controllers 
 
 Route::middleware([
     'auth:sanctum',
