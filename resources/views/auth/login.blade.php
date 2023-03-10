@@ -53,7 +53,7 @@
 
                         <p class="text-white fs-4 text-center mt-5">Don't have an account?</p>
 
-                        <p class="text-center"><a href="#" class="text-white fs-5 text-decoration-underline">Register</a></p>
+                        <p class="text-center"><a href="/register" class="text-white fs-5 text-decoration-underline">Register</a></p>
 
                     </form>
                 </div>
