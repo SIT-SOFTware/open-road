@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Advertisement;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,8 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //This makes $advertisement available across all views
-        $advertisement = Advertisement::all();
-        View::share('advertisement', $advertisement); 
+        //This makes $advertisement available across all views if table exists
+        if (Schema::hasTable('advertisements')) {
+            $advertisement = Advertisement::all();
+            View::share('advertisement', $advertisement); 
+        }
     }
 }
