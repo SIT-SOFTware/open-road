@@ -9,7 +9,7 @@
                         <!-- Displays course ID -->
                     <div class="col">
                         <div class="font-weight-bold"><u>Course ID:</u></div>
-                        <div>{{ $course->id }}</div>
+                        <div>{{ $course->COURSE_ID }}</div>
                     </div>
                     <!-- Will display Course docs -->
                     <div class="col">
