@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::latest('updated_at')->paginate(5);
         return view('courses.index')->with('courses', $courses);
     }
 
@@ -48,8 +48,6 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //finds the course entry in the database 
-        //$course = Course::where('id', $id)->firstOrFail();
 
         //sends the user to the show page with the course they clicked on
         return view('courses.show')->with('course', $course);
@@ -60,8 +58,6 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //finds the course entry in the database 
-        //$course = Course::where('COURSE_ID', $id)->firstOrFail();
 
         //sends the user to the edit page with the course they clicked on
         return view('courses.edit')->with('course', $course);
@@ -72,8 +68,6 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //finds the course entry in the database 
-        //$course = Course::where('id', $id)->firstOrFail();
 
         //updates the DB entry
         $course->update([
