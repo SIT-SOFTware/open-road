@@ -77,7 +77,7 @@ class CourseController extends Controller
 
         //updates the DB entry
         $course->update([
-            'id' => $request->courseID,
+            'COURSE_ID' => $request->courseID,
             'COURSE_NAME' => $request->courseName,
             'COURSE_DOCS' => $request->courseDocs,
             'COURSE_MAX_SEATS' => $request->courseMax,
