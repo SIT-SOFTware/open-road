@@ -39,7 +39,7 @@ class CourseController extends Controller
             'COURSE_FEE' => $request->courseFee
         ]);
 
-        return to_route('admin.courses.index');
+        return to_route('admin.courses.index')->with('success', 'Course Created Successfully!');
     }
 
     /**
@@ -93,6 +93,8 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+
+        return to_route('admin.courses.index')->with('success', 'Moved to Trash!');
     }
 }
