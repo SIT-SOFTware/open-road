@@ -10,12 +10,12 @@ class Advertisement extends Model
 {
     use HasUuids;
 
-    protected $table = 'advertisement';
+    protected $table = 'advertisements';
     protected $primaryKey = 'ADVERTISEMENT_ID';
     public $timestamps = false;
 
     protected $fillable = [
-        'USER_ID',
+        'ADVERTISEMENT_ID',
         'AD_TITLE',
         'AD_DESCRIPTION',
         'AD_URL',
@@ -24,8 +24,9 @@ class Advertisement extends Model
         'AD_LOCATION',
         'START_DATE',
         'END_DATE',
-        'CREATED',
-        'LAST_UPDATED',
-        'DELETED',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'id'
     ];
 }

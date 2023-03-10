@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Stuff;
 use App\Models\Course;
 use App\Models\PRA_Class;
@@ -36,11 +37,16 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
+        $endDate = Carbon::createFromFormat('Y-m-d', $request->startDate);
+        
+        $endDate = $endDate->addDays(3);
+
         PRA_Class::create([
             'COURSE_ID' => $request->courseID,
-            'id' => $request->classCode,
+            'CLASS_ID' => $request->classCode,
             'PRIMARY_INST' => $request->instructorID,
-            'CLASS_START' => $request->startDate
+            'CLASS_START' => $request->startDate,
+            'CLASS_END' => $endDate,
         ]);
 
         return to_route('admin.classes.index');

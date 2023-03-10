@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\AdvertisementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ use App\Http\Controllers\CourseController;
 
 Route::get('/', function(){
     return view('welcome');
-});
+})->name('welcome');
 
 // Route::get('/faq', function () {
 //     return view('webcontent.faq');
@@ -27,14 +29,20 @@ Route::get('/', function(){
 
 Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
-Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
-
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/courses', CourseController::class);
     Route::resource('/classes', ClassController::class);
     Route::resource('/faq', FAQController::class);
 });
+
+//Resource Controllers 
+
+Route::resource('/advertisements', AdvertisementController::class);
+
+Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
+
+//Middleware Controllers 
 
 Route::middleware([
     'auth:sanctum',
