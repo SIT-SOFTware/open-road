@@ -13,7 +13,7 @@
                     <!-- Course ID Display -->
                     <div class="col">
                         <div class="font-weight-bold"><u>Course ID:</u></div>
-                        <div>{{ $course->id }}</div>
+                        <div>{{ $course->COURSE_ID }}</div>
                     </div>
                     <!-- Course Docs Display (WIP) -->
 
