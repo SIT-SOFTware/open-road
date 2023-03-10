@@ -11,7 +11,7 @@
     
                 <img src="{{ asset('images/'.Session::get('image')) }}" alt="Uploaded Image">
             @endif
-    
+
             <!-- TODO failure condition -->
             <form method="POST" action="{{ route('advertisements.store') }}" enctype="multipart/form-data">
                 @csrf

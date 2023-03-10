@@ -50,17 +50,15 @@ class AdvertisementController extends Controller
 
         //Store image details in DB
         Advertisement::create([
-            
-            'ADVERTISEMENT_ID' => 1,
-            'AD_TITLE' => 'ppsBanner4',
-            'AD_DESCRIPTION' => 'Test4',
-            'AD_URL' => 'ppsBanner4',
+            'AD_TITLE' => 'temp',
+            'AD_DESCRIPTION' => 'temp',
+            'AD_URL' => 'temp',
             'AD_PATH' => $imagePath,
             'AD_SPACE_TYPE' => 1,
-            'AD_LOCATION' => 'ppsBanner4',
+            'AD_LOCATION' => 'temp',
             'START_DATE' => '2023-03-04',
-            'id' => 'temp',
             'END_DATE' => '2023-03-07',
+            'USER_ID' => '1'
         ]);
 
         //Return with success message
