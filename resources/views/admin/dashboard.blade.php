@@ -9,7 +9,7 @@
             <div class="row justify-content-center collapse show" id="classMgmt">
                 <div class="col-md-3 col-8 my-5 ">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="#" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.classes.createclass') }}" class="text-decoration-none text-white">
                             <div class="card-body p-5">
                                 Create <br> Class <br> <i class="bi bi-file-plus"></i>
                             </div>
