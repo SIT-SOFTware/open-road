@@ -16,10 +16,10 @@
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="CourseID">Course</label>
                                 </div>
-                                <select class="custom-select col-6" name='courseID' id="CourseID" form="classForm">
+                                <select class="custom-select col-6" name='courseID' id="CourseID">
                                     <option selected>Choose Course</option>
                                     @foreach($courses as $course)
-                                    <option value="{{ $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
+                                    <option value="{{ $course->COURSE_ID }}" name=>{{ $course->COURSE_NAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -35,10 +35,10 @@
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="InstructorID">Instructor</label>
                                 </div>
-                                <select class="custom-select col-6" id="InstructorID">
+                                <select class="custom-select col-6" id="InstructorID" name="instructorID">
                                     <option selected>Choose Primary Instructor</option>
                                     @foreach($stuff as $stuf)
-                                    <option value="{{ $stuf->id }}" name="instructorID">{{ $stuf->STUFF_FNAME }}</option>
+                                    <option value="{{ $stuf->STUFF_ID }}">{{ $stuf->STUFF_FNAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
