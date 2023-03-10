@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('advertisements', function (Blueprint $table) {            
-            $table->unsignedSmallInteger('ADVERTISEMENT_ID')->primary();
+        Schema::create('advertisements', function (Blueprint $table) {        
+            //Stipulating increments() makes it primary key    
+            $table->increments('id');
             $table->string('AD_TITLE', 20);
             $table->string('AD_DESCRIPTION', 256);
             $table->string('AD_URL', 256)->nullable();
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->uuid('id')->foreign('id')
+            $table->uuid('USER_ID')->foreign('USER_ID')
                 ->references('id')
                 ->on('users')
                 ->onDelete('restrict');
