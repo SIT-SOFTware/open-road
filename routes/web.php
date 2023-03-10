@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CourseController;
@@ -20,13 +21,11 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
+// Route::get('/faq', function () {
+//     return view('webcontent.faq');
+// })->name('faq');
 
-Route::get('/editfaq', function () {
-    return view('editfaq');
-})->name('editfaq');
+Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
 Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
 
@@ -34,6 +33,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('/courses', CourseController::class);
     Route::resource('/classes', ClassController::class);
+    Route::resource('/faq', FAQController::class);
 });
 
 Route::middleware([
