@@ -2,6 +2,11 @@
 
 <x-slot name="content">
     <div>
+        
+        <x-alert-success>
+            {{ session('success') }}
+        </x-alert-success>
+
         <!-- Add Course Button -->
         <a href="{{ route('admin.courses.create') }}" class="btn btn-black">Add Course</a>
         <!-- Prints every course stored in the DB -->

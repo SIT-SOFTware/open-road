@@ -29,7 +29,7 @@
                 </div>
                 </div>
                 <!-- Brings the user to the edit page and passes the course with it -->
-                <a href="{{ route('admin.courses.edit', $course) }}" class="btn btn-dark">Edit Course</a>
+                <a href="{{ route('admin.courses.edit', $course) }}" class="btn btn-dark text-white">Edit Course</a>
             </div>
         </div>
     </x-slot>
