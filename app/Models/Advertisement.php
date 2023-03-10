@@ -8,14 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Advertisement extends Model
 {
-    use HasUuids;
 
     protected $table = 'advertisements';
-    protected $primaryKey = 'ADVERTISEMENT_ID';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
-        'ADVERTISEMENT_ID',
         'AD_TITLE',
         'AD_DESCRIPTION',
         'AD_URL',
@@ -24,9 +21,6 @@ class Advertisement extends Model
         'AD_LOCATION',
         'START_DATE',
         'END_DATE',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        'id'
+        'USER_ID',
     ];
 }
