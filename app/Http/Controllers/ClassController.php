@@ -70,9 +70,11 @@ class ClassController extends Controller
      */
     public function edit(PRA_Class $class)
     {
+        $courses = Course::all()->sortBy('id');
+        $stuff = Stuff::all();
 
         //sends the user to the edit page with the class they clicked on
-        return view('classes.edit')->with('class', $class);
+        return view('classes.edit')->with('class', $class)->with('stuff', $stuff)->with('courses', $courses);
     }
 
     /**
@@ -102,6 +104,8 @@ class ClassController extends Controller
      */
     public function destroy(PRA_Class $class)
     {
-        //
+        $course->delete();
+
+        return to_route('admin.classes.index')->with('success', 'Moved to Trash!');
     }
 }
