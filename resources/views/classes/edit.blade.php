@@ -18,9 +18,8 @@
                             field="classCode"
                             :value="@Old('classCode', $class->CLASS_ID)"></x-input>
                         </div>
-                        <!-- TODO: figure out how to get course dropdown here with initially selected course selected -->
+
                         <!-- TODO: Add conditional rendering to make Course ID input inactive if registrations exist -->
-                        <input type="hidden" value="{{ $courseName = $courses->where('COURSE_ID', $class->COURSE_ID)}}">
                         <div class="input-group">
                             <label class="input-group-text" for="courseID">Course</label>
                             <select class="form-control" id="CourseID" name="courseID">
@@ -36,8 +35,8 @@
                                 @endforeach
                             </select>
                         </div>
+
                         <!-- Instructor dropdown with existing instructor automatically selected -->
-                        <input type="hidden" value="{{ $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST)}}">
                         <div class="input-group">
                             <label class="input-group-text" for="InstructorID">Instructor</label>
                             <select class="form-control" id="InstructorID" name="instructorID">

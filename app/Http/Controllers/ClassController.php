@@ -19,7 +19,19 @@ class ClassController extends Controller
     {
         $classes = PRA_Class::all();
         $stuff = Stuff::all();
-        return view('classes.index')->with('classes', $classes)->with('stuff', $stuff);
+        $instArray = [];
+
+        // puts instructors into an associative array in the format Array[instID] = "instName"
+        foreach($classes as $class){
+            $instID = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
+
+            $instArray[$class->PRIMARY_INST] = $instID->first()->STUFF_FNAME;
+        }
+
+        return view('classes.index')
+            ->with('classes', $classes)
+            ->with('stuff', $stuff)
+            ->with('instID', $instArray);
     }
 
     /**
@@ -30,7 +42,9 @@ class ClassController extends Controller
         $courses = Course::all()->sortBy('id');
         $stuff = Stuff::all()->where('STUFF_LEVEL', 1)->sortBy('STUFF_FNAME');
         //$stuff = Course::all()->sortBy('id');
-        return view('classes.create')->with('courses', $courses)->with('stuff', $stuff);
+        return view('classes.create')
+            ->with('courses', $courses)
+            ->with('stuff', $stuff);
     }
 
     /**
@@ -62,7 +76,9 @@ class ClassController extends Controller
         $stuff = Stuff::all();
 
         //sends the user to the show page with the class they clicked on
-        return view('classes.show')->with('class', $class)->with('stuff', $stuff);
+        return view('classes.show')
+            ->with('class', $class)
+            ->with('stuff', $stuff);
     }
 
     /**
@@ -73,8 +89,16 @@ class ClassController extends Controller
         $courses = Course::all()->sortBy('id');
         $stuff = Stuff::all();
 
+        $courseName = $courses->where('COURSE_ID', $class->COURSE_ID);
+        $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
+
         //sends the user to the edit page with the class they clicked on
-        return view('classes.edit')->with('class', $class)->with('stuff', $stuff)->with('courses', $courses);
+        return view('classes.edit')
+            ->with('class', $class)
+            ->with('stuff', $stuff)
+            ->with('courses', $courses)
+            ->with('courseName', $courseName)
+            ->with('instName', $instName);
     }
 
     /**
@@ -106,6 +130,7 @@ class ClassController extends Controller
     {
         $course->delete();
 
-        return to_route('admin.classes.index')->with('success', 'Moved to Trash!');
+        return to_route('admin.classes.index')
+            ->with('success', 'Moved to Trash!');
     }
 }
