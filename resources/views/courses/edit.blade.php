@@ -16,7 +16,7 @@
                             name="courseID" 
                             placeholder="Course ID"
                             field="courseID"
-                            :value="@Old('courseID', $course->id)"></x-input>
+                            :value="@Old('courseID', $course->COURSE_ID)"></x-input>
                         </div>
                         <!-- Course Name input with auto-fill from db -->
                         <div class="col">
