@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\TrashedCourseController;
 
@@ -35,6 +36,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::resource('/courses', CourseController::class);
     Route::resource('/classes', ClassController::class);
     Route::resource('/faq', FAQController::class);
+    Route::resource('/vehicles', VehicleController::class);
 
     Route::prefix('/trashed')->name('trashed.')->group(function(){
         
