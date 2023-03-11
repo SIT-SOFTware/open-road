@@ -9,7 +9,7 @@
                         <div class="card-body">
         
                             <!-- Form stores course DB record -->
-                            <form action="{{ route('admin.classes.store') }}" class="" method="POST">
+                            <form action="{{ route('admin.courses.store') }}" class="" method="POST">
                                 @csrf
                                 
                                 <!-- Title -->
@@ -53,7 +53,7 @@
                                     <!-- Course Docs Input (WIP) -->
                                     <div class="col-md-5 text-md-start text-center mb-4 col-9">
                                         <label class="text-decoration-underline fs-5" for="classCode">Course Documents</label>
-                                        <input id="courseDocsInput" required type="file" class="form-control">
+                                        <input id="courseDocsInput" type="file" class="form-control">
                                     </div>
                                     
                                     <!-- Spaces Odd Card Left -->
