@@ -1,6 +1,4 @@
 <x-app-layout>
- 
-<!-- This page is not done :) -->
     
     <x-slot name="content">
         <div>

@@ -1,9 +1,10 @@
 <x-app-layout>
- 
-<!-- This page is not done :) 8==D ~ you know who ;) ~ -->
 
 <x-slot name="content">
-    
+    <x-alert-success>
+        {{ session('success') }}
+    </x-alert-success>  
+
     <div class="container text-white">
         <a href="{{ route('admin.classes.create') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Add Class</a>
         @foreach ( $classes as $class )
