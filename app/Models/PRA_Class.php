@@ -18,4 +18,6 @@ class PRA_Class extends Model
     protected $guarded = [];
 
     protected $keyType = 'string';
+
+    protected $dates = ['CLASS_START', 'CLASS_END'];
 }
