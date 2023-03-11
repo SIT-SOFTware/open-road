@@ -33,7 +33,7 @@
         <div class="container-fluid bg-black bg-gradient text-bg-dark fs-4">
             <div class="row align-items-center">
                 <div class="col text-center" style="font-size: 0.8em; ">
-                    <div class="row"> <div class="col"><a target="0" href="https://www.google.ca/maps/place/Precision+Powersports+Ltd/@49.698519,-112.794592,15z/data=!4m6!3m5!1s0x536e86ffe8a81009:0x4033014a260ea341!8m2!3d49.6979318!4d-112.8199665!16s%2Fg%2F1tfby3ss" class=" text-decoration-none text-danger"><i class="bi bi-map-fill"></i>  View Map</a></div></div>
+                    <div class="row"> <div class="col"><a target="0" href="https://www.google.ca/maps/place/Precision+Powersports+Ltd/@49.698519,-112.794592,15z/data=!4m6!3m5!1s0x536e86ffe8a81009:0x4033014a260ea341!8m2!3d49.6979318!4d-112.8199665!16s%2Fg%2F1tfby3ss" class=" text-decoration-none text-red"><i class="bi bi-map-fill"></i>  View Map</a></div></div>
                     <div class="row"><div class="col">1505 2nd Avenue South</div></div>
                     <div class="row"><div class="col">Lethbridge, AB T1J 0E8</div></div>
                 </div>
@@ -45,9 +45,9 @@
                 <div class="col text-center">
                     <div class="row ">
                         <div class="col">
-                            <a href="https://twitter.com/PrecisionLeth" target="0" class="text-danger"><i class="bi bi-twitter p-1"></i></a>
-                            <a href="https://www.facebook.com/PrecisionPowersportsLtd/" target="0" class="text-danger"><i class="bi bi-facebook p-1" ></i></a>
-                            <a href="https://www.instagram.com/precisionpowersportsltd/" target="0" class="text-danger"><i class="bi bi-instagram p-1"></i></a>
+                            <a href="https://twitter.com/PrecisionLeth" target="0" class="text-red"><i class="bi bi-twitter p-1"></i></a>
+                            <a href="https://www.facebook.com/PrecisionPowersportsLtd/" target="0" class="text-red"><i class="bi bi-facebook p-1" ></i></a>
+                            <a href="https://www.instagram.com/precisionpowersportsltd/" target="0" class="text-red"><i class="bi bi-instagram p-1"></i></a>
                         </div>
                     </div>
                     <div class="row">
@@ -125,32 +125,32 @@
         </div>
 
         <!-- Footer -->
-        <footer class="container-fluid bg-danger text-bg-danger mt-3 shadow-lg" >
+        <footer class="container-fluid bg-red mt-3 shadow-lg text-white" >
             <div class="row justify-content-around  p-3">
                 <div class="col-sm-3 text-center text-sm-start py-4">
                     <div class="row fs-5"><div class="col">QUICK LINKS</div></div>
                     <hr class="border mb-3 border-dark" />
-                    <div class="footerText ">
-                        <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">New Inventory</div></div></a>
-                        <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">NON-CURRENT INVENTORY</div></div></a>
-                        <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">PRE-OWNED INVENTORY</div></div></a>
-                        <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">PARTS & ACCESSORIES</div></div></a>
-                        <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">PRECISION POWERSPORTS</div></div></a>
-                        <a href="#" class="text-decoration-none text-bg-danger"><div class="row"><div class="col">CONTACT</div></div></a>
+                    <div class="fs-6">
+                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">New Inventory</div></div></a>
+                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">NON-CURRENT INVENTORY</div></div></a>
+                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">PRE-OWNED INVENTORY</div></div></a>
+                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">PARTS & ACCESSORIES</div></div></a>
+                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">PRECISION POWERSPORTS</div></div></a>
+                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">CONTACT</div></div></a>
                     </div>
                 </div>
                 <div class="col-sm-3 py-4 text-center text-sm-start">
                     <div class="row fs-5"><div class="col">HOURS</div></div>
-                    <hr class="border border-dark" />
-                    <div class="row"><div class="col footerText">Mon: closed</div></div>
-                    <div class="row"><div class="col footerText">Tue-Fri: 9:00 a.m. to 5:00 p.m.</div></div>
-                    <div class="row"><div class="col footerText">Sat: 9:00 a.m. to 5:00 p.m.</div></div>
-                    <div class="row"><div class="col footerText">Sunday: Closed</div></div>
-                    <div class="row"><div class="col footerText">Holidays: Closed</div></div>
+                    <hr class="border border-dark "/>
+                    <div class="row"><div class="col footerText fs-6">Mon: closed</div></div>
+                    <div class="row"><div class="col footerText fs-6">Tue-Fri: 9:00 a.m. to 5:00 p.m.</div></div>
+                    <div class="row"><div class="col footerText fs-6">Sat: 9:00 a.m. to 5:00 p.m.</div></div>
+                    <div class="row"><div class="col footerText fs-6">Sunday: Closed</div></div>
+                    <div class="row"><div class="col footerText fs-6">Holidays: Closed</div></div>
                 </div>
                 <div class="col-sm-3 py-4 text-center text-sm-start">
                 <div class="row fs-5"><div class="col">NEWSLETTER SIGNUP</div></div>
-                <hr class="border border-dark  mb-3" />
+                <hr class="border border-dark mb-3"/>
                     <form action="">
                         <div class="form-floating text-dark">
                             <input class="form-control" type="email" id="email" placeholder="email">
@@ -161,16 +161,16 @@
                 </div>
                 <div class="col-sm-3 text-center text-sm-start py-4">
                     <div class="row fs-5"><div class="col">PRECISION POWERSPORTS</div></div>
-                    <hr class="border border-dark  mb-3" />
+                    <hr class="border border-dark mb-3" />
                     <div class="row-cols-1">
                         <div class="col">1505 2nd Avenue South</div>
                         <div class="col">Lethbridge, AB T1J 0E8</div>
                         <div class="col mt-3" style="font-size: 0.8em;">T: (403) 394-6228</div>
                         <div class="col" style="font-size: 0.8em;">TF: (888) 494-6228</div>
                         <div class="col mt-3">
-                            <a href="https://twitter.com/PrecisionLeth" target="0" class="text-bg-danger"><i class="bi bi-twitter p-1"></i></a>
-                            <a href="https://www.facebook.com/PrecisionPowersportsLtd/" target="0" class="text-bg-danger"><i class="bi bi-facebook p-1" ></i></a>
-                            <a href="https://www.instagram.com/precisionpowersportsltd/" target="0" class="text-bg-danger"><i class="bi bi-instagram p-1"></i></a>
+                            <a href="https://twitter.com/PrecisionLeth" target="0" class="text-white"><i class="bi bi-twitter p-1"></i></a>
+                            <a href="https://www.facebook.com/PrecisionPowersportsLtd/" target="0" class="text-white"><i class="bi bi-facebook p-1" ></i></a>
+                            <a href="https://www.instagram.com/precisionpowersportsltd/" target="0" class="text-white"><i class="bi bi-instagram p-1"></i></a>
                         </div>
                     </div>
                 </div>

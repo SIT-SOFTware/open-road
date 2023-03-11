@@ -7,6 +7,14 @@ body {
   background-color: #D9D9D9;
 }
 
+.bg-red {
+  background-color: #E31F24;
+}
+
+.text-red {
+  color: #E31F24;
+}
+
 /*Navigation*/
 .custom-chevron {
   font-size: 0.7em;
@@ -17,10 +25,4 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
   margin-top: 0; /* remove the gap so it doesn't close */
-}
-
-/*Footer*/
-
-.footerText {
-  font-size: 0.8em;
 }
