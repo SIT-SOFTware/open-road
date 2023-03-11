@@ -19,16 +19,16 @@
                                         </div>
                                     </div>
                                     <div class="row text-center text-white justify-content-around fs-4">
-                                        <div class="col-auto">
+                                        <div class="col-auto mb-2">
                                             <span class="pe-2"> Class Code: </span>{{ $class->CLASS_ID }}
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto mb-2">
                                             <span class="pe-2"> Course ID: </span>{{ $class->COURSE_ID }}
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto mb-2">
                                             <span class="pe-2"> Instructor: </span>{{ $class->PRIMARY_INST }}
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto mb-2">
                                             <span class="pe-2"> Start Date: </span>{{ Str::limit($class->CLASS_START, 10, '') }}
                                         </div>
                                         <div class="col-auto">

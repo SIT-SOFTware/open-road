@@ -37,10 +37,10 @@
                                         </div>
                                     </div>
                                     <div class="row text-center text-white justify-content-around fs-4">
-                                        <div class="col-auto">
+                                        <div class="col-auto mb-2">
                                             <span class="pe-2"> Class ID: </span>{{  $course->COURSE_ID }}
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto mb-2">
                                             <span class="pe-2"> Course Documents: </span>{{  $course->COURSE_DOCS }}
                                         </div>
                                         <div class="col-auto">
