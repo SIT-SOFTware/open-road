@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PRA_Class extends Model
 {
+    use HasUuids;
     use HasFactory;
     use SoftDeletes;
 
@@ -15,8 +17,5 @@ class PRA_Class extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
-    'CLASS_START' => 'datetime:Y-m-d',
-    'CLASS_END' => 'datetime:Y-m-d',
-    ];
+    protected $keyType = 'string';
 }
