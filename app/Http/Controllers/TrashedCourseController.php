@@ -14,12 +14,20 @@ class TrashedCourseController extends Controller
         return view('courses.index')->with('courses', $courses);
     }
 
-    public function update(){
+    //restores a trashed course
+    public function update(Course $course){
 
+        $course->restore();
+
+        return to_route('admin.courses.index')->with('success', 'Course Restored!');
     }
 
-    public function destroy(){
+    //permanently deletes a trashed course
+    public function destroy(Course $course){
 
+        $course->forceDelete();
+
+        return to_route('admin.courses.index')->with('success', 'Course Permanently Deleted!');
     }
 
 }
