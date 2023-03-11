@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row px-3 py-1">
         <!-- Brings the user to the edit page and passes the course with it -->
         <a href="{{ route('admin.courses.edit', $course) }}" class="btn btn-dark text-white col-1">Edit Course</a>
         <form action="{{ route('admin.courses.destroy', $course) }}" method="post" class="col-1">
