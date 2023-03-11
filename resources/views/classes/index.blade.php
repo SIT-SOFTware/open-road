@@ -7,7 +7,7 @@
         <a href="{{ route('admin.classes.create') }}" class="">Add Class</a>
         @foreach ( $classes as $class )
             <div class="border rounded p-3 bg-black text-white">
-                <a href="" style="font-size: 2.0rem;">{{ $class->CLASS_NAME }}</a>
+                <a href="{{ route('admin.classes.show', $class) }}" style="font-size: 2.0rem;">{{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}</a>
                 <div class="row">
 
                     <!-- Class Code -->

@@ -1,9 +1,5 @@
 <x-app-layout>
 
-    <x-slot name="name">
-        Bryan
-    </x-slot>
-    
     <x-slot name="content">
         <div>
             <form action="{{ route('admin.classes.store') }}" class="border rounded p-3 bg-grey text-black" method="post" name="classForm">

@@ -18,7 +18,8 @@ class ClassController extends Controller
     public function index()
     {
         $classes = PRA_Class::all();
-        return view('classes.index')->with('classes', $classes);
+        $stuff = Stuff::where('STUFF_LEVEL', 1);
+        return view('classes.index')->with('classes', $classes)->with('stuff', $stuff);
     }
 
     /**
@@ -58,8 +59,6 @@ class ClassController extends Controller
      */
     public function show(PRA_Class $class)
     {
-        //finds the class entry in the database 
-        //$class = Class::where('id', $id)->firstOrFail();
 
         //sends the user to the show page with the class they clicked on
         return view('classes.show')->with('class', $class);
@@ -70,8 +69,6 @@ class ClassController extends Controller
      */
     public function edit(PRA_Class $class)
     {
-        //finds the class entry in the database 
-        //$class = Class::where('CLASS_ID', $id)->firstOrFail();
 
         //sends the user to the edit page with the class they clicked on
         return view('classes.edit')->with('class', $class);
@@ -82,16 +79,17 @@ class ClassController extends Controller
      */
     public function update(Request $request, PRA_Class $class)
     {
-        //finds the class entry in the database 
-        //$class = Class::where('id', $id)->firstOrFail();
+        $endDate = Carbon::createFromFormat('Y-m-d', $request->startDate);
+        
+        $endDate = $endDate->addDays(3);
 
         //updates the DB entry
         $class->update([
-            'id' => $request->classID,
-            'CLASS_NAME' => $request->className,
-            'CLASS_DOCS' => $request->classDocs,
-            'CLASS_MAX_SEATS' => $request->classMax,
-            'CLASS_FEE' => $request->classFee
+            'COURSE_ID' => $request->courseID,
+            'CLASS_ID' => $request->classCode,
+            'PRIMARY_INST' => $request->instructorID,
+            'CLASS_START' => $request->startDate,
+            'CLASS_END' => $endDate,
         ]);
 
         //sends the user to the show page with the edited class
