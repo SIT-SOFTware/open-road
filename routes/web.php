@@ -43,6 +43,10 @@ Route::prefix('/admin')->name('admin.')->group(function(){
             Route::put('/{course}', [TrashedCourseController::class, 'update'])->name('update')->withTrashed();
             Route::delete('/{course}', [TrashedCourseController::class, 'destroy'])->name('destroy')->withTrashed();
         })->name('courses');
+
+        Route::prefix('/classes')->name('classes.')->group(function(){
+
+        })->name('classes');
     })->name('trashed');
 });
 
