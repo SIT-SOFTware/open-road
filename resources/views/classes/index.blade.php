@@ -25,8 +25,9 @@
                                         <div class="col-auto mb-2">
                                             <span class="pe-2"> Course ID: </span>{{ $class->COURSE_ID }}
                                         </div>
+                                        <input type="hidden" value="{{ $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST)}}">
                                         <div class="col-auto mb-2">
-                                            <span class="pe-2"> Instructor: </span>{{ $class->PRIMARY_INST }}
+                                            <span class="pe-2"> Instructor: </span>{{ $instName->first()->STUFF_FNAME }}
                                         </div>
                                         <div class="col-auto mb-2">
                                             <span class="pe-2"> Start Date: </span>{{ Str::limit($class->CLASS_START, 10, '') }}

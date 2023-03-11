@@ -18,7 +18,7 @@ class ClassController extends Controller
     public function index()
     {
         $classes = PRA_Class::all();
-        $stuff = Stuff::where('STUFF_LEVEL', 1);
+        $stuff = Stuff::all();
         return view('classes.index')->with('classes', $classes)->with('stuff', $stuff);
     }
 
@@ -59,9 +59,10 @@ class ClassController extends Controller
      */
     public function show(PRA_Class $class)
     {
+        $stuff = Stuff::all();
 
         //sends the user to the show page with the class they clicked on
-        return view('classes.show')->with('class', $class);
+        return view('classes.show')->with('class', $class)->with('stuff', $stuff);
     }
 
     /**

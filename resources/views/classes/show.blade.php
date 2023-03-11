@@ -21,11 +21,13 @@
                         <div>{{ $class->COURSE_ID }}</div>
                     </div>
 
-                    <!-- TODO: Display name instead of instructor ID
-                    probably need to pass stuff through classes.show-->
+                    <!-- Retrieves Instructor information from stuff table -->
+                    <input type="hidden" value="{{ $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST)}}">
+
+                    <!-- Displayes the name found from the stuff field -->
                     <div class="col">
                         <div class="font-weight-bold"><u>Instructor: </u></div>
-                        <div>{{ $class->PRIMARY_INST }}</div>
+                        <div>{{ $instName->first()->STUFF_FNAME }}</div>
                     </div>
 
                     <!-- Start Date -->
