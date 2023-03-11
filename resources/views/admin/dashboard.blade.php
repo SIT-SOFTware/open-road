@@ -9,7 +9,7 @@
             <div class="row justify-content-center collapse show" id="classMgmt">
                 <div class="col-md-3 col-8 my-5 ">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.classes.create') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.classes.create') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Create <br> Class <br> <i class="bi bi-file-plus"></i>
                             </div>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Edit <br> Class <br> <i class="bi bi-file-arrow-up"></i>
                             </div>
@@ -28,7 +28,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 View <br> Classes <br> <i class="bi bi-file-text"></i>
                             </div>
@@ -45,7 +45,7 @@
             <div class="row justify-content-center collapse show" id="courseMgmt">
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.courses.create') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.courses.create') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Create <br> Course<br> <i class="bi bi-file-plus"></i>
                             </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Edit <br> Course <br> <i class="bi bi-file-arrow-up"></i>
                             </div>
@@ -64,7 +64,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 View <br> Courses <br> <i class="bi bi-file-text"></i>
                             </div>
@@ -82,7 +82,7 @@
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="" class="text-decoration-none text-white">
-                            <a href="{{ route('advertisements.index') }}" class="text-decoration-none text-white"> 
+                            <a href="{{ route('advertisements.index') }}" class="text-decoration-none text-customWhite"> 
                                 <div class="card-body p-5">
                                     <br> Adverts <br> <i class="bi bi-badge-ad"></i>
                                 </div>
@@ -93,7 +93,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="#" class="text-decoration-none text-white">
+                        <a href="#" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Course <br> Reports <br> <i class="bi bi-file-ruled"></i>
                             </div>
@@ -103,7 +103,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="#" class="text-decoration-none text-white">
+                        <a href="#" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Next Class: <br> 2023-04-15 <br> <i class="bi bi-calendar"></i>
                             </div>
@@ -120,7 +120,7 @@
             <div class="row justify-content-center collapse show" id="userMgmt">
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('info.create') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('info.create') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Create <br> User <br> <i class="bi bi-person-add"></i>
                             </div>
@@ -130,7 +130,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('info.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('info.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Edit <br> User <br> <i class="bi bi-person-gear"></i>
                             </div>

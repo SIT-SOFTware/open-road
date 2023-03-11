@@ -15,6 +15,18 @@ body {
   color: #E31F24;
 }
 
+a.text-red:hover {
+  color: white;
+}
+
+.text-customWhite {
+  color: white;
+}
+
+a.text-customWhite:hover {
+  color: #E31F24;
+}
+
 /*Navigation*/
 .custom-chevron {
   font-size: 0.7em;
