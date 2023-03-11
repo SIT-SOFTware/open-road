@@ -66,14 +66,14 @@
                                             <form action="{{ route('admin.trashed.courses.update', $course) }}" method="post" class="">
                                                 @method('put')
                                                 @csrf
-                                                <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
+                                                <button class="btn btn-success text-white" onclick="return confirm('Do you want to restore this course?')"><i class="bi bi-recycle"></i></button>
                                             </form>
                                         </div>
                                         <div class="col-auto">
                                             <form action="{{ route('admin.trashed.courses.destroy', $course) }}" method="post" class="">
                                                 @method('delete')
                                                 @csrf
-                                                <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
+                                                <button class="btn btn-danger text-white" onclick="return confirm('Are you sure? This action cannot be undone')"><i class="bi bi-trash3"></i></button>
                                             </form>
                                         </div>
                                     </div>

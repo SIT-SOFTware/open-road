@@ -51,7 +51,7 @@
         <form action="{{ route('admin.courses.destroy', $course) }}" method="post" class="col-1">
             @method('delete')
             @csrf
-            <button class="btn btn-danger text-white col-12"><i class="bi bi-trash3"></i></button>
+            <button class="btn btn-danger text-white col-12" onclick="return confirm('Do you want to trash this course?')"><i class="bi bi-trash3"></i></button>
         </form>
         </div>
 
