@@ -7,13 +7,31 @@
             {{ session('success') }}
         </x-alert-success>
 
-        <!-- Add Course Button -->
+        @if(request()->routeIs('admin.courses.index'))
+        <!-- Add Course Button and conditional render-->
         <a href="{{ route('admin.courses.create') }}" class="btn btn-black">Add Course</a>
+
+        <!-- Go to trashed courses -->
+        <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger">Trashed</a>
+        @endif
+
+        @if(request()->routeIs('admin.trashed.courses.*'))
+
+        <!-- Add back button to return from trashed page -->
+        <a href="{{ route('admin.courses.index') }}" class="btn btn-danger">Back to Courses</a>
+        @endif
+
         <!-- Prints every course stored in the DB -->
-        @foreach ( $courses as $course )
+        @forelse ( $courses as $course )
             <div class="border rounded p-3 bg-black text-white">
             <!-- Clicking the course name displays that course on its own page -->
-                <a href="{{ route('admin.courses.show', $course) }}" style="font-size: 2.0rem;">{{ $course->COURSE_NAME }}</a>
+                <a style="font-size: 2.0rem;"
+                @if(request()->routeIs('admin.courses.index'))
+                    href="{{ route('admin.courses.show', $course) }}" 
+                @else
+                    href="{{ route('admin.trashed.courses.show', $course) }}"
+                @endif
+                 >{{ $course->COURSE_NAME }}</a>
                 <div class="row">
                     <!-- Course ID Display -->
                     <div class="col">
