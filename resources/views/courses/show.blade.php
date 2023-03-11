@@ -42,11 +42,19 @@
                         <div>{{ $course->COURSE_FEE }}</div>
                     </div>
                 </div>
-                </div>
-                <!-- Brings the user to the edit page and passes the course with it -->
-                <a href="{{ route('admin.courses.edit', $course) }}" class="btn btn-dark text-white">Edit Course</a>
-                <a href="{{ route('admin.courses.destroy', $course) }}" class="btn btn-danger text-white">Trash Course</a>
             </div>
+        </div>
+
+        <div class="row">
+        <!-- Brings the user to the edit page and passes the course with it -->
+        <a href="{{ route('admin.courses.edit', $course) }}" class="btn btn-dark text-white col-1">Edit Course</a>
+        <form action="{{ route('admin.courses.destroy', $course) }}" method="post" class="col-1">
+            @method('delete')
+            @csrf
+            <button class="btn btn-danger text-white col-12"><i class="bi bi-trash3"></i></button>
+        </form>
+        </div>
+
 
             <!-- Displays if course has been trashed -->
             @else
