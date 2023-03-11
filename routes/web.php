@@ -7,6 +7,7 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\TrashedCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,13 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::resource('/courses', CourseController::class);
     Route::resource('/classes', ClassController::class);
     Route::resource('/faq', FAQController::class);
+
+    Route::prefix('/trashed')->name('trashed.')->group(function(){
+        
+        Route::prefix('/courses')->name('courses.')->group(function(){
+            Route::get('/', [TrashedCourseController::class, 'index'])->name('index');
+        })->name('courses');
+    })->name('trashed');
 });
 
 //Resource Controllers 
