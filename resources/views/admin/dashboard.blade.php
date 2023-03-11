@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-white">
                             <div class="card-body p-5">
                                 Edit <br> Class <br> <i class="bi bi-file-arrow-up"></i>
                             </div>
@@ -28,7 +28,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-white">
+                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-white">
                             <div class="card-body p-5">
                                 View <br> Classes <br> <i class="bi bi-file-text"></i>
                             </div>
@@ -42,7 +42,7 @@
                 <h2>Course Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
             </a>
             
-            <div class="row justify-content-center  collapse" id="courseMgmt">
+            <div class="row justify-content-center collapse show" id="courseMgmt">
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('admin.courses.create') }}" class="text-decoration-none text-white">
@@ -78,7 +78,7 @@
                 <h2>Analytics & Advertising<i class="bi bi-chevron-down custom-chevron"></i></h2>
             </a>
             
-            <div class="row justify-content-center collapse" id="reportMgmt">
+            <div class="row justify-content-center collapse show" id="reportMgmt">
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="" class="text-decoration-none text-white">
@@ -117,7 +117,7 @@
                 <h2>User Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
             </a>
             
-            <div class="row justify-content-center collapse" id="userMgmt">
+            <div class="row justify-content-center collapse show" id="userMgmt">
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('info.create') }}" class="text-decoration-none text-white">
