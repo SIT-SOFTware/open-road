@@ -1,6 +1,4 @@
 <x-app-layout>
-    
-<!-- This page is not done :) -->
 
     <x-slot name="content">
         <div>
@@ -22,33 +20,48 @@
                         </div>
                         <!-- TODO: figure out how to get course dropdown here with initially selected course selected -->
                         <!-- TODO: Add conditional rendering to make Course ID input inactive if registrations exist -->
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Course Code:</u></div>
-                            <x-input
-                            type="text" 
-                            name="courseID" 
-                            placeholder="Course Code"
-                            field="courseID"
-                            :value="@Old('courseID', $class->COURSE_ID)"></x-input>
+                        <input type="hidden" value="{{ $courseName = $courses->where('COURSE_ID', $class->COURSE_ID)}}">
+                        <div class="input-group">
+                            <label class="input-group-text" for="courseID">Course</label>
+                            <select class="form-control" id="CourseID" name="courseID">
+                            <option selected :value="@Old('courseID', $class->COURSE_ID)">{{ $courseName->first()->COURSE_NAME }}</option>
+                                @forelse($courses as $course)
+
+                                @if($course->COURSE_ID == @Old('courseID', $class->COURSE_ID))
+                                    <!-- Don't print an option if it's the one that's already been selected -->
+                                @else
+                                    <option value="{{ $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
+                                @endif
+                                
+                                @endforeach
+                            </select>
                         </div>
-                        <!-- TODO: Put instructor dropdown here -->
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Instructor Code (for now):</u></div>
-                            <x-input 
-                            type="text" 
-                            name="instructorID" 
-                            placeholder="Primary Instructor"
-                            field="instructorID"
-                            :value="@Old('instructorID', $class->PRIMARY_INST)"></x-input>
+                        <!-- Instructor dropdown with existing instructor automatically selected -->
+                        <input type="hidden" value="{{ $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST)}}">
+                        <div class="input-group">
+                            <label class="input-group-text" for="InstructorID">Instructor</label>
+                            <select class="form-control" id="InstructorID" name="instructorID">
+                            <option selected :value="@Old('instructorID', $class->PRIMARY_INST)">{{ $instName->first()->STUFF_FNAME }}</option>
+                                @forelse($stuff as $instructor)
+
+                                @if($instructor->STUFF_ID == @Old('instructorID', $class->PRIMARY_INST))
+                                    <!-- Don't print an option if it's the one that's already been selected -->
+                                @else
+                                    <option value="{{ $instructor->STUFF_ID }}">{{ $instructor->STUFF_FNAME }}</option>
+                                @endif
+
+                                @endforeach
+                            </select>
                         </div>
                         <!-- TODO: Put old start date in this field -->
+                        <input type="hidden" value="{{  $startDate = \Carbon\Carbon::parse($class->CLASS_START)->format('Y-m-d')    }}">
                         <div class="col-sm">
                             <div class="font-weight-bold"><u>Class Start</u></div>
                             <input 
                             type="date"
                             id="startDate"
                             name="startDate"
-                            :value="@Old('startDate', $class->CLASS_START)">
+                            :value="@Old('startDate', $startDate)">
                         </div>
                     </div>
                 </div>
