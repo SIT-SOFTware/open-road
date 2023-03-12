@@ -84,10 +84,16 @@
                                     <!-- Save Button -->
                                     <div class="col-auto">
                                         <button class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</button>
+                                    </form>
+                                    
+                                    <form action="{{ route('admin.classes.destroy', $class) }}" method="post" class="col-1">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-danger text-white col-12" onclick="return confirm('Do you want to trash this course?')"><i class="bi bi-trash3"></i></button>
+                                    </form>
                                     </div>
                                 
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
