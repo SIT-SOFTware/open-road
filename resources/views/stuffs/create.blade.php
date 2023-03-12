@@ -19,7 +19,7 @@
                                 type="text" 
                                 name="pName" field="pName" 
                                 placeholder="Prefered Name" 
-                                class="w-full"
+                                class="w-full rounded"
                                 autocomplete="off"
                                 {{-- If validation fails this shows what was inputed before --}}
                                 :value="@old('pName')"></x-input>
@@ -31,7 +31,7 @@
                                 type="text" 
                                 name="fName" field="fName" 
                                 placeholder="First Name" 
-                                class="w-full"
+                                class="w-full rounded"
                                 autocomplete="off"
                                 :value="@old('fName')"></x-input>
                         </div>
@@ -42,7 +42,7 @@
                                 type="text" 
                                 name="lName" field="lName" 
                                 placeholder="Last Name" 
-                                class="w-full"
+                                class="w-full rounded"
                                 autocomplete="off"
                                 :value="@old('lName')"></x-input>
                         </div>
@@ -52,8 +52,11 @@
                             <x-input 
                                 type="text" 
                                 name="phone" field="phone" 
-                                placeholder="XXX-XXX-XXXX" 
-                                class="w-full"
+                                placeholder="XXX-XXX-XXXX"
+                                class="w-full rounded"
+                                maxlength="12"
+                                id="phonenum"
+                                onkeyup="formatPhoneNumberOnKey(event, id)"
                                 autocomplete="off"
                                 :value="@old('phone')"></x-input>
                         </div>
@@ -64,7 +67,7 @@
                                 type="text" 
                                 name="email" field="email" 
                                 placeholder="something@something.com" 
-                                class="w-full"
+                                class="w-full rounded"
                                 autocomplete="off"
                                 :value="@old('email')"></x-input>
                         </div>
@@ -80,7 +83,7 @@
                             field="add1" 
                             rows="1" 
                             placeholder="Start Typing here..." 
-                            class="w-full mt-6"
+                            class="w-full mt-6 rounded"
                             :value="@old('add1')"></x-textarea>
                         {{-- Address Line 2 --}}
                         <div class="font-weight-bold"><u>Address Line 2:</u></div>
@@ -89,18 +92,21 @@
                             field="add2" 
                             rows="1" 
                             placeholder="Start Typing here..." 
-                            class="w-full mt-6"
+                            class="w-full mt-6 rounded"
                             :value="@old('add2')"></x-textarea>
-                        {{-- City --}}
+                        {{-- Country --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>City:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="city" field="city" 
-                                placeholder="City" 
-                                class="w-full"
-                                autocomplete="off"
-                                :value="@old('city')"></x-input>
+                            <div class="font-weight-bold"><u>Country:</u></div>
+                            <select
+                                id="country"
+                                field="country" 
+                                class="form-select form-select-sm border border-dark border-2"
+                                onchange="countrySelect(this.options[this.selectedIndex].value)"
+                                :value="@old('country')">
+                                <option value="null">Country</option>
+                                <option value="ca">Canada</option>
+                                <option value="us">United States</option>
+                            </select>
                         </div>
                         {{-- Province --}}
                         <div class="col">
@@ -108,22 +114,25 @@
                             <x-input 
                                 type="text" 
                                 name="prov" field="prov" 
-                                placeholder="PV" 
-                                class="w-full"
+                                placeholder="PV/ST" 
+                                class="w-full rounded"
                                 maxlength="2"
                                 autocomplete="off"
+                                list="provList"
                                 :value="@old('prov')"></x-input>
+                            <datalist id="provList">
+                            </datalist>
                         </div>
                         {{-- City --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>Country:</u></div>
+                            <div class="font-weight-bold"><u>City:</u></div>
                             <x-input 
                                 type="text" 
-                                name="country" field="country" 
-                                placeholder="Country" 
-                                class="w-full"
+                                name="city" field="city" 
+                                placeholder="City" 
+                                class="w-full rounded"
                                 autocomplete="off"
-                                :value="@old('country')"></x-input>
+                                :value="@old('city')"></x-input>
                         </div>
                         {{-- Postal Code --}}
                         <div class="col">
@@ -132,7 +141,7 @@
                                 type="text" 
                                 name="pCode" field="pCode" 
                                 placeholder="X0X-0X0" 
-                                class="w-full"
+                                class="w-full rounded"
                                 autocomplete="off"
                                 :value="@old('pCode')"></x-input>
                         </div>
@@ -143,7 +152,7 @@
                                 type="text" 
                                 name="eName" field="eName" 
                                 placeholder="Emergency Contact Name" 
-                                class="w-full"
+                                class="w-full rounded"
                                 autocomplete="off"
                                 :value="@old('eName')"></x-input>
                         </div>
@@ -153,12 +162,15 @@
                                 type="text" 
                                 name="ePhone" field="ePhone" 
                                 placeholder="XXX-XXX-XXXX" 
-                                class="w-full"
+                                class="w-full rounded"
+                                maxlength="12"
+                                id="ePhone"
+                                onkeyup="formatPhoneNumberOnKey(event, id)"
                                 autocomplete="off"
                                 :value="@old('ePhone')"></x-input>
                         </div>
                     </div>
-                    <x-button>Save Information</x-button>
+                    <x-button class="mt-1 rounded">Save Information</x-button>
                 </form>
             </div>
         </div>

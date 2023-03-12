@@ -18,8 +18,20 @@ class ClassController extends Controller
     public function index()
     {
         $classes = PRA_Class::all();
-        $stuff = Stuff::where('STUFF_LEVEL', 1);
-        return view('classes.index')->with('classes', $classes)->with('stuff', $stuff);
+        $stuff = Stuff::all();
+        $instArray = [];
+
+        // puts instructors into an associative array in the format Array[instID] = "instName"
+        foreach($classes as $class){
+            $instID = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
+
+            $instArray[$class->PRIMARY_INST] = $instID->first()->STUFF_FNAME;
+        }
+
+        return view('classes.index')
+            ->with('classes', $classes)
+            ->with('stuff', $stuff)
+            ->with('instID', $instArray);
     }
 
     /**
@@ -30,7 +42,9 @@ class ClassController extends Controller
         $courses = Course::all()->sortBy('id');
         $stuff = Stuff::all()->where('STUFF_LEVEL', 1)->sortBy('STUFF_FNAME');
         //$stuff = Course::all()->sortBy('id');
-        return view('classes.create')->with('courses', $courses)->with('stuff', $stuff);
+        return view('classes.create')
+            ->with('courses', $courses)
+            ->with('stuff', $stuff);
     }
 
     /**
@@ -59,9 +73,12 @@ class ClassController extends Controller
      */
     public function show(PRA_Class $class)
     {
+        $stuff = Stuff::all();
 
         //sends the user to the show page with the class they clicked on
-        return view('classes.show')->with('class', $class);
+        return view('classes.show')
+            ->with('class', $class)
+            ->with('stuff', $stuff);
     }
 
     /**
@@ -69,9 +86,19 @@ class ClassController extends Controller
      */
     public function edit(PRA_Class $class)
     {
+        $courses = Course::all()->sortBy('id');
+        $stuff = Stuff::all();
+
+        $courseName = $courses->where('COURSE_ID', $class->COURSE_ID);
+        $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
 
         //sends the user to the edit page with the class they clicked on
-        return view('classes.edit')->with('class', $class);
+        return view('classes.edit')
+            ->with('class', $class)
+            ->with('stuff', $stuff)
+            ->with('courses', $courses)
+            ->with('courseName', $courseName)
+            ->with('instName', $instName);
     }
 
     /**
@@ -101,6 +128,9 @@ class ClassController extends Controller
      */
     public function destroy(PRA_Class $class)
     {
-        //
+        $course->delete();
+
+        return to_route('admin.classes.index')
+            ->with('success', 'Moved to Trash!');
     }
 }
