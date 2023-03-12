@@ -90,7 +90,7 @@ class CourseController extends Controller
         ]);
 
         //sends the user to the show page with the edited course
-        return to_route('admin.courses.index')->with('success', 'Changes Saved!!');
+        return to_route('admin.courses.index')->with('success', 'Changes Saved!');
     }
 
     /**
