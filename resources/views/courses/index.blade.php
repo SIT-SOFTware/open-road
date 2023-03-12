@@ -25,7 +25,7 @@
         <!-- Prints every course stored in the DB -->
         @forelse ( $courses as $course )
             @if(!request()->routeIs('admin.trashed.courses.*'))
-                <a href="{{ route('admin.courses.show', $course) }}" class="text-red text-decoration-none">
+                <a href="{{ route('admin.courses.show', $course) }}" class="text-customWhite text-decoration-none">
             @endif
                 <div class="row justify-content-center mb-3">
                     <div class="col">
@@ -33,7 +33,7 @@
                             <div class="card-body">
                                 <div class="row justify-content-center">
                                     <div class="col-10 my-3">
-                                        <h1 class="card-heading text-red text-decoration-underline text-center">{{  $course->COURSE_NAME }}</h1>
+                                        <h1 class="card-heading text-decoration-underline text-center">{{  $course->COURSE_NAME }}</h1>
                                     </div>
                                 </div>
                                 <div class="row text-center text-white justify-content-around fs-4">
@@ -52,16 +52,15 @@
                                 </div>
                                 
                                 @if(request()->routeIs('admin.trashed.courses.*'))
-                                
-                                    <!-- Deleted tag -->
-                                    <div class="row text-lg-end text-center mb-2 mt-3">
-                                        <div class="text-red col">
+                                    
+                                    <div class="row justify-content-lg-end justify-content-center mt-4">
+                                        
+                                        <!-- Deleted tag -->
+                                        <div class="text-red col-lg-10 text-lg-start text-center">
                                             Deleted: {{ $course->deleted_at->diffForHumans() }}
                                         </div>
-                                    </div>
-                                    
-                                    <!-- Restore and Delete buttons -->
-                                    <div class="row justify-content-lg-end justify-content-center">
+                                        
+                                        <!-- Restore and Delete buttons -->
                                         <div class="col-auto">
                                             <form action="{{ route('admin.trashed.courses.update', $course) }}" method="post" class="">
                                                 @method('put')
@@ -69,6 +68,7 @@
                                                 <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
                                             </form>
                                         </div>
+
                                         <div class="col-auto">
                                             <form action="{{ route('admin.trashed.courses.destroy', $course) }}" method="post" class="">
                                                 @method('delete')
@@ -76,6 +76,7 @@
                                                 <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
                                             </form>
                                         </div>
+                                        
                                     </div>
 
                                 @endif
