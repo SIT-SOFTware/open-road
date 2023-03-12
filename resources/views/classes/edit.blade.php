@@ -3,6 +3,9 @@
     <x-slot name="content">
 
         <div class="container my-4 text-white">
+
+            <a href="{{ route('admin.classes.index') }}" class="btn btn-dark mb-2 px-2 me-3 mt-4 fs-5">View Classes</a>
+
             <div class="row justify-content-center mb-3">
                 <div class="col">
                     <div class="card bg-dark p-3  shadow-lg">
