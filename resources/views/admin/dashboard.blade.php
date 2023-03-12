@@ -140,6 +140,43 @@
             </div>
             <hr class="border border-dark my-3" />
 
+            <a href="#vehiclemgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
+                <h2>Vehicle Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
+            </a>
+            
+            <div class="row justify-content-center collapse show" id="userMgmt">
+                <div class="col-md-3 col-8 my-5">
+                    <div class="card bg-dark shadow-md" style="min-width: 200px;">
+                        <a href="{{ route('admin.vehicles.create') }}" class="text-decoration-none text-customWhite">
+                            <div class="card-body p-5">
+                                Add <br> Vehicle <br> <i class="bi bi-clipboard2-plus"></i></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-8 my-5">
+                    <div class="card bg-dark shadow-md" style="min-width: 200px;">
+                        <a href="{{ route('admin.vehicles.index') }}" class="text-decoration-none text-customWhite">
+                            <div class="card-body p-5">
+                                Edit <br> Vehicles <br> <i class="bi bi-clipboard2-minus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-8 my-5">
+                    <div class="card bg-dark shadow-md" style="min-width: 200px;">
+                        <a href="{{ route('admin.vehicles.index') }}" class="text-decoration-none text-customWhite">
+                            <div class="card-body p-5">
+                                View <br> Vehicles <br> <i class="bi bi-clipboard2-data"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border border-dark my-3" />
+
         </div>
     </x-slot>
 
