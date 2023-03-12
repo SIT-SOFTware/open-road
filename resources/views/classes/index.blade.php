@@ -6,9 +6,16 @@
     </x-alert-success>  
 
     <div class="container text-white">
-        <a href="{{ route('admin.classes.create') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Add Class</a>
+
+        <!-- Title -->
+        <h1 class="text-dark text-center mt-3">Available Classes</h2>
+        <hr class="border border-dark" />
+
+        <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 mt-4 mb-2 fs-5">Add Class</a>
         @foreach ( $classes as $class )
-            <a href="{{ route('admin.classes.show', $class) }}" class="text-customWhite text-decoration-none">
+            
+            <!-- Clicking anywhere on the card sends you directly to the edit page for that card -->
+            <a href="{{ route('admin.classes.edit', $class) }}" class="text-customWhite text-decoration-none">
                 <div class="row justify-content-center mb-3">
                     <div class="col">
                         <div class="card bg-dark p-3 pb-5 shadow-lg">
@@ -30,7 +37,6 @@
                                     </div>
 
                                         <!-- Displays Instructor name -->
-
                                     <div class="col-auto mb-2">
                                         <span class="pe-2"> Instructor: </span>{{ $instID[$class->PRIMARY_INST]; }}
                                     </div>

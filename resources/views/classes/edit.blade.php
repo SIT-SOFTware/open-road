@@ -11,24 +11,32 @@
                                 @method('put')
                                 @csrf
 
+                                <!-- Class Title -->
                                 <div class="row justify-content-center">
                                     <div class="col-10 my-3">
-                                        <h1 class="card-heading text-decoration-underline text-white text-center">{{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}</h1>
+                                        <h1 class="card-heading text-white text-center">Editing Class: &nbsp;{{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}</h1>
                                     </div>
                                 </div>
+
                                 <div class="row text-center text-white justify-content-lg-around justify-content-center fs-4">
+
+                                    <!-- Class Code Input -->
                                     <div class="col-lg-2 col-8 mb-lg-2 mb-4">
                                         <div class="input-group">
                                             <label class="input-group-text">Class Code</label>
                                             <input required class="form-control" type="number" placeholder="{{ $class->CLASS_ID }}" name="classCode">
                                         </div>
                                     </div>
+
+                                    <!-- Course ID Input -->
                                     <div class="col-lg-2 col-8 mb-lg-2 mb-4">
                                         <div class="input-group">
                                             <label class="input-group-text">Course ID</label>
                                             <input required class="form-control" type="number" placeholder="{{ $class->COURSE_ID }}" name="courseID">
                                         </div>
                                     </div>
+
+                                    <!-- Instructor Selector -->
                                     <div class="col-lg-3 col-8 mb-lg-2 mb-4">
                                         <div class="input-group">
                                             <label class="input-group-text" for="instructorID">Instructor</label>
@@ -39,17 +47,23 @@
                                             </select>
                                         </div>
                                     </div>
+
+                                    <!-- Start Date Selector -->
                                     <div class="col-lg-3 col-8 mb-lg-2 mb-4">
                                         <div class="input-group">
                                             <label class="input-group-text">Start Date</label>
                                             <input required class="form-control" onfocusout=(this.type="") onfocus=(this.type="date") type="" placeholder="{{ Str::limit($class->CLASS_START, 10, '') }}" name="startDate">
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="row justify-content-lg-end justify-content-center">
+
+                                    <!-- Save Button -->
                                     <div class="col-auto">
-                                        <a href="{{ route('admin.classes.create') }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
+                                        <a href="{{ route('admin.classes.update', $class) }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
                                     </div>
+                                
                                 </div>
                             </form>
                         </div>
