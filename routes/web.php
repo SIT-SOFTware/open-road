@@ -10,6 +10,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\TrashedClassController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\TrashedCourseController;
+use App\Http\Controllers\TrashedVehicleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,14 @@ Route::prefix('/admin')->name('admin.')->group(function(){
             Route::put('/{class}', [TrashedClassController::class, 'update'])->name('update')->withTrashed();
             Route::delete('/{class}', [TrashedClassController::class, 'destroy'])->name('destroy')->withTrashed();
         })->name('classes');
+
+        //Prefix for trashed vehicles
+        Route::prefix('/vehicles')->name('vehicles.')->group(function(){
+            Route::get('/', [TrashedVehicleController::class, 'index'])->name('index');
+            Route::put('/{vehicle}', [TrashedVehicleController::class, 'update'])->name('update')->withTrashed();
+            Route::delete('/{vehicle}', [TrashedVehicleController::class, 'destroy'])->name('destroy')->withTrashed();
+        })->name('vehicles');
+
     })->name('trashed');
 });
 
