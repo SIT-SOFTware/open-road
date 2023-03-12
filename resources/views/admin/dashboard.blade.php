@@ -18,9 +18,9 @@
                 </div>
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.classes.index') }}" class="text-decoration-none text-customWhite">
+                        <a href="{{ route('admin.classes.massEdit') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Edit <br> Class <br> <i class="bi bi-file-arrow-up"></i>
+                                Edit <br> Classes <br> <i class="bi bi-file-arrow-up"></i>
                             </div>
                         </a>
                     </div>
@@ -54,9 +54,9 @@
                 </div>
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-customWhite">
+                        <a href="{{ route('admin.courses.massEdit') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Edit <br> Course <br> <i class="bi bi-file-arrow-up"></i>
+                                Edit <br> Courses <br> <i class="bi bi-file-arrow-up"></i>
                             </div>
                         </a>
                     </div>
@@ -84,7 +84,7 @@
                         <a href="" class="text-decoration-none text-white">
                             <a href="{{ route('advertisements.index') }}" class="text-decoration-none text-customWhite"> 
                                 <div class="card-body p-5">
-                                    <br> Adverts <br> <i class="bi bi-badge-ad"></i>
+                                    Manage<br> Adverts <br> <i class="bi bi-badge-ad"></i>
                                 </div>
                             </a>
                         </a>
