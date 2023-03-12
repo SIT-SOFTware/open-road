@@ -6,24 +6,27 @@
     </x-alert-success>  
 
     <div class="container text-white">
-        
+
+        <!-- Checks to see if the user is looking at the list of non-trashed courses -->
+        @if(request()->routeIs('admin.courses.index'))
         <!-- Title -->
         <h1 class="text-dark text-center mt-3">Available Courses</h2>
         <hr class="border border-dark" />
 
-        <!-- Checks to see if the user is looking at the list of non-trashed courses -->
-        @if(request()->routeIs('admin.courses.index'))
             <!-- Add Course Button and conditional render-->
             <a href="{{ route('admin.courses.create') }}" class="btn btn-success p-2 me-2 mt-4 mb-2 fs-5">Add Course</a>
 
             <!-- Go to trashed courses -->
             <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
-        @endif
 
         <!-- Checks to see if the user is looking at trashed courses -->
-        @if(request()->routeIs('admin.trashed.courses.*'))
-            <!-- Add back button to return from trashed page -->
-            <a href="{{ route('admin.courses.index') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Back to Courses</a>
+        @else
+        <!-- Title -->
+        <h1 class="text-dark text-center mt-3">Trashed Courses</h2>
+        <hr class="border border-dark" />
+
+        <!-- Add back button to return from trashed page -->
+        <a href="{{ route('admin.courses.index') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Back to Courses</a>
         @endif
 
         <!-- Prints every course stored in the DB -->
