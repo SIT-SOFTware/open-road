@@ -31,9 +31,9 @@
                                     <div class="col-auto mb-2">
                                         <span class="pe-2"> Class Code: </span>{{ $class->CLASS_ID }}
                                     </div>
-                                        <!-- Course ID -->
+                                        <!-- Course ID and Course Name -->
                                     <div class="col-auto mb-2">
-                                        <span class="pe-2"> Course ID: </span>{{ $class->COURSE_ID }}
+                                        <span class="pe-2"> Course ID/Name: </span>{{ $class->COURSE_ID }}/{{ $courseName[$class->COURSE_ID] }}
                                     </div>
 
                                         <!-- Displays Instructor name -->

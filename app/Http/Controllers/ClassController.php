@@ -17,19 +17,29 @@ class ClassController extends Controller
      */
     public function index()
     {
+        $courses = Course::all()->sortBy('id');
         $classes = PRA_Class::all();
         $stuff = Stuff::all();
         $instArray = [];
+        $courseArray = [];
 
-        // puts instructors into an associative array in the format Array[instID] = "instName"
+        
         foreach($classes as $class){
+            // puts instructors into an associative array in the format Array[instID] = "instName"
             $instID = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
 
             $instArray[$class->PRIMARY_INST] = $instID->first()->STUFF_FNAME;
+
+            // puts courses into an associative array in the format Array[courseID] = "courseName"
+            $courseName = $courses->where('COURSE_ID', $class->COURSE_ID);
+
+            $courseArray[$class->COURSE_ID] = $courseName->first()->COURSE_NAME;
         }
 
         return view('classes.index')
             ->with('classes', $classes)
+            ->with('courses', $courses)
+            ->with('courseName', $courseArray)
             ->with('stuff', $stuff)
             ->with('instID', $instArray);
     }
@@ -146,8 +156,8 @@ class ClassController extends Controller
             'CLASS_END' => $endDate,
         ]);
 
-        //sends the user to the show page with the edited class
-        return to_route('admin.classes.index', $class);
+        //sends the user to the index page with the edited class
+        return to_route('admin.classes.index')->with('success', 'Changes Saved!');;
     }
 
     /**
