@@ -68,6 +68,9 @@ class ClassController extends Controller
     }
 
     /**
+     * Josh: "I think we should use this for the customer/non admin staff view only, 
+     *      then we can reduce our clicks to objective a good bit for admin with more direct edit and massEdit views for them"
+     * 
      * Display a single class
      * Model-route binding should be working but for some reason it really doesn't want to
      */
@@ -99,6 +102,30 @@ class ClassController extends Controller
             ->with('courses', $courses)
             ->with('courseName', $courseName)
             ->with('instName', $instName);
+    }
+
+    /**
+     * Show the form for editing MULTIPLE classes
+     */
+    public function massEdit()
+    {
+        $courses = Course::all()->sortBy('id');
+        $classes = PRA_Class::all();
+        $stuff = Stuff::all();
+        $instArray = [];
+
+        // puts instructors into an associative array in the format Array[instID] = "instName"
+        foreach($classes as $class){
+            $instID = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
+
+            $instArray[$class->PRIMARY_INST] = $instID->first()->STUFF_FNAME;
+        }
+
+        return view('classes.massEdit')
+            ->with('classes', $classes)
+            ->with('stuff', $stuff)
+            ->with('instID', $instArray)
+            ->with('courses', $courses);
     }
 
     /**

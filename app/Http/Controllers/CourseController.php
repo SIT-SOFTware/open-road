@@ -64,6 +64,17 @@ class CourseController extends Controller
     }
 
     /**
+     * Show the form for editing MULTIPLE classes
+     */
+    public function massEdit()
+    {
+        $courses = Course::all()->sortBy('id');
+
+        return view('courses.massEdit')
+            ->with('courses', $courses);
+    }
+
+    /**
      * Update the specified course in the course table
      */
     public function update(Request $request, Course $course)
