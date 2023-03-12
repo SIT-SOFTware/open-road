@@ -7,6 +7,7 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\TrashedClassController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\TrashedCourseController;
 
@@ -42,14 +43,18 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
     Route::prefix('/trashed')->name('trashed.')->group(function(){
         
+        //Prefix for trashed courses
         Route::prefix('/courses')->name('courses.')->group(function(){
             Route::get('/', [TrashedCourseController::class, 'index'])->name('index');
             Route::put('/{course}', [TrashedCourseController::class, 'update'])->name('update')->withTrashed();
             Route::delete('/{course}', [TrashedCourseController::class, 'destroy'])->name('destroy')->withTrashed();
         })->name('courses');
 
+        //Prefix for trashed classes
         Route::prefix('/classes')->name('classes.')->group(function(){
-
+            Route::get('/', [TrashedClassController::class, 'index'])->name('index');
+            Route::put('/{class}', [TrashedClassController::class, 'update'])->name('update')->withTrashed();
+            Route::delete('/{class}', [TrashedClassController::class, 'destroy'])->name('destroy')->withTrashed();
         })->name('classes');
     })->name('trashed');
 });
