@@ -7,15 +7,35 @@
 
     <div class="container text-white">
 
+        @if(request()->routeIs('admin.classes.index'))
+
         <!-- Title -->
         <h1 class="text-dark text-center mt-3">Available Classes</h2>
         <hr class="border border-dark" />
 
+        <!-- Add Class Button and conditional render-->
         <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 mt-4 mb-2 fs-5">Add Class</a>
-        @foreach ( $classes as $class )
+
+        <!-- Go to trashed classes -->
+        <a href="{{ route('admin.trashed.classes.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
+        
+        @else
+        <!-- Title -->
+        <h1 class="text-dark text-center mt-3">Trashed Classes</h2>
+        <hr class="border border-dark" />
+
+        <!-- Add back button to return from trashed page -->
+        <a href="{{ route('admin.classes.index') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Back to Classes</a>
+        @endif
+
+
+
+        @forelse ( $classes as $class )
             
             <!-- Clicking anywhere on the card sends you directly to the edit page for that card -->
+            @if(!request()->routeIs('admin.trashed.classes.*'))
             <a href="{{ route('admin.classes.edit', $class) }}" class="text-customWhite text-decoration-none">
+            @endif
                 <div class="row justify-content-center mb-3">
                     <div class="col">
                         <div class="card bg-dark p-3 pb-5 shadow-lg">
@@ -50,12 +70,44 @@
                                     <div class="col-auto">
                                         <span class="pe-2"> End Date: </span>{{ Str::limit($class->CLASS_END, 10, '') }}
                                     </div>
+
+                                    @if(request()->routeIs('admin.trashed.classes.*'))
+                                    
+                                    <div class="row justify-content-lg-end justify-content-center mt-4">
+                                        
+                                        <!-- Deleted tag -->
+                                        <!-- Text is big for some reason even tho it was copied from course index -->
+                                        <div class="text-red col-lg-10 text-lg-start text-center">
+                                            Deleted: {{ $class->deleted_at->diffForHumans() }}
+                                        </div>
+                                        
+                                        <!-- Restore and Delete buttons -->
+                                        <div class="col-auto">
+                                            <form action="{{ route('admin.trashed.classes.update', $class) }}" method="post" class="">
+                                                @method('put')
+                                                @csrf
+                                                <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="col-auto">
+                                            <form action="{{ route('admin.trashed.classes.destroy', $class) }}" method="post" class="">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+                @if(!request()->routeIs('admin.trashed.courses.*'))
+                </a>
+                @endif
         @endforeach
     </div>
 
