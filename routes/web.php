@@ -34,9 +34,9 @@ Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/courses/massEdit', [CourseController::class, 'massEdit'])->name('courses.massEdit');
+    Route::get('/courses/massedit', [CourseController::class, 'massEdit'])->name('courses.massEdit');
     Route::resource('/courses', CourseController::class);
-    Route::get('/classes/massEdit', [ClassController::class, 'massEdit'])->name('classes.massEdit');
+    Route::get('/classes/massedit', [ClassController::class, 'massEdit'])->name('classes.massEdit');
     Route::resource('/classes', ClassController::class);
     Route::resource('/faq', FAQController::class);
     Route::resource('/vehicles', VehicleController::class);
