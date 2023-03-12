@@ -21,31 +21,53 @@
                                 <div class="row text-center text-white justify-content-lg-around justify-content-center fs-4">
 
                                     <!-- Class Code Input -->
+                                    <!-- Re-added default value to class code so it does not have to be re-entered if an edit is not needed -->
                                     <div class="col-lg-2 col-8 mb-lg-2 mb-4">
                                         <div class="input-group">
                                             <label class="input-group-text">Class Code</label>
-                                            <input required class="form-control" type="number" placeholder="{{ $class->CLASS_ID }}" name="classCode">
+                                            <input required class="form-control" type="number" placeholder="Class Code" name="classCode" value="{{ $class->CLASS_ID }}">
                                         </div>
                                     </div>
 
                                     <!-- Course ID Input -->
+                                    <!-- Re-added courseID dropdown with the auto-select conditional rendering -->
                                     <div class="col-lg-2 col-8 mb-lg-2 mb-4">
-                                        <div class="input-group">
-                                            <label class="input-group-text">Course ID</label>
-                                            <input required class="form-control" type="number" placeholder="{{ $class->COURSE_ID }}" name="courseID">
-                                        </div>
+                                    <div class="input-group">
+                                        <label class="input-group-text" for="courseID">Course</label>
+                                        <select class="form-control" id="CourseID" name="courseID">
+                                        <option selected value="{{$courseName->first()->COURSE_ID}}">{{ $courseName->first()->COURSE_NAME }}</option>
+                                            @forelse($courses as $course)
+
+                                            @if($course->COURSE_ID == @Old('courseID', $class->COURSE_ID))
+                                                <!-- Don't print an option if it's the one that's already been selected -->
+                                            @else
+                                                <option value="{{ $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
+                                            @endif
+                                            
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                            {{-- <input required class="form-control" type="number" placeholder="{{ $class->COURSE_ID }}" name="courseID"> --}}
                                     </div>
 
                                     <!-- Instructor Selector -->
+                                    <!-- Re-added instructorID dropdown with the auto-select conditional rendering -->
                                     <div class="col-lg-3 col-8 mb-lg-2 mb-4">
-                                        <div class="input-group">
-                                            <label class="input-group-text" for="instructorID">Instructor</label>
-                                            <select class="form-control" id="instructorID" name="instructorID">
-                                                @foreach($stuff as $instructor)
-                                                    <option value="{{ $instructor->STUFF_ID }}">{{ $instructor->STUFF_FNAME }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                    <div class="input-group">
+                                        <label class="input-group-text" for="InstructorID">Instructor</label>
+                                        <select class="form-control" id="InstructorID" name="instructorID">
+                                        <option selected :value="{{ $instName->first()->STUFF_ID }}">{{ $instName->first()->STUFF_FNAME }}</option>
+                                            @forelse($stuff as $instructor)
+
+                                            @if($instructor->STUFF_ID == @Old('instructorID', $class->PRIMARY_INST))
+                                                <!-- Don't print an option if it's the one that's already been selected -->
+                                            @else
+                                                <option value="{{ $instructor->STUFF_ID }}">{{ $instructor->STUFF_FNAME }}</option>
+                                            @endif
+
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     </div>
 
                                     <!-- Start Date Selector -->
@@ -61,7 +83,7 @@
 
                                     <!-- Save Button -->
                                     <div class="col-auto">
-                                        <a href="{{ route('admin.classes.update', $class) }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
+                                        <button class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</button>
                                     </div>
                                 
                                 </div>
