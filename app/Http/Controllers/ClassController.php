@@ -128,7 +128,7 @@ class ClassController extends Controller
      */
     public function destroy(PRA_Class $class)
     {
-        $course->delete();
+        $class->delete();
 
         return to_route('admin.classes.index')
             ->with('success', 'Moved to Trash!');
