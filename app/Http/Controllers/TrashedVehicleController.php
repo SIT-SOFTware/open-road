@@ -19,7 +19,7 @@ class TrashedVehicleController extends Controller
     
             $vehicle->restore();
     
-            return to_route('admin.vehicles.index')->with('success', 'vehicle Restored!');
+            return to_route('admin.vehicles.index')->with('success', 'Vehicle Restored!');
         }
     
         //permanently deletes a trashed vehicle
@@ -27,6 +27,6 @@ class TrashedVehicleController extends Controller
     
             $vehicle->forceDelete();
     
-            return to_route('admin.vehicles.index')->with('success', 'vehicle Permanently Deleted!');
+            return to_route('admin.vehicles.index')->with('success', 'Vehicle Permanently Deleted!');
         }
 }
