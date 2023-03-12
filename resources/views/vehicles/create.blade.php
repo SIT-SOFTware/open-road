@@ -88,9 +88,10 @@
                         {{-- Vehicle Type --}}
                         <div class="col">
                             <div class="font-weight-bold"><u>Type:</u></div>
-                            <select class="custom-select" id="type" name="type">
+                            <select class="custom-select" id="type" name="type" style="width: 15em;">
                                 <option selected>Choose Vehicle</option>
                                 <option value="1">Bike</option>
+                                <option value="2">ATV</option>
                             </select>
                             @error('type')
                                 <div class="text-red-600 text-sm">Please Select a Vehicle Type</div>
@@ -120,7 +121,7 @@
                         </div>
                         {{-- Availability --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>Available  :</u></div>
+                            <div class="font-weight-bold"><u>Available:</u></div>
                             <input type="checkbox" name="avail" value="1">
                         </div>
                         {{-- Notes --}}

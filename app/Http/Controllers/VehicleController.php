@@ -86,24 +86,61 @@ class VehicleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Vehicle $vehicle)
     {
-        //
+        return view('vehicles.edit')->with('vehicle', $vehicle);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        // sort availability to a bool
+        $avail = $request->input('avail') ? 1 : 0;
+
+        //validate form inpur
+        $request->validate([
+            'stockNo' => 'required|size:17',
+            'vin' => 'required|size:17',
+            'year' => 'required|size:4',
+            'make' => 'required|max:20',
+            'model' => 'required|max:40',
+            'odo' => 'required|size:10',
+            'type' => 'required|size:1',
+            'colour' => 'sometimes|max:10',
+            'size' => 'required|max:4',
+            'notes' => 'sometimes|max:256',
+        ]);
+
+        //save updated Vehicle model
+        $vehicle->update([
+            'VEHICLE_STOCK_NUM' => $request->stockNo,
+            'VEHICLE_VIN' => $request->vin,
+            'VEHICLE_YEAR' => $request->year,
+            'VEHICLE_MAKE' => $request->make,
+            'VEHICLE_MODEL' => $request->model,
+            'VEHICLE_ODO' => $request->odo,
+            'VEHICLE_TYPE' => $request->type,
+            'VEHICLE_COLOR' => $request->colour,
+            'VEHICLE_SIZE' => $request->size,
+            'AVAIL_STATUS' => $avail,
+            'NOTES' => $request->notes,
+        ]);
+
+        //return to index
+        return to_route('admin.vehicles.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Vehicle $vehicle)
     {
-        //
+        //call the soft delete function
+        $vehicle->delete();
+        
+        //return to index
+        return to_route('admin.vehicles.index');
     }
 }

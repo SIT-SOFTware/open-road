@@ -3,165 +3,139 @@
     <x-slot name="name">
         Bryan
     </x-slot>
-   
+    
     <x-slot name="content">
         <div>
             <div class="border rounded p-3 bg-white text-black">
-                {{-- Form for Editing a user, uses method Put not Post goes to route for updating information --}}
-                <form action="{{ route('info.update', $stuff) }}" method="post">
+                {{-- For for creating a new user uses info.store route that save a new stuff instance --}}
+                <form action="{{ route('admin.vehicles.update', $vehicle) }}" method="post">
                     @csrf
                     @method('put')
-
+                    
+                    {{-- First Row --}}
                     <div class="row">
-                        {{-- Prefered Name --}}
+                        {{-- Stock Number --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>Prefered Name:</u></div>
+                            <div class="font-weight-bold"><u>Stock Number:</u></div>
                             <x-input 
                                 type="text" 
-                                name="pName" field="pName" 
-                                placeholder="Prefered Name" 
+                                name="stockNo" field="stockNo" 
+                                placeholder="Stock Number"
+                                maxlength="17" 
                                 class="w-full"
                                 autocomplete="off"
-                                {{-- This shows the data already in the table row or the unverified data--}}
-                                :value="@old('pName', $stuff->STUFF_PNAME)"></x-input>
+                                {{-- If validation fails this shows what was inputed before --}}
+                                :value="@old('stockNo', $vehicle->VEHICLE_STOCK_NUM)"></x-input>
                         </div>
-                        {{-- First Name --}}
+                        {{-- Vin --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>First Name:</u></div>
+                            <div class="font-weight-bold"><u>VIN:</u></div>
                             <x-input 
                                 type="text" 
-                                name="fName" field="fName" 
-                                placeholder="First Name" 
+                                name="vin" field="vin" 
+                                placeholder="VIN"
+                                maxlength="17" 
                                 class="w-full"
                                 autocomplete="off"
-                                :value="@old('fName', $stuff->STUFF_FNAME)"></x-input>
+                                :value="@old('vin', $vehicle->VEHICLE_VIN)"></x-input>
                         </div>
-                        {{-- Last Name --}}
+                        {{-- Year --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>Last Name:</u></div>
+                            <div class="font-weight-bold"><u>Year:</u></div>
                             <x-input 
                                 type="text" 
-                                name="lName" field="lName" 
-                                placeholder="Last Name" 
+                                name="year" field="year" 
+                                placeholder="Year" 
                                 class="w-full"
                                 autocomplete="off"
-                                :value="@old('lName', $stuff->STUFF_LNAME)"></x-input>
+                                :value="@old('year', $vehicle->VEHICLE_YEAR)"></x-input>
                         </div>
-                        {{-- Phone Number --}}
+                        {{-- Make --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>Phone Number:</u></div>
+                            <div class="font-weight-bold"><u>Make:</u></div>
                             <x-input 
                                 type="text" 
-                                name="phone" field="phone" 
-                                placeholder="XXX-XXX-XXXX" 
+                                name="make" field="make" 
+                                placeholder="Make" 
                                 class="w-full"
                                 autocomplete="off"
-                                :value="@old('phone', $stuff->STUFF_PHONE)"></x-input>
+                                :value="@old('make', $vehicle->VEHICLE_MAKE)"></x-input>
                         </div>
-                        {{-- Email --}}
+                        {{-- Model --}}
                         <div class="col">
-                            <div class="font-weight-bold"><u>Email:</u></div>
+                            <div class="font-weight-bold"><u>Model:</u></div>
                             <x-input 
                                 type="text" 
-                                name="email" field="email" 
-                                placeholder="something@something.com" 
+                                name="model" field="model" 
+                                placeholder="Model" 
                                 class="w-full"
                                 autocomplete="off"
-                                :value="@old('email', $stuff->STUFF_EMAIL)"></x-input>
-                        </div>
-                        {{-- DOB --}}
-                        {{-- <div class="col">
-                            <div class="font-weight-bold"><u>Date of Birth:</u></div>
-                            <input type="date" id="dob" name="dob">
-                        </div> --}}
-                        {{-- Address Line 1 --}}
-                        <div class="font-weight-bold"><u>Address Line 1:</u></div>
-                        <x-textarea 
-                            name="add1" 
-                            field="add1" 
-                            rows="1" 
-                            placeholder="Start Typing here..." 
-                            class="w-full mt-6"
-                            :value="@old('add1', $stuff->STUFF_ADDR1)"></x-textarea>
-                        {{-- Address Line 2 --}}
-                        <div class="font-weight-bold"><u>Address Line 2:</u></div>
-                        <x-textarea 
-                            name="add2" 
-                            field="add2" 
-                            rows="1" 
-                            placeholder="Start Typing here..." 
-                            class="w-full mt-6"
-                            :value="@old('add2', $stuff->STUFF_ADDR2)"></x-textarea>
-                        {{-- City --}}
-                        <div class="col">
-                            <div class="font-weight-bold"><u>City:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="city" field="city" 
-                                placeholder="City" 
-                                class="w-full"
-                                autocomplete="off"
-                                :value="@old('city', $stuff->STUFF_CITY)"></x-input>
-                        </div>
-                        {{-- Province --}}
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Province / State:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="prov" field="prov" 
-                                placeholder="PV" 
-                                class="w-full"
-                                maxlength="2"
-                                autocomplete="off"
-                                :value="@old('prov', $stuff->STUFF_PR_ST)"></x-input>
-                        </div>
-                        {{-- City --}}
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Country:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="country" field="country" 
-                                placeholder="Country" 
-                                class="w-full"
-                                autocomplete="off"
-                                :value="@old('country', $stuff->STUFF_COUNTRY)"></x-input>
-                        </div>
-                        {{-- Postal Code --}}
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Postal Code:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="pCode" field="pCode" 
-                                placeholder="X0X-0X0" 
-                                class="w-full"
-                                autocomplete="off"
-                                :value="@old('pCode', $stuff->STUFF_POST_ZIP)"></x-input>
-                        </div>
-                        {{-- Emergency Contact Name --}}
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Emergency Contact Name:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="eName" field="eName" 
-                                placeholder="Emergency Contact Name" 
-                                class="w-full"
-                                autocomplete="off"
-                                :value="@old('eName', $stuff->EMERGCONT_NAME)"></x-input>
-                        </div>
-                        <div class="col">
-                            <div class="font-weight-bold"><u>Emergency Contact Phone:</u></div>
-                            <x-input 
-                                type="text" 
-                                name="ePhone" field="ePhone" 
-                                placeholder="XXX-XXX-XXXX" 
-                                class="w-full"
-                                autocomplete="off"
-                                :value="@old('ePhone', $stuff->EMERGCONT_PHONE)"></x-input>
+                                :value="@old('model', $vehicle->VEHICLE_MODEL)"></x-input>
                         </div>
                     </div>
-                    <br/>
-                    {{-- Submit Button --}}
-                    <x-button>Update Information</x-button>
+                    {{-- Second Row --}}
+                    <div class="row">
+                        {{-- Odometer --}}
+                        <div class="col">
+                            <div class="font-weight-bold"><u>Odometer:</u></div>
+                            <x-input 
+                                type="text" 
+                                name="odo" field="odo" 
+                                placeholder="0000000000" 
+                                class="w-full"
+                                autocomplete="off"
+                                :value="@old('odo', $vehicle->VEHICLE_ODO)"></x-input>
+                        </div>
+                        {{-- Vehicle Type --}}
+                        <div class="col">
+                            <div class="font-weight-bold"><u>Type:</u></div>
+                            <select class="custom-select" id="type" name="type">
+                                <option value="1" {{ old('type', $vehicle->VEHICLE_TYPE) == 1 ? 'selected' : '' }}>Bike</option>
+                                <option value="2" {{ old('type', $vehicle->VEHICLE_TYPE) == 2 ? 'selected' : '' }}>ATV</option>
+                            </select>
+                            @error('type')
+                                <div class="text-red-600 text-sm">Please Select a Vehicle Type</div>
+                            @enderror
+                        </div>
+                        {{-- Colour --}}
+                        <div class="col">
+                            <div class="font-weight-bold"><u>Colour:</u></div>
+                            <x-input 
+                                type="text" 
+                                name="colour" field="colour" 
+                                placeholder="Colour" 
+                                class="w-full"
+                                autocomplete="off"
+                                :value="@old('colour', $vehicle->VEHICLE_COLOR)"></x-input>
+                        </div>
+                        {{-- Size --}}
+                        <div class="col">
+                            <div class="font-weight-bold"><u>Size:</u></div>
+                            <x-input 
+                                type="text" 
+                                name="size" field="size" 
+                                placeholder="Size" 
+                                class="w-full"
+                                autocomplete="off"
+                                :value="@old('size', $vehicle->VEHICLE_SIZE)"></x-input>
+                        </div>
+                        {{-- Availability --}}
+                        <div class="col">
+                            <div class="font-weight-bold"><u>Available:</u></div>
+                            <input type="checkbox" name="avail" value="1">
+                        </div>
+                        {{-- Notes --}}
+                        <div class="font-weight-bold"><u>Notes:</u></div>
+                        <x-textarea 
+                            name="notes" 
+                            field="notes" 
+                            rows="3" 
+                            placeholder="Start Typing here..." 
+                            class="w-full mt-6"
+                            :value="@old('notes', $vehicle->NOTES)"></x-textarea>
+                        </div>
+                    </div>
+                    <x-button>Save Information</x-button>
                 </form>
             </div>
         </div>
