@@ -2,7 +2,7 @@
 
     <x-slot name="content">
 
-        <div class="container my-4 text-white">
+        <div class="container my-4">
             
             <!-- Title -->
             <h1 class="text-dark text-center mt-3">Edit Courses</h2>
@@ -24,7 +24,9 @@
                                         <!--Page Heading -->
                                         <div class="row justify-content-center">
                                             <div class="col-10 my-3">
-                                                <h1 class="card-heading text-white text-center">Editing Course: &nbsp;{{ $course->COURSE_NAME }}</h1>
+                                                <a href="{{ route('admin.courses.edit', $course) }}" class="text-customWhite">
+                                                    <h1 class="card-heading text-center">Editing Course: &nbsp;{{ $course->COURSE_NAME }}</h1>
+                                                </a>
                                             </div>
                                         </div>
             

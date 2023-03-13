@@ -3,6 +3,9 @@
         <x-slot name="content">
     
             <div class="container my-4 text-white">
+                
+                <a href="{{ route('admin.courses.index') }}" class="btn btn-dark mb-2 px-2 me-3 mt-4 fs-5">View Courses</a>
+
                 <div class="card bg-dark p-3  shadow-lg">
                     <div class="card-body">
                         <form action="{{ route('admin.courses.update', $course) }}" method="post">
