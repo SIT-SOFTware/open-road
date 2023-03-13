@@ -42,7 +42,7 @@
                     <form action="{{ route('admin.vehicles.destroy', $vehicle) }}" method="post" class="col">
                         @method('delete')
                         @csrf
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you wish to delete this student?')">Delete</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you wish to delete this Vehicle?')">Delete</button>
                     </form>
                     <a href="{{ route('admin.vehicles.index')}}" class="btn btn-danger col"><strong>Back</strong></a>
                 </div>
