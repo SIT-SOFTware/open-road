@@ -13,10 +13,10 @@
         <h1 class="text-dark text-center mt-3">Available Classes</h2>
         <hr class="border border-dark" />
 
-        <!-- Add Class Button and conditional render-->
-        <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 mt-4 mb-2 fs-5">Add Class</a>
+        <!-- Add Class Button-->
+        <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 mt-4 me-2 mb-2 fs-5">Add Class</a>
 
-        <!-- Go to trashed classes -->
+        <!-- Trashed Classes Button -->
         <a href="{{ route('admin.trashed.classes.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
         
         @else
@@ -40,11 +40,14 @@
                     <div class="col">
                         <div class="card bg-dark p-3 pb-5 shadow-lg">
                             <div class="card-body">
+
+                                <!-- Card Title -->
                                 <div class="row justify-content-center">
                                     <div class="col-10 my-3">
                                         <h1 class="card-heading text-decoration-underline text-center">{{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}</h1>
                                     </div>
                                 </div>
+
                                 <div class="row text-center text-white justify-content-around fs-4">
 
                                         <!-- Class Code -->
@@ -73,33 +76,33 @@
 
                                     @if(request()->routeIs('admin.trashed.classes.*'))
                                     
-                                    <div class="row justify-content-lg-end justify-content-center mt-4">
-                                        
-                                        <!-- Deleted tag -->
-                                        <!-- Text is big for some reason even tho it was copied from course index -->
-                                        <div class="text-red col-lg-10 text-lg-start text-center">
-                                            Deleted: {{ $class->deleted_at->diffForHumans() }}
+                                        <div class="row justify-content-lg-end justify-content-center mt-4">
+                                            
+                                            <!-- Deleted tag -->
+                                            <div class="text-red col-lg-10 fs-6 text-lg-start text-center">
+                                                Deleted: {{ $class->deleted_at->diffForHumans() }}
+                                            </div>
+                                            
+                                            <!-- Restore and Delete buttons -->
+                                            <div class="col-auto">
+                                                <form action="{{ route('admin.trashed.classes.update', $class) }}" method="post" class="">
+                                                    @method('put')
+                                                    @csrf
+                                                    
+                                                    <button class="btn btn-success px-3 me-3 fs-5"><i class="bi bi-recycle"></i></button>
+                                                </form>
+                                            </div>
+                                            
+                                            <div class="col-auto">
+                                                <form action="{{ route('admin.trashed.classes.destroy', $class) }}" method="post" class="">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-danger px-3 me-3 fs-5"><i class="bi bi-trash3"></i></button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        
-                                        <!-- Restore and Delete buttons -->
-                                        <div class="col-auto">
-                                            <form action="{{ route('admin.trashed.classes.update', $class) }}" method="post" class="">
-                                                @method('put')
-                                                @csrf
-                                                <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
-                                            </form>
-                                        </div>
-                                        
-                                        <div class="col-auto">
-                                            <form action="{{ route('admin.trashed.classes.destroy', $class) }}" method="post" class="">
-                                                @method('delete')
-                                                @csrf
-                                                <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
-                                            </form>
-                                        </div>
-                                    </div>
 
-                                @endif
+                                    @endif
                                 </div>
                             </div>
                         </div>

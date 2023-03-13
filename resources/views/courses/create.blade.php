@@ -64,7 +64,7 @@
                                 <!-- Submit Button -->
                                 <div class="row justify-content-center pe-2">
                                     <div class="col text-md-end text-center mb-3">
-                                        <button type="submit" class="btn btn-danger my-4 me-md-4">Create Course</button>
+                                        <button type="submit" class="btn fs-5 btn-success my-4 me-md-4">Create Course</button>
                                     </div>
                                 </div>
 
