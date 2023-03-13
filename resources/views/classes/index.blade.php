@@ -58,7 +58,7 @@
 
                                         <!-- Displays Instructor name -->
                                     <div class="col-auto mb-2">
-                                        <span class="pe-2"> Instructor: </span>{{ $instID[$class->PRIMARY_INST]; }}
+                                        <span class="pe-2"> Instructor: </span>{{ $instID[$class->PRIMARY_INST] }}
                                     </div>
 
                                         <!-- Start Date -->

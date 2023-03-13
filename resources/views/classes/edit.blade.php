@@ -35,7 +35,7 @@
                                     <div class="input-group">
                                         <label class="input-group-text" for="courseID">Course</label>
                                         <select class="form-control" id="CourseID" name="courseID">
-                                        <option selected value="{{$courseName->first()->COURSE_ID}}">{{ $courseName->first()->COURSE_NAME }}</option>
+                                        <option selected value="{{$courseName->first()->COURSE_ID}}">{{ $courseName[$class->COURSE_ID] }}</option>
                                             @forelse($courses as $course)
 
                                             @if($course->COURSE_ID == @Old('courseID', $class->COURSE_ID))
@@ -56,7 +56,7 @@
                                     <div class="input-group">
                                         <label class="input-group-text" for="InstructorID">Instructor</label>
                                         <select class="form-control" id="InstructorID" name="instructorID">
-                                        <option selected :value="{{ $instName->first()->STUFF_ID }}">{{ $instName->first()->STUFF_FNAME }}</option>
+                                        <option selected :value="{{ $class->STUFF_ID }}">{{ $instID[$class->PRIMARY_INST] }}</option>
                                             @forelse($stuff as $instructor)
 
                                             @if($instructor->STUFF_ID == @Old('instructorID', $class->PRIMARY_INST))

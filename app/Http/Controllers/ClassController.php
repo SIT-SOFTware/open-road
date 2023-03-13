@@ -102,16 +102,25 @@ class ClassController extends Controller
         $courses = Course::all()->sortBy('id');
         $stuff = Stuff::all();
 
-        $courseName = $courses->where('COURSE_ID', $class->COURSE_ID);
-        $instName = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
+        foreach($classes as $class){
+            // puts instructors into an associative array in the format Array[instID] = "instName"
+            $instID = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
+
+            $instArray[$class->PRIMARY_INST] = $instID->first()->STUFF_FNAME;
+
+            // puts courses into an associative array in the format Array[courseID] = "courseName"
+            $courseName = $courses->where('COURSE_ID', $class->COURSE_ID);
+
+            $courseArray[$class->COURSE_ID] = $courseName->first()->COURSE_NAME;
+        }
 
         //sends the user to the edit page with the class they clicked on
         return view('classes.edit')
             ->with('class', $class)
             ->with('stuff', $stuff)
             ->with('courses', $courses)
-            ->with('courseName', $courseName)
-            ->with('instName', $instName);
+            ->with('courseName', $courseArray)
+            ->with('instName', $instArray);
     }
 
     /**
@@ -157,7 +166,7 @@ class ClassController extends Controller
         ]);
 
         //sends the user to the index page with the edited class
-        return to_route('admin.classes.index')->with('success', 'Changes Saved!');;
+        return to_route('admin.classes.index')->with('success', 'Changes Saved!');
     }
 
     /**
