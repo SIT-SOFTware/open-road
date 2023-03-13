@@ -38,7 +38,7 @@
                                     <div class="input-group">
                                         <label class="input-group-text" for="courseID">Course</label>
                                         <select class="form-control" id="CourseID" name="courseID">
-                                        <option selected value="{{$courseName->first()->COURSE_ID}}">{{ $courseName[$class->COURSE_ID] }}</option>
+                                        <option selected value="{{ $class->COURSE_ID }}">{{ $courseName[$class->COURSE_ID] }}</option>
                                             @forelse($courses as $course)
 
                                             @if($course->COURSE_ID == @Old('courseID', $class->COURSE_ID))
@@ -57,9 +57,9 @@
                                     <!-- Re-added instructorID dropdown with the auto-select conditional rendering -->
                                     <div class="col-lg-3 col-8 mb-lg-2 mb-4">
                                     <div class="input-group">
-                                        <label class="input-group-text" for="InstructorID">Instructor</label>
+                                        <label class="input-group-text" for="instructorID">Instructor</label>
                                         <select class="form-control" id="InstructorID" name="instructorID">
-                                        <option selected :value="{{ $class->STUFF_ID }}">{{ $instID[$class->PRIMARY_INST] }}</option>
+                                        <option selected value="{{ $class->PRIMARY_INST }}">{{ $instID[$class->PRIMARY_INST] }}</option>
                                             @forelse($stuff as $instructor)
 
                                             @if($instructor->STUFF_ID == @Old('instructorID', $class->PRIMARY_INST))

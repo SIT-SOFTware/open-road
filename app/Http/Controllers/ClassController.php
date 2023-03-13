@@ -102,7 +102,6 @@ class ClassController extends Controller
         $courses = Course::all()->sortBy('id');
         $stuff = Stuff::all();
 
-        foreach($classes as $class){
             // puts instructors into an associative array in the format Array[instID] = "instName"
             $instID = $stuff->where('STUFF_ID', $class->PRIMARY_INST);
 
@@ -112,7 +111,6 @@ class ClassController extends Controller
             $courseName = $courses->where('COURSE_ID', $class->COURSE_ID);
 
             $courseArray[$class->COURSE_ID] = $courseName->first()->COURSE_NAME;
-        }
 
         //sends the user to the edit page with the class they clicked on
         return view('classes.edit')
@@ -120,7 +118,7 @@ class ClassController extends Controller
             ->with('stuff', $stuff)
             ->with('courses', $courses)
             ->with('courseName', $courseArray)
-            ->with('instName', $instArray);
+            ->with('instID', $instArray);
     }
 
     /**
