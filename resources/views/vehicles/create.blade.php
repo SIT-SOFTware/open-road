@@ -40,7 +40,7 @@
                                         {{-- Vin --}}
                                         <div class="col-md-3 mb-4 mb-md-5 col-9">
                                             <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Stock Number:</label>
+                                                <label class="font-weight-bold input-group-text">VIN Number:</label>
                                                 <x-input 
                                                 type="text" 
                                                 name="vin" 
