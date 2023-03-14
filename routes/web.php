@@ -7,6 +7,7 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TrashedClassController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\TrashedCourseController;
@@ -75,6 +76,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 Route::resource('/advertisements', AdvertisementController::class);
 
 Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
+
+Route::resource('/registrations', RegistrationController::class)->middleware('auth');
 
 //Middleware Controllers 
 

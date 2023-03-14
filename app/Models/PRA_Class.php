@@ -20,4 +20,13 @@ class PRA_Class extends Model
     protected $keyType = 'string';
 
     protected $dates = ['CLASS_START', 'CLASS_END'];
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class, 'CLASS_ID', 'CLASS_ID');
+    }
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'COURSE_ID');
+    }
 }

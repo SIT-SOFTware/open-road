@@ -36,7 +36,9 @@ class StuffController extends Controller
      */
     public function store(Request $request)
     {
-        //validate form inpur
+        //validate form input
+        
+        //dd($request);
         $request->validate([
             'pName' => 'sometimes|max:20',
             'fName' => 'required|max:20',
@@ -53,7 +55,6 @@ class StuffController extends Controller
             'eName' => 'required|max:40',
             'ePhone' => ['required', 'regex:/^\d{3}-\d{3}-\d{4}$/']
         ]);
-
         //random generate stuff number
         $newStuffID = strval(rand(10000, 99999));
 
@@ -76,7 +77,7 @@ class StuffController extends Controller
         $stuff->STUFF_ADDR2 = $request->add2;
         $stuff->STUFF_CITY = $request->city;
         $stuff->STUFF_PR_ST = $request->prov;
-        $stuff->STUFF_COUNTRY = $request->country;
+        $stuff->STUFF_COUNTRY = "canada";
         $stuff->STUFF_POST_ZIP = $request->pCode;
         $stuff->EMERGCONT_NAME = $request->eName;
         $stuff->STUFF_WAIVER = '1';
@@ -108,7 +109,7 @@ class StuffController extends Controller
     public function edit(Stuff $stuff)
     {
         //redirect to the edit blade with stuff model
-        return view('stuffs.edit', compact('stuff'));
+        return view('stuffs.edit')->with('stuff', $stuff);
     }
 
     /**
