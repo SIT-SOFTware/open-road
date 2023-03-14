@@ -100,7 +100,16 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        // make sure stuff isn't already registered for this class
+        $existingRegistration = Registration::where('CLASS_ID', $request->class_id)
+            ->where('STUFF_ID', $request->stuff_id)
+            ->first();
+
+        if ($existingRegistration) {
+            // registration already exists, return error response
+            return response()->json(['message' => 'Student is already registered for this class'], 422);
+        }
+
         //find vehicles not associated with this class so far
         $registrations = Registration::where('CLASS_ID', $request->class_id)->get();
         
