@@ -23,9 +23,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //This makes $advertisement available across all views if table exists
-        if (Schema::hasTable('advertisements')) {
-            $advertisement = Advertisement::all();
-            View::share('advertisement', $advertisement); 
+        if (! app()->runningInConsole()){
+            if (Schema::hasTable('advertisements')) {
+                $advertisement = Advertisement::all();
+                View::share('advertisement', $advertisement); 
+            }
         }
     }
 }
