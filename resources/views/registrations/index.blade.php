@@ -42,11 +42,13 @@
                             @endforelse         
                         </div>
                         <div class="col">
+                            <a href="{{ route('registrations.edit', $registration) }}" class="btn btn-danger">Edit Registration</a>
                             <form action="{{ route('registrations.destroy', $registration) }}" method="post" class="col">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you wish to Cancel This Registration?')">Cancel Registration</button>
                             </form>
+
                         </div>
                         <div class="row">
                             <p style="font-size: 2.0rem;" class='col'>Course: {{ $reg_info[$registration->REG_ID]['course_name'] }}</p>
