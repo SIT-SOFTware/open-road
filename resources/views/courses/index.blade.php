@@ -21,6 +21,12 @@
             <!-- Go to trashed courses -->
             <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
 
+        <!-- checks to see if the user is looking at courses -->
+        @elseif(request()->routeIs('courses'))
+
+            <!-- Title -->
+            <h1 class="text-dark text-center mt-3">Available Courses</h1>
+            <hr class="border border-dark"/>
         <!-- If the user is looking at trashed courses -->
         @else
 
@@ -36,7 +42,7 @@
         <!-- Prints every course stored in the DB -->
         @forelse ( $courses as $course )
             
-            @if(!request()->routeIs('admin.trashed.courses.*'))
+            @if(request()->routeIs('admin.courses.*'))
                 <a href="{{ route('admin.courses.edit', $course) }}" class="text-customWhite text-decoration-none">
             @endif
 
@@ -104,7 +110,7 @@
                     </div>
                 </div>
 
-            @if(!request()->routeIs('admin.trashed.courses.*'))
+            @if(request()->routeIs('admin.courses.*'))
                 </a>
             @endif
             

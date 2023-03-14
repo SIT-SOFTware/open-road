@@ -77,7 +77,7 @@
                                             <label class="input-group-text">Vehicle Type</label>
                                             <select class="form-control" placeholder="Choose Vehicle" name="type" value="{{ $vehicle->VEHICLE_TYPE }}">
                                                 <option value="1">Motorcycle</option>
-                                                <option value="2">vehicle</option>
+                                                <option value="2">ATV</option>
                                             </select>
                                         </div>
                                     </div>

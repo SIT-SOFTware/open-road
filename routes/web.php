@@ -7,6 +7,7 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TrashedClassController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\TrashedCourseController;
@@ -32,15 +33,19 @@ Route::get('/', function(){
 //     return view('webcontent.faq');
 // })->name('faq');
 
-Route::get('/faq', [FAQController::class, 'index'])->name('faq');
+Route::get('/courses', [CourseController::class, 'index'])->name('courses');
+
+Route::resource('/faq', FAQController::class);
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
     Route::get('/courses/massedit', [CourseController::class, 'massEdit'])->name('courses.massEdit');
     Route::resource('/courses', CourseController::class);
+
     Route::get('/classes/massedit', [ClassController::class, 'massEdit'])->name('classes.massEdit');
     Route::resource('/classes', ClassController::class);
-    Route::resource('/faq', FAQController::class);
+
     Route::get('/vehicles/massedit', [VehicleController::class, 'massEdit'])->name('vehicles.massEdit');
     Route::resource('/vehicles', VehicleController::class);
 
@@ -75,6 +80,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 Route::resource('/advertisements', AdvertisementController::class);
 
 Route::resource('/info', StuffController::class)->middleware('auth')->parameters(['info' => 'stuff:STUFF_ID']);
+
+Route::resource('/registrations', RegistrationController::class)->middleware('auth');
 
 //Middleware Controllers 
 

@@ -3,27 +3,45 @@
     <x-slot name="content">
 
         <div class="row justify-content-between">
-            <h1 class="col-4">Frequently Asked Questions</h1>
+            <h1 class="col-4">Edit Question</h1>
         </div>
         
-        <form action="" method="post"></form>
+        <form action="{{ route('faq.update', $faqs) }}" method="post">
             @method('put')
+            @csrf
 
-            @foreach($faqContents as $key => $faqContent)
             <div class="row justify-content-left border border-dark rounded p-2 mb-2">
-                <label for='Question{{ $key }}'>Question {{ $faqContents[$key]['Code'] }}:</label>
-                <input type='text' class="col-8 rounded" name='Question{{ $key }}' placeholder="Question" value='{{ $faqContents[$key]['Question'] }}' />
-                <a href="#" class="col-2 mt-6"><button type="button" class="btn btn-danger" onclick="{{ route('admin.faq.destroy', $key) }}">Delete Question</button></a>
-                <label for="Answer{{ $key }}">Answer {{ $faqContents[$key]['Code'] }}:</label>
-                <textarea class="col-9 rounded" rows="10" name='Answer{{ $key }}' placeholder="Answer">{{ $faqContents[$key]['Answer'] }}</textarea>
-                <input type="hidden" name='Code{{ $key }}' value='{{ $faqContents[$key]['Code'] }}' />
+                <label for='question'>Question:</label>
+                <input 
+                    type='text'
+                    field='question'
+                    class="col-12 rounded"
+                    name='question'
+                    placeholder="Question"
+                    autocomplete="off"
+                    value="{{ @Old('question', $faqs->QUESTION) }}" />
+                <label for="answer">Answer:</label>
+                <textarea
+                    class="col-12 rounded"
+                    rows="10"
+                    name='answer'
+                    field="answer"
+                    placeholder="Answer"
+                    value="">{{ @Old('answer', $faqs->ANSWER) }}</textarea>
             </div>
-            @endforeach
+        
+            <button type="submit" class="btn btn-success">Finish Editing</button>
+        </form>
 
-            <a href="#" class="col-2 mt-6"><button type="button" class="btn btn-danger">Finish Editing</button></a>
-            <a href="#" class="col-2 mt-6"><button type="button" class="btn btn-danger">Add Question</button></a>
+        <form action="{{ route('faq.destroy', $faqs) }}" method="POST">
+            @method('delete')
+            @csrf
+
+            <button type="submit" class="btn btn-danger col-1 mt-6" onclick="return confirm('Are you sure you want to delete this question?')">Delete Question</button>
 
         </form>
+
+        <a href="{{ route('faq.index') }}"><button class="btn btn-danger col-1 mt-6">Cancel Editing</button></a>
 
     </x-slot>
 
