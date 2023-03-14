@@ -116,19 +116,19 @@ class RegistrationController extends Controller
         $vehicle_ids = $registrations->pluck('VEHICLE_STOCK_NUM')->toArray();
         
         $available_vehicle = Vehicle::whereNotIn('VEHICLE_STOCK_NUM', $vehicle_ids)->first();
+
         //dd($available_vehicle);
         //save new registration
-        $registration = new Registration;
+        Registration::create([
+        'REG_ID' => Str::random(4),
+        'CLASS_ID' => $request->class_id,
+        'STUFF_ID' => $request->stuff_id,
+        'VEHICLE_STOCK_NUM' => $available_vehicle->VEHICLE_STOCK_NUM,
+        'INVOICE_ID' => '1',
+        'REGISTRATION_CANCELLED' => '1',
+        'REGISTRATION_WAITLIST' => '1',
+        ]);
 
-        $registration->REG_ID = Str::random(4);
-        $registration->CLASS_ID = $request->class_id;
-        $registration->STUFF_ID = $request->stuff_id;
-        $registration->VEHICLE_STOCK_NUM = $available_vehicle->VEHICLE_STOCK_NUM;
-        $registration->INVOICE_ID = '1';
-        $registration->REGISTRATION_CANCELLED = '1';
-        $registration->REGISTRATION_WAITLIST = '1';
-
-        $registration->save();
 
         return to_route('registrations.index');
     }
@@ -146,7 +146,33 @@ class RegistrationController extends Controller
      */
     public function edit(Registration $registration)
     {
-        //
+                //get all students associated with logged in user
+                $stuffs = Stuff::where('user_id', Auth::id())->get();
+
+                //grab stuff IDs
+                $stuff_ids = $stuffs->pluck('STUFF_ID')->toArray();
+                $registrations = Registration::whereIn('stuff_id', $stuff_ids)->get();
+        
+                $reg_info = [];
+                // Create Array for Course Name / Class Start Date / Other Info
+                foreach( $registrations as $registration ){
+                    //get class
+                    $pra_class = PRA_Class::where('CLASS_ID', $registration->CLASS_ID)->first();
+                    //get course
+                    $course = Course::where('COURSE_ID', $pra_class->COURSE_ID)->first();
+        
+                    $reg_info[$registration->REG_ID] = ['class_date' => $pra_class->CLASS_START,
+                                                        'course_name' => $course->COURSE_NAME,
+                                                        'course_fee' => $course->COURSE_FEE];
+                }
+        
+                //go to view with all the students
+                return view('registrations.edit')->with([
+                    'registration' => $registration,
+                    'course' => $course,
+                    'stuffs' => $stuffs,
+                    'reg_info' => $reg_info,
+                ]);
     }
 
     /**
