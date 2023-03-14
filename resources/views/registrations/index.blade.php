@@ -35,11 +35,13 @@
                         <div class="col">
                             @forelse ($stuffs as $stuff)
                                 @if ($stuff->STUFF_ID == $registration->STUFF_ID)
-                                    <p style="font-size: 2.0rem;">Name: ({{ $stuff->STUFF_PNAME }}) {{ $stuff->STUFF_FNAME }} {{ $stuff->STUFF_LNAME }}<br/>Stuff ID: {{ $registration->STUFF_ID }}</p> 
+                                    <p style="font-size: 2.0rem;">Name: ({{ $stuff->STUFF_PNAME }}) {{ $stuff->STUFF_FNAME }} {{ $stuff->STUFF_LNAME }}</p> 
                                 @endif
                             @empty
                                 ERROR
                             @endforelse 
+                                <p style="font-size: 2.0rem;">Course: {{ $reg_info[$registration->REG_ID]['course_name'] }}</p>
+                                <p style="font-size: 2.0rem;">Start Date: {{ $reg_info[$registration->REG_ID]['class_date'] }}</p>
                         </div>
                         <div class="col">
                             <form action="{{ route('registrations.destroy', $registration) }}" method="post" class="col">
