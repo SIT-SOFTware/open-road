@@ -15,6 +15,38 @@
                                 <h1 class="card-title text-center mb-5 mt-4">Create Vehicle</h1>
 
                                 <div class="row justify-content-center">
+                                    <div class="col-10">
+                                        <div class="row justify-content-between">
+                                            
+                                            <!-- Year -->
+                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
+                                                <div class="input-group">
+                                                    <label class="font-weight-bold input-group-text">Year</label>
+                                                    <input required type="text" name="year" placeholder="Vehicle Year" class="form-control" autocomplete="off" :value="@old('year')"/>
+                                                </div>
+                                            </div>
+
+                                            <!-- Make -->
+                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
+                                                <div class="input-group">
+                                                    <label class="input-group-text">Make</label>
+                                                    <input required type="text" name="make"  placeholder="Vehicle Make" class="form-control" autocomplete="off" :value="@old('make')"/>
+                                                </div>
+                                            </div>
+
+                                            <!-- Model -->
+                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
+                                                <div class="input-group">
+                                                    <label class="input-group-text">Model</label>
+                                                    <input required type="text" name="model" placeholder="Vehicle Model" class="form-control"autocomplete="off" :value="@old('model')"/>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
 
                                     <!-- Stock # -->
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
@@ -75,38 +107,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-
-                                <div class="row justify-content-center">
-                                    <div class="col-10">
-                                        <div class="row justify-content-between">
-                                            
-                                            <!-- Year -->
-                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
-                                                <div class="input-group">
-                                                    <label class="font-weight-bold input-group-text">Year</label>
-                                                    <input required type="text" name="year" placeholder="Vehicle Year" class="form-control" autocomplete="off" :value="@old('year')"/>
-                                                </div>
-                                            </div>
-
-                                            <!-- Make -->
-                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
-                                                <div class="input-group">
-                                                    <label class="input-group-text">Make</label>
-                                                    <input required type="text" name="make"  placeholder="Vehicle Make" class="form-control" autocomplete="off" :value="@old('make')"/>
-                                                </div>
-                                            </div>
-
-                                            <!-- Model -->
-                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
-                                                <div class="input-group">
-                                                    <label class="input-group-text">Model</label>
-                                                    <input required type="text" name="model" placeholder="Vehicle Model" class="form-control"autocomplete="off" :value="@old('model')"/>
-                                                </div>
-                                            </div>
-                                        
-                                        </div>
-                                    </div>
                                 </div>
                                 
                                 <!-- Notes -->

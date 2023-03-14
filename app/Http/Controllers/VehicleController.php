@@ -13,8 +13,10 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::all();
+        $atvs = $vehicles->where('VEHICLE_TYPE', 2);
+        $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
 
-        return view('vehicles.index')->with('vehicles', $vehicles);
+        return view('vehicles.index')->with('atvs', $atvs)->with('bikes', $bikes)->with('vehicles', $vehicles);
     }
 
     /**
@@ -90,6 +92,21 @@ class VehicleController extends Controller
     {
         return view('vehicles.edit')->with('vehicle', $vehicle);
     }
+    
+    /**
+     * Show the form for editing MULTIPLE classes
+     */
+    public function massEdit()
+    {
+        $vehicles = Vehicle::all()->sortBy('id');
+        $atvs = $vehicles->where('VEHICLE_TYPE', 2);
+        $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
+
+        return view('vehicles.massEdit')
+            ->with('bikes', $bikes)
+            ->with('atvs', $atvs);
+    }
+
 
     /**
      * Update the specified resource in storage.

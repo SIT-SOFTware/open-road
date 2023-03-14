@@ -3,7 +3,7 @@
     <x-slot name="content">
         <div class="container text-center fs-2  my-4">
             <a href="#classMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
-                <h2>Class Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
+                <h1>Class Management<i class="bi bi-chevron-down custom-chevron"></i></h1>
             </a> 
             
             <div class="row justify-content-center collapse show" id="classMgmt">
@@ -39,7 +39,7 @@
             <hr class="border border-dark  my-3" />
 
             <a href="#courseMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
-                <h2>Course Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
+                <h1>Course Management<i class="bi bi-chevron-down custom-chevron"></i></h1>
             </a>
             
             <div class="row justify-content-center collapse show" id="courseMgmt">
@@ -75,7 +75,7 @@
             <hr class="border border-dark  my-3" />
 
             <a href="#vehicleMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Vehicle Management">
-                <h2>Vehicle Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
+                <h1>Vehicle Management<i class="bi bi-chevron-down custom-chevron"></i></h1>
             </a>
             
             <div class="row justify-content-center collapse show" id="vehicleMgmt">
@@ -91,7 +91,7 @@
                 
                 <div class="col-md-3 col-8 my-5">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
-                        <a href="{{ route('admin.vehicles.index') }}" class="text-decoration-none text-customWhite">
+                        <a href="{{ route('admin.vehicles.massEdit') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
                                 Edit <br> Vehicles <br> <i class="bi bi-clipboard2-minus"></i>
                             </div>
@@ -112,7 +112,7 @@
             <hr class="border border-dark my-3" />
 
             <a href="#reportMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
-                <h2>Analytics & Advertising<i class="bi bi-chevron-down custom-chevron"></i></h2>
+                <h1>Analytics & Advertising<i class="bi bi-chevron-down custom-chevron"></i></h1>
             </a>
             
             <div class="row justify-content-center collapse show" id="reportMgmt">
@@ -151,7 +151,7 @@
             <hr class="border border-dark  my-3" />
 
             <a href="#userMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
-                <h2>User Management<i class="bi bi-chevron-down custom-chevron"></i></h2>
+                <h1>User Management<i class="bi bi-chevron-down custom-chevron"></i></h1>
             </a>
             
             <div class="row justify-content-center collapse show" id="userMgmt">

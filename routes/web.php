@@ -11,6 +11,7 @@ use App\Http\Controllers\TrashedClassController;
 use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\TrashedCourseController;
 use App\Http\Controllers\TrashedVehicleController;
+use App\Models\Vehicle;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/classes/massedit', [ClassController::class, 'massEdit'])->name('classes.massEdit');
     Route::resource('/classes', ClassController::class);
     Route::resource('/faq', FAQController::class);
+    Route::get('/vehicles/massedit', [VehicleController::class, 'massEdit'])->name('vehicles.massEdit');
     Route::resource('/vehicles', VehicleController::class);
 
     Route::prefix('/trashed')->name('trashed.')->group(function(){
