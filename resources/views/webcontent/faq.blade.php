@@ -6,15 +6,23 @@
 
         <div class="row justify-content-between">
             <h1 class="col-4">Frequently Asked Questions</h1>
-            <!-- TODO: Only show the following button if user is admin -->
-            <!-- TODO: Style the button to fit screen size changes -->
-            <a href="{{ route('admin.faq.edit', Storage::get('faq.json')) }}" class="col-1"><button type="button" class="btn btn-danger">Edit Page</button></a>
+            <x-alert-success>
+                    {{ session('success') }}
+            </x-alert-success>
+
         </div>
-        
-        @foreach($faqContents as $key => $faqContent)
-        <h2>{{ $faqContents[$key]['Question'] }}</h2>
-        <p>{{ $faqContents[$key]['Answer'] }}</p>
-        @endforeach
+
+        @forelse ($faqs as $faq)
+            <h2 class="col">{{ $faq->QUESTION }}</h2>
+            <div class="row align-items-start">
+                <p class="col col-10">{{ $faq->ANSWER }}</p>
+                <a href="{{ route('faq.edit', $faq) }}" class="col"><button type="button" class="btn btn-danger">Edit Question</button></a>
+            </div>
+        @empty
+            <p>There are no questions yet.</p>
+        @endforelse
+
+        <a href="{{ route('faq.create') }}" class="col-2 mt-6"><button type="button" class="btn btn-danger">Add Question</button></a>
 
     </x-slot>
 
