@@ -13,8 +13,7 @@ class TrashedVehicleController extends Controller
             $atvs = $vehicles->where('VEHICLE_TYPE', 2);
             $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
 
-            return view('vehicles.index')->with('bikes', $atvs);
-            return view('vehicles.index')->with('atvs', $bikes);
+            return view('vehicles.index')->with('bikes', $bikes)->with('atvs', $atvs);
         }
     
         //restores a trashed vehicle
