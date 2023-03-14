@@ -36,7 +36,8 @@ class RegistrationController extends Controller
             $course = Course::where('COURSE_ID', $pra_class->COURSE_ID)->first();
 
             $reg_info[$registration->REG_ID] = ['class_date' => $pra_class->CLASS_START,
-                                                'course_name' => $course->COURSE_NAME,];
+                                                'course_name' => $course->COURSE_NAME,
+                                                'course_fee' => $course->COURSE_FEE];
         }
 
         //grab all courses

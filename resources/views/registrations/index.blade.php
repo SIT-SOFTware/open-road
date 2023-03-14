@@ -39,9 +39,7 @@
                                 @endif
                             @empty
                                 ERROR
-                            @endforelse 
-                                <p style="font-size: 2.0rem;">Course: {{ $reg_info[$registration->REG_ID]['course_name'] }}</p>
-                                <p style="font-size: 2.0rem;">Start Date: {{ $reg_info[$registration->REG_ID]['class_date'] }}</p>
+                            @endforelse         
                         </div>
                         <div class="col">
                             <form action="{{ route('registrations.destroy', $registration) }}" method="post" class="col">
@@ -49,6 +47,11 @@
                                 @csrf
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you wish to Cancel This Registration?')">Cancel Registration</button>
                             </form>
+                        </div>
+                        <div class="row">
+                            <p style="font-size: 2.0rem;" class='col'>Course: {{ $reg_info[$registration->REG_ID]['course_name'] }}</p>
+                            <p style="font-size: 2.0rem;" class='col'>Start Date: {{ $reg_info[$registration->REG_ID]['class_date'] }}</p>
+                            <p style="font-size: 2.0rem;" class='col'>Price: ${{ $reg_info[$registration->REG_ID]['course_fee'] }}</p>
                         </div>
                     </div>
                 </div>
