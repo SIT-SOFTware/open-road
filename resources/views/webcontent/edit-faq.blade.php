@@ -30,7 +30,7 @@
                     value="">{{ @Old('answer', $faqs->ANSWER) }}</textarea>
             </div>
         
-            <button class="btn btn-success">Finish Editing</button>
+            <button type="submit" class="btn btn-success">Finish Editing</button>
         </form>
 
         <form action="{{ route('faq.destroy', $faqs) }}" method="POST">
@@ -40,6 +40,8 @@
             <button type="submit" class="btn btn-danger col-1 mt-6" onclick="return confirm('Are you sure you want to delete this question?')">Delete Question</button>
 
         </form>
+
+        <a href="{{ route('faq.index') }}"><button class="btn btn-danger col-1 mt-6">Cancel Editing</button></a>
 
     </x-slot>
 

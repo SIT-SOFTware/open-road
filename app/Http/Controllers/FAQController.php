@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\FAQ;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class FAQController extends Controller
 {
@@ -64,7 +63,7 @@ class FAQController extends Controller
             'ANSWER' => $request->answer
         ]);
 
-        return to_route('faq.index')->with('success', 'Question Updated Successfully!');
+        return to_route('faq.index')->with('success', 'That should have updated the faq, but it does not.');
     }
 
     /**
