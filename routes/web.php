@@ -33,6 +33,8 @@ Route::get('/', function(){
 //     return view('webcontent.faq');
 // })->name('faq');
 
+Route::get('/courses', [CourseController::class, 'index'])->name('courses');
+
 Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
 Route::prefix('/admin')->name('admin.')->group(function(){
