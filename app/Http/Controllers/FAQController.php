@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FAQ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,9 +13,8 @@ class FAQController extends Controller
      */
     public function index()
     {
-        $faqjson = Storage::get('faq.json');
-        $faqContents = json_decode($faqjson, true);
-        return view('webcontent.faq')->with('faqContents', $faqContents);
+        $faqs = FAQ::where('id', '!=', null)->orderBy('id', 'asc')->get();
+        return view('webcontent.faq')->with('faqs', $faqs);
     }
 
     /**
@@ -22,7 +22,7 @@ class FAQController extends Controller
      */
     public function create()
     {
-        //
+        return view('webcontent.create-faq');
     }
 
     /**
@@ -30,7 +30,12 @@ class FAQController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        FAQ::create([
+            'QUESTION' => $request->question,
+            'ANSWER' => $request->answer
+        ]);
+        
+        return to_route('faq.index')->with('success', 'Question Successfully Created!');
     }
 
     /**
@@ -44,26 +49,31 @@ class FAQController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(FAQ $faq)
     {
-        $faqjson = Storage::get('faq.json');
-        $faqContents = json_decode($faqjson, true);
-        return view('webcontent.edit-faq')->with('faqContents', $faqContents);
+        return view('webcontent.edit-faq')->with('faqs', $faq);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, FAQ $faqs)
     {
-        //
+        $faqs->update([
+            'QUESTION' => $request->question,
+            'ANSWER' => $request->answer
+        ]);
+
+        return to_route('faq.index')->with('success', 'Question Updated Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(FAQ $faq)
     {
-        //
+        $faq->delete();
+
+        return to_route('faq.index')->with('success', 'Question Moved to Trash');
     }
 }

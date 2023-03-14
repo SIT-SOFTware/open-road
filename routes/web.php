@@ -27,11 +27,7 @@ Route::get('/', function(){
     return view('welcome');
 })->name('welcome');
 
-// Route::get('/faq', function () {
-//     return view('webcontent.faq');
-// })->name('faq');
-
-Route::get('/faq', [FAQController::class, 'index'])->name('faq');
+Route::resource('/faq', FAQController::class);
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -39,7 +35,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::resource('/courses', CourseController::class);
     Route::get('/classes/massedit', [ClassController::class, 'massEdit'])->name('classes.massEdit');
     Route::resource('/classes', ClassController::class);
-    Route::resource('/faq', FAQController::class);
+    // Route::resource('/faq', FAQController::class);
     Route::resource('/vehicles', VehicleController::class);
 
     Route::prefix('/trashed')->name('trashed.')->group(function(){

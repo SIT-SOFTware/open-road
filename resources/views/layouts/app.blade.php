@@ -79,7 +79,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
 
-                                <li><a class="dropdown-item" href="{{ route('faq') }}">FAQ</a></li>
+                                <li><a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a></li>
                                 
                                 <li><a class="dropdown-item" href="#">Meet the Team</a></li>
                             </ul>
