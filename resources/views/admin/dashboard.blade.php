@@ -83,7 +83,7 @@
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('admin.vehicles.create') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Add <br> Vehicle <br> <i class="bi bi-clipboard2-plus"></i></i>
+                                Create <br> Vehicle <br> <i class="bi bi-clipboard2-plus"></i></i>
                             </div>
                         </a>
                     </div>

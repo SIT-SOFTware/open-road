@@ -1,10 +1,7 @@
 <x-app-layout>
 
-    <x-slot name="name">
-        Bryan
-    </x-slot>
-
     <x-slot name="content">
+
         <div class="container my-4">
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-11">
@@ -15,169 +12,143 @@
                                 @csrf
 
                                 <!-- Title -->
-                                <h1 class="card-title text-center mb-5 mt-4">New Vehicle</h1>
+                                <h1 class="card-title text-center mb-5 mt-4">Create Vehicle</h1>
 
-                                <div class="row justify-content-center my-4">
+                                <div class="row justify-content-center">
 
-                                    {{-- First Row --}}
-                                    <div class="row">
-                                        {{-- Stock Number --}}
-                                        <div class="col-md-3 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text" for="stockNo">Stock Number: </label>
-                                                <x-input 
-                                                type="text" 
-                                                name="stockNo" 
-                                                field="stockNo" 
-                                                placeholder="Stock Number" 
-                                                maxlength="17" 
-                                                class="w-full form-control" 
-                                                autocomplete="off" 
-                                                {{-- If validation fails this shows what was inputed before --}} 
-                                                :value="@old('stockNo')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Vin --}}
-                                        <div class="col-md-3 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">VIN Number:</label>
-                                                <x-input 
-                                                type="text" 
-                                                name="vin" 
-                                                field="vin" 
-                                                placeholder="VIN" 
-                                                maxlength="17" 
-                                                class="w-full form-control" 
-                                                autocomplete="off" 
-                                                :value="@old('vin')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Year --}}
-                                        <div class="col-md-2 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Year:</label>
-                                                <x-input 
-                                                type="text" 
-                                                name="year" 
-                                                field="year" 
-                                                placeholder="Year" 
-                                                class="w-full form-control" 
-                                                autocomplete="off" 
-                                                :value="@old('year')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Make --}}
-                                        <div class="col-md-2 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Make:</label>
-                                                <x-input 
-                                                type="text" 
-                                                name="make" 
-                                                field="make" 
-                                                placeholder="Make" 
-                                                class="w-full form-control" 
-                                                autocomplete="off" 
-                                                :value="@old('make')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Model --}}
-                                        <div class="col-md-2 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Model:</label>
-                                                <x-input 
-                                                type="text" 
-                                                name="model" 
-                                                field="model" 
-                                                placeholder="Model" 
-                                                class="w-full form-control"
-                                                autocomplete="off" 
-                                                :value="@old('model')"></x-input>
-                                            </div>
+                                    <!-- Stock # -->
+                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
+                                        <div class="input-group">
+                                            <label class="input-group-text" for="stockNo">Stock Number</label>
+                                            <input required type="text" class="form-control" name="stockNo" placeholder="Enter Stock No." maxlength="17" autocomplete="off" :value="@old('stockNo')"/>
                                         </div>
                                     </div>
-                                    {{-- Second Row --}}
-                                    <div class="row">
 
-                                        {{-- Odometer --}}
-                                        <div class="col-md-2 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Otometer:</label>
-                                                <x-input 
-                                                type="text"
-                                                name="odo"
-                                                field="odo"
-                                                placeholder="0000000000"
-                                                class="w-full form-control"
-                                                autocomplete="off"
-                                                :value="@old('odo')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Vehicle Type --}}
-                                        <div class="col-md-5 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="input-group-text" for="courseID">Vehicle Type</label>
-                                                <select class="form-control" placeholder="Select Vehicle Type" id="type" name="type">
-                                                    <option selected>Choose Vehicle</option>
-                                                    <option value="1">Bike</option>
-                                                    <option value="2">ATV</option>
-                                                </select>
-                                                @error('type')
-                                                <div class="text-red-600 text-sm">Please Select a Vehicle Type</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        {{-- Colour --}}
-                                        <div class="col-md-3 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Colour:</label>
-                                                <x-input
-                                                type="text"
-                                                name="colour"
-                                                field="colour"
-                                                placeholder="Colour"
-                                                class="w-full form-control"
-                                                autocomplete="off"
-                                                :value="@old('colour')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Size --}}
-                                        <div class="col-md-2 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Size:</label>
-                                                <x-input
-                                                type="text"
-                                                name="size"
-                                                field="size"
-                                                placeholder="Size"
-                                                class="w-full form-control"
-                                                autocomplete="off"
-                                                :value="@old('size')"></x-input>
-                                            </div>
-                                        </div>
-                                        {{-- Availability --}}
-                                        <div class="col-md-2 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" name="avail" value="1">
-                                                <label class="btn btn-outline-primary" for="btn-check-outlined">Available</label><br>
-                                            </div>
-                                        </div>
-                                        {{-- Notes --}}
-                                        <div class="col-md-5 mb-4 mb-md-5 col-9">
-                                            <div class="input-group">
-                                                <label class="font-weight-bold input-group-text">Notes:</label>
-                                                <x-textarea
-                                                name="notes"
-                                                field="notes"
-                                                rows="3"
-                                                placeholder="Start Typing here..."
-                                                class="w-full mt-6 form-control"
-                                                :value="@old('notes')"></x-textarea>
-                                            </div>
+                                    <!-- VIN -->
+                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
+                                        <div class="input-group">
+                                            <label class="input-group-text">VIN</label>
+                                            <input required class="form-control" type="text" name="vin"  placeholder="Enter VIN" maxlength="17" autocomplete="off" :value="@old('vin')"/>
                                         </div>
                                     </div>
 
                                 </div>
-                                <x-button>Save Information</x-button>
+
+                                <div class="row justify-content-center">
+
+                                    <!-- Vehicle Type -->
+                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
+                                        <div class="input-group">
+                                            <label class="input-group-text">Vehicle Type</label>
+                                            <select class="form-control" placeholder="Choose Vehicle" name="type">
+                                                <option value="1">Motorcycle</option>
+                                                <option value="2">ATV</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Vehicle Colour -->
+                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
+                                        <div class="input-group">
+                                            <label class="input-group-text">Colour</label>
+                                            <input type="text" name="colour" placeholder="Colour" class="form-control" autocomplete="off" :value="@old('colour')"/>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row justify-content-center">
+
+                                    <!-- Size -->
+                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
+                                        <div class="input-group">
+                                            <label class="input-group-text">Size</label>
+                                            <input required type="text" name="size" placeholder="Enter Size" class="form-control" autocomplete="off" :value="@old('size')"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- Odomoter -->
+                                    <div class="col-md-5 col-10 mb-4">
+                                        <div class="input-group">
+                                            <label class="input-group-text">Odometer</label>
+                                            <input required type="text" name="odo" placeholder="000 0000 000" class="form-control" autocomplete="off" :value="@old('odo')"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-10">
+                                        <div class="row justify-content-between">
+                                            
+                                            <!-- Year -->
+                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
+                                                <div class="input-group">
+                                                    <label class="font-weight-bold input-group-text">Year</label>
+                                                    <input required type="text" name="year" placeholder="Vehicle Year" class="form-control" autocomplete="off" :value="@old('year')"/>
+                                                </div>
+                                            </div>
+
+                                            <!-- Make -->
+                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
+                                                <div class="input-group">
+                                                    <label class="input-group-text">Make</label>
+                                                    <input required type="text" name="make"  placeholder="Vehicle Make" class="form-control" autocomplete="off" :value="@old('make')"/>
+                                                </div>
+                                            </div>
+
+                                            <!-- Model -->
+                                            <div class="col-md-4 col-12 mb-4 mb-md-5">
+                                                <div class="input-group">
+                                                    <label class="input-group-text">Model</label>
+                                                    <input required type="text" name="model" placeholder="Vehicle Model" class="form-control"autocomplete="off" :value="@old('model')"/>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Notes -->
+                                <div class="row justify-content-center mb-5 ">
+                                    <div class="col-10">
+                                        <div class="form-floating text-black">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" :value="@old('notes')"></textarea>
+                                            <label for="notes" class="ps-3">Notes</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row justify-content-center">
+                                    <!-- Availability -->
+                                    <div class="col-auto">
+                                        <input type="checkbox" checked class="btn-check" id="btn-check-outlined" autocomplete="off" name="avail" value="1">
+                                        <label class="btn fs-5 text-white border-dark btn-outline-primary btn-danger" id="availLabel" for="btn-check-outlined">Available</label><br>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <div class="col-auto mb-3">
+                                        <button type="submit" class="btn fs-5 btn-success mb-4 ">Create Vehicle</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Dynamic Checkbox Script -->
+                                <script>
+                                    // Get the checkbox element
+                                    const checkbox = document.getElementById('btn-check-outlined');
+
+                                    // Get the label element
+                                    const label = document.getElementById('availLabel');
+
+                                    // Set the initial text of the label
+                                    label.textContent = checkbox.checked ? 'Available' : 'Unavailable';
+
+                                    // Add an event listener to the checkbox to update the label text when it is checked or unchecked
+                                    checkbox.addEventListener('change', function() {
+                                        label.innerHTML = this.checked ? 'Available' : 'Unavailable';
+                                    });
+                                </script>
+
                             </form>
                         </div>
                     </div>
