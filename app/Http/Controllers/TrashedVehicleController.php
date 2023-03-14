@@ -9,9 +9,11 @@ class TrashedVehicleController extends Controller
 {
         //shows all trashed vehicles
         public function index(){
+            $vehicles = Vehicle::onlyTrashed()->latest('updated_at');
+            $atvs = $vehicles->where('VEHICLE_TYPE', 2);
+            $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
 
-            $vehicles = Vehicle::onlyTrashed()->latest('updated_at')->paginate(5);
-            return view('vehicles.index')->with('vehicles', $vehicles);
+            return view('vehicles.index')->with('bikes', $bikes)->with('atvs', $atvs);
         }
     
         //restores a trashed vehicle

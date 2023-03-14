@@ -17,4 +17,8 @@ class Course extends Model
 
     protected $keyType = 'string';
 
+    public function classes()
+    {
+        return $this->hasMany(PRA_Class::class, 'COURSE_ID');
+    }
 }

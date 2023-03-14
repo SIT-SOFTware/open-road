@@ -93,7 +93,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Calendar</a></li>
-                                <li><a class="dropdown-item" href="#">Register</a></li>
+                                <li><a class="dropdown-item" href="{{ route('registrations.create') }}">Register</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

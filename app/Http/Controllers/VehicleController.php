@@ -13,8 +13,10 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::all();
+        $atvs = $vehicles->where('VEHICLE_TYPE', 2);
+        $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
 
-        return view('vehicles.index')->with('vehicles', $vehicles);
+        return view('vehicles.index')->with('atvs', $atvs)->with('bikes', $bikes)->with('vehicles', $vehicles);
     }
 
     /**
@@ -40,31 +42,27 @@ class VehicleController extends Controller
             'year' => 'required|size:4',
             'make' => 'required|max:20',
             'model' => 'required|max:40',
-            'odo' => 'required|size:10',
+            'odo' => 'required|max:10',
             'type' => 'required|size:1',
             'colour' => 'sometimes|max:10',
             'size' => 'required|max:4',
             'notes' => 'sometimes|max:256',
         ]);
 
-        //create new stuff model
-        $vehicle = new Vehicle;
-
         //Set all the verified data into new stuff model
-        $vehicle->VEHICLE_STOCK_NUM = $request->stockNo;
-        $vehicle->VEHICLE_VIN = $request->vin;
-        $vehicle->VEHICLE_YEAR = $request->year;
-        $vehicle->VEHICLE_MAKE = $request->make;
-        $vehicle->VEHICLE_MODEL = $request->model;
-        $vehicle->VEHICLE_ODO = $request->odo;
-        $vehicle->VEHICLE_TYPE = $request->type;
-        $vehicle->VEHICLE_COLOR = $request->colour;
-        $vehicle->VEHICLE_SIZE = $request->size;
-        $vehicle->AVAIL_STATUS = $avail;
-        $vehicle->NOTES = $request->notes;
-
-        //save new stuff model
-        $vehicle->save();
+        Vehicle::create([
+            'VEHICLE_STOCK_NUM' => $request->stockNo,
+            'VEHICLE_VIN' => $request->vin,
+            'VEHICLE_YEAR' => $request->year,
+            'VEHICLE_MAKE' => $request->make,
+            'VEHICLE_MODEL' => $request->model,
+            'VEHICLE_ODO' => $request->odo,
+            'VEHICLE_TYPE' => $request->type,
+            'VEHICLE_COLOR' => $request->colour,
+            'VEHICLE_SIZE' => $request->size,
+            'AVAIL_STATUS' => $avail,
+            'NOTES' => $request->notes,
+        ]);
 
         //return to index
         return to_route('admin.vehicles.index');
@@ -90,6 +88,21 @@ class VehicleController extends Controller
     {
         return view('vehicles.edit')->with('vehicle', $vehicle);
     }
+    
+    /**
+     * Show the form for editing MULTIPLE classes
+     */
+    public function massEdit()
+    {
+        $vehicles = Vehicle::all()->sortBy('id');
+        $atvs = $vehicles->where('VEHICLE_TYPE', 2);
+        $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
+
+        return view('vehicles.massEdit')
+            ->with('bikes', $bikes)
+            ->with('atvs', $atvs);
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -106,7 +119,7 @@ class VehicleController extends Controller
             'year' => 'required|size:4',
             'make' => 'required|max:20',
             'model' => 'required|max:40',
-            'odo' => 'required|size:10',
+            'odo' => 'required|max:10',
             'type' => 'required|size:1',
             'colour' => 'sometimes|max:10',
             'size' => 'required|max:4',

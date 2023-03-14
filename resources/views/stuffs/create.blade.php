@@ -99,6 +99,7 @@
                             <div class="font-weight-bold"><u>Country:</u></div>
                             <select
                                 id="country"
+                                name="country"
                                 field="country" 
                                 class="form-select form-select-sm border border-dark border-2"
                                 onchange="countrySelect(this.options[this.selectedIndex].value)"
