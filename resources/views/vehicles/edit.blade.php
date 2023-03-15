@@ -122,20 +122,28 @@
                                     </div>
                                 </div>
                                 
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center mb-3">
 
                                     <!-- Availability -->
-                                    <div class="col-auto">
+                                    <div class="col-auto text-center">
                                         <input type="checkbox" checked class="btn-check" id="btn-check-outlined" autocomplete="off" name="avail" value="1">
                                         <label class="btn fs-5 text-white border-dark btn-outline-primary btn-danger" id="availLabel" for="btn-check-outlined">Available</label><br>
                                     </div>
 
                                 </div>
+                                
                                 <!-- Save Button -->
-                                <div class="d-lg-inline text-center float-lg-end">
+                                <div class="d-inline text-center float-end">
                                     <button class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</button>
                                 </div>
         
+                            </form>
+                                    
+                            <!-- Delete Button --> 
+                            <form action="{{ route('admin.vehicles.destroy', $vehicle) }}" method="post" class="d-inline text-center float-end">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger px-3 me-3 my-4 fs-5" onclick="return confirm('Do you want to trash this vehicle?')"><i class="bi bi-trash3"></i></button>
                             </form>
 
                             <!-- Dynamic Checkbox Script -->

@@ -41,79 +41,73 @@
                                 @csrf
 
                                 <a href="#bikeCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-decoration-none text-customWhite" role="button">
-                                    <div class="row justify-content-center mt-5">
+                                    <div class="row justify-content-center mt-3">
                                         <div class="col-10">
                                         
-                                            <div class="row justify-content-between">
-
+                                            <div class="row justify-content-center">
+    
                                                 <!-- Make -->
-                                                <div class="col-md-4 col-6 mb-4 mb-md-5">
-                                                    <h2 class="card-heading text-center text-decoration-underline">Make: {{ $bike->VEHICLE_MAKE }}</h2>
+                                                <div class="col-4 ">
+                                                    <h2 class="card-heading text-center ">Make: {{ $bike->VEHICLE_MAKE }}</h2>
                                                 </div>
-
+    
                                                 <!-- Model -->
-                                                <div class="col-md-4 col-6 mb-4 mb-md-5">
-                                                    <h2 class="card-heading text-center text-decoration-underline">Model: {{ $bike->VEHICLE_MODEL }}</h2>
+                                                <div class="col-4 ">
+                                                    <h2 class="card-heading text-center">Model: {{ $bike->VEHICLE_MODEL }}</h2>
                                                 </div>
                                                 
                                                 <!-- Year -->
-                                                <div class="col-md-4  mb-4 mb-md-5">
-                                                    <h2 class="card-heading text-center text-decoration-underline">Year: {{ $bike->VEHICLE_YEAR }}</h2>
+                                                <div class="col-4 ">
+                                                    <h2 class="card-heading text-center">Year: {{ $bike->VEHICLE_YEAR }}</h2>
                                                 </div>
                                             
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-
+    
                                 <a href="{{ route('admin.vehicles.edit', ['vehicle' => $bike]) }}" class="text-customWhite text-decoration-none">
-                                    <div class="collapse" id="bikeCollapse{{$loop->iteration}}">
-                                        <div class="row justify-content-center">
-
+                                    <div class="collapse mt-3" id="bikeCollapse{{$loop->iteration}}">
+                                        
+                                        <div class="row justify-content-center mb-3">
+    
                                             <!-- Stock # -->
-                                            <div class="col-xl-4 mb-4 mb-md-5">
-                                                <span class="pe-2"> Stock #: </span>{{ $bike->VEHICLE_STOCK_NUM }}
+                                            <div class="col-md-3 col-12">
+                                                <span class=""> Stock #: </span>{{ $bike->VEHICLE_STOCK_NUM }}
                                             </div>
-
+    
                                             <!-- VIN -->
-                                            <div class="col-xl-4 mb-4 mb-md-5">
-                                                <span class="pe-2"> VIN: </span>{{ $bike->VEHICLE_VIN }}
+                                            <div class="col-md-3 col-12">
+                                                <span class=""> VIN: </span>{{ $bike->VEHICLE_VIN }}
                                             </div>
-
-                                        </div>
-
-                                        <div class="row justify-content-center">
-
-                                            <!-- Vehicle Size -->
-                                            <div class="col-md-4 col-10 mb-4 mb-md-5">
-                                                <span class="pe-2"> Vehicle Size: </span>{{ $bike->VEHICLE_SIZE }}
-                                            </div>
-
-                                            <!-- Vehicle Colour -->
-                                            <div class="col-md-4 col-10 mb-4 mb-md-5">
-                                                <span class="pe-2"> Vehicle Colour: </span>{{ $bike->VEHICLE_COLOR }}
-                                            </div>
-                                            
-                                        </div>
-
-                                        <div class="row justify-content-center">
-
+    
                                             <!-- Odometer -->
-                                            <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                                <span class="pe-2"> Odometer: </span>{{ $bike->VEHICLE_ODO}}
+                                            <div class="col-md-2 col-12">
+                                                <span class=""> Odometer: </span>{{ $bike->VEHICLE_ODO}}
                                             </div>
-
+    
+                                            <!-- Vehicle Colour -->
+                                            <div class="col-md-2 col-12 ">
+                                                <span class=""> Colour: </span>{{ $bike->VEHICLE_COLOR }}
+                                            </div>
+    
+                                            <!-- Vehicle Size -->
+                                            <div class="col-md-2 col-12">
+                                                <span class=""> Size: </span>{{ $bike->VEHICLE_SIZE }}
+                                            </div>
+    
                                         </div>
                                         
                                         <!-- Notes -->
-                                        <div class="row justify-content-center mb-5 ">
-                                            <div class="col-10">
+                                        <div class="row justify-content-center mb-4 ">
+                                            <div class="col-11">
                                                 <div class="form-floating text-black">
                                                     <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" :value="@old('notes')"></textarea>
-                                                    <label for="notes" class="ps-3">Notes</label>
+                                                    <label for="notes" class="">Notes</label>
                                                 </div>
                                             </div>
                                         </div>
+    
                                     </div>
                                 </a>
 
@@ -136,131 +130,94 @@
         
         <div class="row justify-content-center collapse show" id="atvs">
             @forelse($atvs as $atv)
-                <div class="col-12">
-                    <div class="card mb-3 shadow-lg bg-dark text-white">
-                        <div class="card-body text-center fs-4">
-                            <form action="{{ route('admin.vehicles.store') }}" method="post">
-                                @csrf
+            <div class="col-12">
+                <div class="card mb-3 shadow-lg bg-dark text-white">
+                    <div class="card-body text-center fs-4">
+                        <form action="{{ route('admin.vehicles.store') }}" method="post">
+                            @csrf
 
-                                <a href="#atvCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-decoration-none text-customWhite" role="button">
-                                    <div class="row justify-content-center mt-5">
-                                        <div class="col-10">
-                                        
-                                            <div class="row justify-content-between">
-                                                
-                                                <!-- Year -->
-                                                <div class="col-md-4 col-12 mb-4 mb-md-5">
-                                                    <h2 class="card-heading text-center text-decoration-underline">Year: {{ $atv->VEHICLE_YEAR }}</h2>
-                                                </div>
+                            <a href="#atvCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-decoration-none text-customWhite" role="button">
+                                <div class="row justify-content-center mt-3">
+                                    <div class="col-10">
+                                    
+                                        <div class="row justify-content-center">
 
-                                                <!-- Make -->
-                                                <div class="col-md-4 col-12 mb-4 mb-md-5">
-                                                    <h2 class="card-heading text-center text-decoration-underline">Make: {{ $atv->VEHICLE_MAKE }}</h2>
-                                                </div>
+                                            <!-- Make -->
+                                            <div class="col-4 ">
+                                                <h2 class="card-heading text-center ">Make: {{ $atv->VEHICLE_MAKE }}</h2>
+                                            </div>
 
-                                                <!-- Model -->
-                                                <div class="col-md-4 col-12 mb-4 mb-md-5">
-                                                    <h2 class="card-heading text-center text-decoration-underline">Model: {{ $atv->VEHICLE_MODEL }}</h2>
-                                                </div>
+                                            <!-- Model -->
+                                            <div class="col-4 ">
+                                                <h2 class="card-heading text-center">Model: {{ $atv->VEHICLE_MODEL }}</h2>
+                                            </div>
                                             
+                                            <!-- Year -->
+                                            <div class="col-4 ">
+                                                <h2 class="card-heading text-center">Year: {{ $atv->VEHICLE_YEAR }}</h2>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="{{ route('admin.vehicles.edit', ['vehicle' => $atv]) }}" class="text-customWhite text-decoration-none">
+                                <div class="collapse mt-3" id="atvCollapse{{$loop->iteration}}">
+                                    
+                                    <div class="row justify-content-center mb-3">
+
+                                        <!-- Stock # -->
+                                        <div class="col-md-3 col-12">
+                                            <span class=""> Stock #: </span>{{ $atv->VEHICLE_STOCK_NUM }}
+                                        </div>
+
+                                        <!-- VIN -->
+                                        <div class="col-md-3 col-12">
+                                            <span class=""> VIN: </span>{{ $atv->VEHICLE_VIN }}
+                                        </div>
+
+                                        <!-- Odometer -->
+                                        <div class="col-md-2 col-12">
+                                            <span class=""> Odometer: </span>{{ $atv->VEHICLE_ODO}}
+                                        </div>
+
+                                        <!-- Vehicle Colour -->
+                                        <div class="col-md-2 col-12 ">
+                                            <span class=""> Colour: </span>{{ $atv->VEHICLE_COLOR }}
+                                        </div>
+
+                                        <!-- Vehicle Size -->
+                                        <div class="col-md-2 col-12">
+                                            <span class=""> Size: </span>{{ $atv->VEHICLE_SIZE }}
+                                        </div>
+
+                                    </div>
+                                    
+                                    <!-- Notes -->
+                                    <div class="row justify-content-center mb-4 ">
+                                        <div class="col-11">
+                                            <div class="form-floating text-black">
+                                                <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" :value="@old('notes')"></textarea>
+                                                <label for="notes" class="">Notes</label>
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                                
-                                <a href="{{ route('admin.vehicles.edit', ['vehicle' => $atv]) }}" class="text-customWhite text-decoration-none">
-                                    <div class="collapse" id="atvCollapse{{$loop->iteration}}">
-                                        <div class="row justify-content-center">
 
-                                            <!-- Stock # -->
-                                            <div class="col-xl-4 mb-4 mb-md-5">
-                                                <span class="pe-2"> Stock #: </span>{{ $atv->VEHICLE_STOCK_NUM }}
-                                            </div>
+                                </div>
+                            </a>
 
-                                            <!-- VIN -->
-                                            <div class="col-xl-4 mb-4 mb-md-5">
-                                                <span class="pe-2"> VIN: </span>{{ $atv->VEHICLE_VIN }}
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row justify-content-center">
-
-                                            <!-- Vehicle Size -->
-                                            <div class="col-md-4 col-10 mb-4 mb-md-5">
-                                                <span class="pe-2"> Vehicle Size: </span>{{ $atv->VEHICLE_SIZE }}
-                                            </div>
-
-                                            <!-- Vehicle Colour -->
-                                            <div class="col-md-4 col-10 mb-4 mb-md-5">
-                                                <span class="pe-2"> Vehicle Colour: </span>{{ $atv->VEHICLE_COLOR }}
-                                            </div>
-                                            
-                                        </div>
-
-                                        <div class="row justify-content-center">
-
-                                            <!-- Odomoter -->
-                                            <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                                <span class="pe-2"> Odometer: </span>{{ $atv->VEHICLE_ODO}}
-                                            </div>
-
-                                        </div>
-                                        
-                                        <!-- Notes -->
-                                        <div class="row justify-content-center mb-5 ">
-                                            <div class="col-10">
-                                                <div class="form-floating text-black">
-                                                    <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" :value="@old('notes')"></textarea>
-                                                    <label for="notes" class="ps-3">Notes</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Conditionally renders deleted tag, restore, and perma-delete buttons if user is viewing trashed vehicles -->
-                                        @if(request()->routeIs('admin.trashed.vehicles.*'))
-                                                        
-                                            <div class="row justify-content-lg-end justify-content-center mt-4">
-                                                
-                                                <!-- Deleted tag -->
-                                                <div class="text-red col-lg-10 text-lg-start text-center">
-                                                    Deleted: {{ $vehicle->deleted_at->diffForHumans() }}
-                                                </div>
-                                                
-                                                <!-- Restore and Delete buttons -->
-                                                <div class="col-auto">
-                                                    <form action="{{ route('admin.trashed.vehicles.update', $vehicle) }}" method="post" class="">
-                                                        @method('put')
-                                                        @csrf
-                                                        <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
-                                                    </form>
-                                                </div>
-                                                
-                                                <div class="col-auto">
-                                                    <form action="{{ route('admin.trashed.vehicles.destroy', $vehicle) }}" method="post" class="">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
-                                                    </form>
-                                                </div>
-                                            </div>
-
-                                        @endif
-
-                                    </div>
-                                </a>
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
-                
-            <!-- If theres no Data Display This -->
-            @empty
-                <p>No Vehicle Data</p> 
-            @endforelse
-
-        </div>
-        <hr class="border border-dark my-3" />
+            </div>
+            
+        <!-- If theres no Data Display This -->
+        @empty
+            <p>No Vehicle Data</p> 
+        @endforelse
+    </div>
+    <hr class="border border-dark mt-3 mb-4" />
 
 
 
