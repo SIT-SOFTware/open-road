@@ -13,7 +13,7 @@
                                 @csrf
                                 
                                 <!-- Title -->
-                                <h1 class="card-title text-center mb-5 mt-4">New Course</h1>
+                                <h1 class="card-title text-center mb-5 mt-3">New Course</h1>
         
                                 <div class="row justify-content-center my-4">
                                     
@@ -64,7 +64,7 @@
                                 <!-- Submit Button -->
                                 <div class="row justify-content-center pe-2">
                                     <div class="col text-md-end text-center mb-3">
-                                        <button type="submit" class="btn fs-5 btn-success my-4 me-md-4">Create Course</button>
+                                        <button type="submit" class="btn fs-5 btn-success mb-2 me-md-4">Create Course</button>
                                     </div>
                                 </div>
 

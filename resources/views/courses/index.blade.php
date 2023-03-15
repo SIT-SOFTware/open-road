@@ -6,7 +6,7 @@
         {{ session('success') }}
     </x-alert-success>  
 
-    <div class="container text-white">
+    <div class="container">
 
         <!-- Checks to see if the user is looking at the list of non-trashed courses -->
         @if(request()->routeIs('admin.courses.index'))
@@ -51,19 +51,15 @@
                         <div class="card bg-dark p-3 shadow-lg">
                             <div class="card-body">
 
-                                <!-- Course Title -->
-                                <div class="row justify-content-center">
-                                    <div class="col-10 my-3">
-                                        <h1 class="card-heading text-decoration-underline text-center">{{  $course->COURSE_NAME }}</h1>
-                                    </div>
-                                </div>
-
                                 <!-- Course Details -->
-                                <div class="row text-center text-white justify-content-around fs-4">
-                                    <div class="col-auto mb-2">
-                                        <span class="pe-2"> Class ID: </span>{{  $course->COURSE_ID }}
+                                <div class="row text-center justify-content-around fs-4">
+                                    <div class="col-auto">
+                                        <h2 class="card-heading text-decoration-underline text-center">{{  $course->COURSE_NAME }}</h2>
                                     </div>
-                                    <div class="col-auto mb-2">
+                                    <div class="col-auto ">
+                                        <span class="pe-2"> Course ID: </span>{{  $course->COURSE_ID }}
+                                    </div>
+                                    <div class="col-auto">
                                         <span class="pe-2"> Course Documents: </span>{{  $course->COURSE_DOCS }}
                                     </div>
                                     <div class="col-auto">
