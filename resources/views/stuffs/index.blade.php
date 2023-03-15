@@ -5,27 +5,68 @@
     </x-slot>
     
     <x-slot name="content">
-        <div>
-            {{-- Create New Staff/Student Model redirects to Create blade  --}}
-            <a href="{{ route('info.create') }}">Create New Stuff</a>
+        
+        <div class="container">
+            <!-- Title -->
+            <h1 class="text-dark text-center mt-3">Available Classes</h2>
+            <hr class="border border-dark" />
+    
+            <!-- Add Class Button-->
+            <a href="{{ route('info.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add User</a>
 
-            {{-- Display Sudents associated with the User Login --}}
             @forelse ( $stuffs as $stuff )
-                <div class="border rounded p-3 bg-white text-black my-4">
-                    <div class="row">
+                <a href="{{ route('info.edit', $stuff) }}" class="text-customWhite text-decoration-none">
+                    <div class="row justify-content-center mb-3 ">
                         <div class="col">
-                            <p style="font-size: 2.0rem;">{{ $stuff->STUFF_PNAME }} {{ $stuff->STUFF_LNAME }}</p>  
-                        </div>
-                        <div class="col">
-                            <a href="{{ route('info.show', $stuff)}}" class="btn btn-danger col"><strong>Show More</strong></a><br/>
+                            <div class="card bg-dark p-3 shadow-lg">
+                                <div class="card-body">
+
+                                    <div class="row text-center justify-content-around fs-4">
+
+                                        <div class="col-auto text-decoration-underline my-auto align-middle">
+                                            <h2>{{ $stuff->STUFF_FNAME }} {{ $stuff->STUFF_LNAME }}:</h2>
+                                        </div>
+                                    
+                                        <div class="col-auto">
+                                            <h4 class="text-decoration-underline">Phone Number</h4>
+                                            {{ $stuff->STUFF_PHONE }}
+                                        </div>
+                                        
+                                        <div class="col-auto">
+                                            <h4 class="text-decoration-underline">Email</h4>
+                                            {{ $stuff->STUFF_EMAIL }}
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <h4 class="text-decoration-underline">Address 1</h4>
+                                            {{ $stuff->STUFF_ADDR1 }}
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <h4 class="text-decoration-underline">Address 2</h4>
+                                            {{ $stuff->STUFF_ADDR2 }}
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <h4 class="text-decoration-underline">Province</h4>
+                                            {{ $stuff->STUFF_PR_ST }}
+                                        </div>
+                                        
+                                        <div class="col-auto">
+                                            <h4 class="text-decoration-underline">City</h4>
+                                            {{ $stuff->STUFF_CITY }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {{-- If theres no Data Display This --}}
+                </a>
             @empty
                 <p>No Student Data</p>     
             @endforelse
         </div>
+        
     </x-slot>
     
-    </x-app-layout>
+</x-app-layout>
