@@ -43,18 +43,18 @@
                             
                         </div>
             
-                        <div class="d-flex items-center justify-content-center mt-5">
-                            @if (Route::has('password.request'))
-                                <a class="underline fs-6 text-sm rounded-md text-white" href="{{ route('password.request') }}">
+                        <div class="row justify-content-center text-center mt-5">
+                            <div class="col-3">
+                                @if (Route::has('password.request'))
+                                <a class="underline fs-5 text-sm rounded-md text-customWhite" href="{{ route('password.request') }}">
                                     Forgot your password?
                                 </a>
                             @endif
+                            </div>
+                            <div class="col-3">
+                                <a href="/register" class="text-customWhite fs-5 text-decoration-underline">Don't have an account?</a>
+                            </div>
                         </div>
-
-                        <p class="text-white fs-4 text-center mt-5">Don't have an account?</p>
-
-                        <p class="text-center"><a href="/register" class="text-white fs-5 text-decoration-underline">Register</a></p>
-
                     </form>
                 </div>
             </div>
