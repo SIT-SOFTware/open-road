@@ -5,7 +5,7 @@
         {{ session('success') }}
     </x-alert-success>  
 
-    <div class="container text-white">
+    <div class="container">
 
         @if(request()->routeIs('admin.classes.index'))
 
@@ -38,25 +38,19 @@
             @endif
                 <div class="row justify-content-center mb-3">
                     <div class="col">
-                        <div class="card bg-dark p-3 pb-5 shadow-lg">
+                        <div class="card bg-dark p-3 shadow-lg">
                             <div class="card-body">
 
-                                <!-- Card Title -->
-                                <div class="row justify-content-center">
-                                    <div class="col-10 my-3">
-                                        <h1 class="card-heading text-decoration-underline text-center">{{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}</h1>
-                                    </div>
-                                </div>
-
-                                <div class="row text-center text-white justify-content-around fs-4">
+                                <div class="row text-center justify-content-around fs-4">
 
                                         <!-- Class Code -->
                                     <div class="col-auto mb-2">
                                         <span class="pe-2"> Class Code: </span>{{ $class->CLASS_ID }}
                                     </div>
+                                    
                                         <!-- Course ID and Course Name -->
                                     <div class="col-auto mb-2">
-                                        <span class="pe-2"> Course ID/Name: </span>{{ $class->COURSE_ID }}/{{ $courseName[$class->COURSE_ID] }}
+                                        <span class="pe-2"> Course: </span>{{ $courseName[$class->COURSE_ID] }}
                                     </div>
 
                                         <!-- Displays Instructor name -->
@@ -72,6 +66,11 @@
                                         <!-- End Date -->
                                     <div class="col-auto">
                                         <span class="pe-2"> End Date: </span>{{ Str::limit($class->CLASS_END, 10, '') }}
+                                    </div>
+                                    
+                                    <!-- Capacity -->
+                                    <div class="col-auto">
+                                        <span class="pe-2"> Capacity: </span>TODO
                                     </div>
 
                                     @if(request()->routeIs('admin.trashed.classes.*'))

@@ -21,14 +21,15 @@
 
                                     <!-- Class Title --> 
                                     <div class="row justify-content-center">
-                                        <div class="col-10 my-3">
+                                        <div class="col-10 mb-3">
                                             
                                             <!--Clickable heading leads to individual record -->
-                                            <h1 class="card-heading text-decoration-underline text-white text-center">
-                                                <a href="{{ route('admin.classes.edit', $class) }}" class="text-customWhite">
-                                                    {{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}
+                                            <h1 class="card-heading text-white text-center">
+                                                <a href="{{ route('admin.classes.edit', $class) }}" class="text-customWhite text-decoration-none">
+                                                    {{ $class->course->COURSE_NAME }}-{{ $class->CLASS_ID }}
                                                 </a>
                                             </h1>
+                                            
                                         </div>
                                     </div>
                                     
@@ -70,15 +71,31 @@
                                         </div>
 
                                     </div>
+                        
+                                    <!-- Attendance Stats -->
+                                    <div class="d-lg-inline float-lg-start">
+                                        <div class="col-12 mt-lg-4">
+                                            <h3 class="card-heading text-white ps-lg-4 text-lg-start text-center">Attendees: TODO</h3>
+                                            <!-- TODO foreach loop through students with this registration -->
+                                        </div>
+                                    </div>
 
                                     <!-- Submit Button --> 
-                                    <div class="row justify-content-lg-end justify-content-center">
+                                    <div class="d-lg-inline text-center float-lg-end">
                                         <div class="col-auto">
                                             <a href="{{ route('admin.classes.update', $class) }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
                                         </div>
                                     </div>
 
                                 </form>
+                                
+                                <!-- Delete Button --> 
+                                <form action="{{ route('admin.classes.destroy', $class) }}" method="post" class="d-lg-inline text-center float-lg-end">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger px-3 me-3 mt-4 fs-5" onclick="return confirm('Do you want to trash this course?')"><i class="bi bi-trash3"></i></button>
+                                </form>
+
                             </div>
                         </div>
                     </div>

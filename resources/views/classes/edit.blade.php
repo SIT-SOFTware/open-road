@@ -14,8 +14,8 @@
 
                         <!-- Class Title -->
                         <div class="row justify-content-center">
-                            <div class="col-10 my-3">
-                                <h1 class="card-heading text-white text-center">Editing Class: &nbsp;{{ $class->COURSE_ID }}-{{ $class->CLASS_ID }}</h1>
+                            <div class="col-10 mb-3">
+                                <h1 class="card-heading text-white text-center">Editing Class: &nbsp;{{ $courseName[$class->COURSE_ID] }}-{{ $class->CLASS_ID }}</h1>
                             </div>
                         </div>
 
@@ -75,10 +75,20 @@
                             </div>
 
                         </div>
+                        
+                        <!-- Attendance Stats -->
+                        <div class="d-lg-inline float-lg-start">
+                            <div class="col-12 mt-lg-4">
+                                <h3 class="card-heading text-white ps-lg-4 text-lg-start text-center">Attendees: TODO</h3>
+                                <!-- TODO foreach loop through students with this registration -->
+                            </div>
+                        </div>
 
-                        <!-- Save Button -->
+                        <!-- Submit Button --> 
                         <div class="d-lg-inline text-center float-lg-end">
-                            <button class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</button>
+                            <div class="col-auto">
+                                <a href="{{ route('admin.classes.update', $class) }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
+                            </div>
                         </div>
 
                     </form>
