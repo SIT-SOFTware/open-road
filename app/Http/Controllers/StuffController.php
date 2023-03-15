@@ -19,6 +19,7 @@ class StuffController extends Controller
         //get all students associated with logged in user
         $stuffs = Stuff::where('user_id', Auth::id())->get();
 
+        //TODO Paginate to 10 and sort alphabetically, Search should be extended to here when it's implemented in Nav
         //go to view with all the students
         return view('stuffs.index')->with('stuffs', $stuffs);
     }

@@ -10,20 +10,26 @@
                     <div class="card-body mx-5">
                         <form method="POST" class="mt-4" action="{{ route('register') }}">
                             @csrf 
-                                
+
+                            
+                            <div class="form-floating m-5">
+                                <x-input id="name" class="block form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Name"/>
+                                <x-label class="text-dark form-label fs-6" for="email" value="Name" />
+                            </div>
+
                             <div class="form-floating m-5">
                                 <x-input id="email" class="block form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="email" />
                                 <x-label class="text-dark form-label fs-6" for="email" value="Email" />
                             </div>
 
                             <div class="m-5 form-floating">
-                                <x-input id="password" class="block form-control" type="password" name="password" required autocomplete="new-password" placeholder="password" />
-                                <x-label class="text-dark form-label fs-6" for="password" value="Password" />
+                                <x-input id="password" class="block form-control" type="password" name="password" required autocomplete="new-password" placeholder="password"/>
+                                <x-label class="text-dark form-label fs-6" for="password" value="{{ __('Password') }}" />
                             </div>
 
                             <div class="m-5 form-floating">
-                                <x-input id="password" class="block form-control" type="password" name="password" required autocomplete="new-password" placeholder="password" />
-                                <x-label class="text-dark form-label fs-6" for="password" value="Confirm Password" />
+                                <x-input id="password_confirmation" class="block form-control" type="password" name="password_confirmation" placeholder="password" required autocomplete="new-password" />
+                                <x-label for="password_confirmation" class="text-dark form-label fs-6" value="{{ __('Confirm Password') }}" />
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center mt-5">
