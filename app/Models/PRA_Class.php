@@ -27,6 +27,6 @@ class PRA_Class extends Model
     }
     public function course()
     {
-        return $this->belongsTo(Course::class, 'COURSE_ID');
+        return $this->belongsTo(Course::class, 'COURSE_ID', 'COURSE_ID');
     }
 }
