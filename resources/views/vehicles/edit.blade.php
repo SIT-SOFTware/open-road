@@ -11,7 +11,8 @@
                     <div class="card shadow-lg bg-dark text-white">
                         <div class="card-body">
                             {{-- For for creating a new user uses info.store route that save a new stuff instance --}}
-                            <form action="{{ route('admin.vehicles.store') }}" method="post">
+                            <form action="{{ route('admin.vehicles.update', $vehicle) }}" method="post">
+                                @method('put')
                                 @csrf
 
                                 <!-- Title -->
@@ -25,7 +26,7 @@
                                             <div class="col-md-4 col-12 mb-4 mb-md-5">
                                                 <div class="input-group">
                                                     <label class="font-weight-bold input-group-text">Year</label>
-                                                    <input required type="text" name="year" class="form-control" autocomplete="off" value="{{ $vehicle->VEHICLE_YEAR }}">
+                                                    <input required type="text" class="form-control" autocomplete="off" name="year" field="year" value="{{ @Old('year', $vehicle->VEHICLE_YEAR) }}">
                                                 </div>
                                             </div>
 
@@ -33,7 +34,7 @@
                                             <div class="col-md-4 col-12 mb-4 mb-md-5">
                                                 <div class="input-group">
                                                     <label class="input-group-text">Make</label>
-                                                    <input required type="text" name="make"  placeholder="Vehicle Make" class="form-control" autocomplete="off" value="{{ $vehicle->VEHICLE_MAKE}}"/>
+                                                    <input required type="text" name="make" fieold="make" placeholder="Vehicle Make" class="form-control" autocomplete="off" value="{{  @Old('make', $vehicle->VEHICLE_MAKE) }}"/>
                                                 </div>
                                             </div>
 
@@ -41,7 +42,7 @@
                                             <div class="col-md-4 col-12 mb-4 mb-md-5">
                                                 <div class="input-group">
                                                     <label class="input-group-text">Model</label>
-                                                    <input required type="text" name="model" placeholder="Vehicle Model" class="form-control"autocomplete="off" value="{{ $vehicle->VEHICLE_MODEL }}"/>
+                                                    <input required type="text" name="model" field="model" placeholder="Vehicle Model" class="form-control"autocomplete="off" value="{{  @Old('model', $vehicle->VEHICLE_MODEL) }}"/>
                                                 </div>
                                             </div>
                                         
@@ -55,7 +56,7 @@
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
                                         <div class="input-group">
                                             <label class="input-group-text" for="stockNo">Stock Number</label>
-                                            <input required type="text" class="form-control" name="stockNo" placeholder="Enter Stock No." maxlength="17" autocomplete="off" value="{{ $vehicle->VEHICLE_STOCK_NUM }}"/>
+                                            <input required type="text" class="form-control" name="stockNo" field="stockNo" placeholder="Enter Stock No." maxlength="17" autocomplete="off" value="{{ @Old('stockNo', $vehicle->VEHICLE_STOCK_NUM) }}"/>
                                         </div>
                                     </div>
 
@@ -63,7 +64,7 @@
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
                                         <div class="input-group">
                                             <label class="input-group-text">VIN</label>
-                                            <input required class="form-control" type="text" name="vin"  placeholder="Enter VIN" maxlength="17" autocomplete="off" value="{{ $vehicle->VEHICLE_VIN }}"/>
+                                            <input required class="form-control" type="text" name="vin" fied="vin" placeholder="Enter VIN" maxlength="17" autocomplete="off" value="{{  @Old('vin', $vehicle->VEHICLE_VIN) }}"/>
                                         </div>
                                     </div>
 
@@ -75,9 +76,9 @@
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
                                         <div class="input-group">
                                             <label class="input-group-text">Vehicle Type</label>
-                                            <select class="form-control" placeholder="Choose Vehicle" name="type" value="{{ $vehicle->VEHICLE_TYPE }}">
-                                                <option value="1">Motorcycle</option>
-                                                <option value="2">ATV</option>
+                                            <select class="form-control" placeholder="Choose Vehicle" name="type" field="type">
+                                                <option value="1" {{ @old('type', $vehicle->VEHICLE_TYPE) == 1 ? 'selected' : '' }}>Motorcycle</option>
+                                                <option value="2" {{ @old('type', $vehicle->VEHICLE_TYPE) == 2 ? 'selected' : '' }}>ATV</option>
                                             </select>
                                         </div>
                                     </div>
@@ -86,7 +87,7 @@
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
                                         <div class="input-group">
                                             <label class="input-group-text">Colour</label>
-                                            <input type="text" name="colour" placeholder="Colour" class="form-control" autocomplete="off" value="{{ $vehicle->VEHICLE_COLOR }}"/>
+                                            <input type="text" name="colour" field="colour" placeholder="Colour" class="form-control" autocomplete="off" value="{{  @Old('colour', $vehicle->VEHICLE_COLOR) }}"/>
                                         </div>
                                     </div>
                                     
@@ -98,7 +99,7 @@
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
                                         <div class="input-group">
                                             <label class="input-group-text">Size</label>
-                                            <input required type="text" name="size" placeholder="Enter Size" class="form-control" autocomplete="off" value="{{ $vehicle->VEHICLE_SIZE }}"/>
+                                            <input required type="text" name="size" field="size" placeholder="Enter Size" class="form-control" autocomplete="off" value="{{ @Old('size', $vehicle->VEHICLE_SIZE) }}"/>
                                         </div>
                                     </div>
 
@@ -106,7 +107,7 @@
                                     <div class="col-md-5 col-10 mb-4">
                                         <div class="input-group">
                                             <label class="input-group-text">Odometer</label>
-                                            <input required type="text" name="odo" placeholder="000 0000 000" class="form-control" autocomplete="off" value="{{ $vehicle->VEHICLE_ODO }}"/>
+                                            <input required type="text" name="odo" field="odo" placeholder="000 0000 000" class="form-control" autocomplete="off" value="{{ @Old('odo', $vehicle->VEHICLE_ODO) }}">
                                         </div>
                                     </div>
 
@@ -116,7 +117,7 @@
                                 <div class="row justify-content-center mb-5 ">
                                     <div class="col-10">
                                         <div class="form-floating text-black">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes">{{ $vehicle->NOTES }}</textarea>
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" field="notes">{{  @Old('notes', $vehicle->NOTES) }}</textarea>
                                             <label for="notes" class="ps-3">Notes</label>
                                         </div>
                                     </div>

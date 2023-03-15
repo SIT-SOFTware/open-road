@@ -14,10 +14,10 @@
         <hr class="border border-dark" />
 
         <!-- Add Class Button-->
-        <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 mt-4 me-2 mb-2 fs-5">Add Class</a>
+        <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add Class</a>
 
         <!-- Trashed Classes Button -->
-        <a href="{{ route('admin.trashed.classes.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
+        <a href="{{ route('admin.trashed.classes.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Trashed</a>
         
         @else
         <!-- Title -->
@@ -25,7 +25,7 @@
         <hr class="border border-dark" />
 
         <!-- Add back button to return from trashed page -->
-        <a href="{{ route('admin.classes.index') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Back to Classes</a>
+        <a href="{{ route('admin.classes.index') }}" class="btn btn-dark p-2 mb-2 fs-5">Back to Classes</a>
         @endif
 
 

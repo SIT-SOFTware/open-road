@@ -11,10 +11,10 @@
             <hr class="border border-dark" />
 
             <!-- Add Vehicle Button and conditional render-->
-            <a href="{{ route('admin.vehicles.create') }}" class="btn btn-success p-2 me-2 mt-4 mb-2 fs-5">Add vehicle</a>
+            <a href="{{ route('admin.vehicles.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add vehicle</a>
 
             <!-- Go to trashed vehicles -->
-            <a href="{{ route('admin.trashed.vehicles.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
+            <a href="{{ route('admin.trashed.vehicles.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Trashed</a>
 
         <!-- Checks to see if the user is looking at trashed vehicles -->
         @else
@@ -23,7 +23,7 @@
             <hr class="border border-dark" />
 
             <!-- Add back button to return from trashed page -->
-            <a href="{{ route('admin.vehicles.index') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Back to vehicles</a>
+            <a href="{{ route('admin.vehicles.index') }}" class="btn btn-dark p-2 mb-2 fs-5">Back to vehicles</a>
         @endif
         
         <!--Motorcycle Section -->

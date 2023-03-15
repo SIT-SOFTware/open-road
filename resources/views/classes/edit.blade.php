@@ -70,7 +70,7 @@
                             <div class="col-lg-3 col-8 mb-lg-2 mb-4">
                                 <div class="input-group">
                                     <label class="input-group-text">Start Date</label>
-                                    <input required class="form-control" onfocusout=(this.type="") onfocus=(this.type="date") type="" placeholder="{{ Str::limit($class->CLASS_START, 10, '') }}" name="startDate">
+                                    <input required class="form-control" type="date" value="{{ Str::limit($class->CLASS_START, 10, '') }}" name="startDate">
                                 </div>
                             </div>
 

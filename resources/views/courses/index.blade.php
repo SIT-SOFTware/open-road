@@ -16,10 +16,10 @@
             <hr class="border border-dark"/>
 
             <!-- Add Course Button-->
-            <a href="{{ route('admin.courses.create') }}" class="btn btn-success p-2 me-2 mt-4 mb-2 fs-5">Add Course</a>
+            <a href="{{ route('admin.courses.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add Course</a>
 
             <!-- Go to trashed courses -->
-            <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger p-2 mt-4 mb-2 fs-5">Trashed</a>
+            <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Trashed</a>
 
         <!-- checks to see if the user is looking at courses -->
         @elseif(request()->routeIs('courses'))
@@ -35,7 +35,7 @@
             <hr class="border border-dark" />
 
             <!--Back Button -->
-            <a href="{{ route('admin.courses.index') }}" class="btn btn-dark p-2 mt-4 mb-2 fs-5">Back to Courses</a>
+            <a href="{{ route('admin.courses.index') }}" class="btn btn-dark p-2 mb-2 fs-5">Back to Courses</a>
 
         @endif
 
