@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class FAQController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the FAQs.
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new FAQ.
      */
     public function create()
     {
@@ -25,7 +25,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created FAQ in storage.
      */
     public function store(Request $request)
     {
@@ -38,7 +38,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified FAQ.
      */
     public function show(string $id)
     {
@@ -46,7 +46,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified FAQ.
      */
     public function edit(FAQ $faq)
     {
@@ -54,7 +54,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified FAQ in storage.
      */
     public function update(Request $request, FAQ $faq)
     {
@@ -63,14 +63,11 @@ class FAQController extends Controller
             'ANSWER' => $request->answer
         ]);
 
-        // dd($faqs);
-        // dd($request->question, $request->answer);
-
         return to_route('faq.index')->with('success', 'This does not work yet');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified FAQ from storage.
      */
     public function destroy(FAQ $faq)
     {

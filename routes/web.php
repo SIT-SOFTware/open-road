@@ -10,6 +10,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TrashedClassController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\MeetTeamController;
 use App\Http\Controllers\TrashedCourseController;
 use App\Http\Controllers\TrashedVehicleController;
 use App\Models\Vehicle;
@@ -29,13 +30,11 @@ Route::get('/', function(){
     return view('welcome');
 })->name('welcome');
 
-// Route::get('/faq', function () {
-//     return view('webcontent.faq');
-// })->name('faq');
-
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
 Route::resource('/faq', FAQController::class);
+
+Route::resource('/meet-team', MeetTeamController::class);
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

@@ -20,8 +20,7 @@
                     value='' />
                 <button
                     type="submit"
-                    class="btn btn-danger col-1 ms-2"
-                    onclick="">
+                    class="btn btn-danger col-1 ms-2">
                         Add Question
                 </button>
                 <label for="answer">Answer:</label>
