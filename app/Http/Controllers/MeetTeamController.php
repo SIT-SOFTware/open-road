@@ -31,11 +31,15 @@ class MeetTeamController extends Controller
     public function store(Request $request): RedirectResponse
     {
         //TODO validate fields appropriately
-        $imageName = $request->file('picture')->getClientOriginalName();
-        $imagePath = "images/".$imageName;
+        if ($request->picture != null) {
+            $imageName = $request->file('picture')->getClientOriginalName();
+            $imagePath = "images/".$imageName;
 
-        //Store images in public folder
-        $request->picture->move(public_path('images'), $imageName);
+            //Store images in public folder
+            $request->picture->move(public_path('images'), $imageName);
+        } else {
+            $imagePath = asset('images/noimage.jpg');
+        }
 
         //Store member details in the DB
         MeetTeam::create([
