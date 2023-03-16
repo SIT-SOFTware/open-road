@@ -56,14 +56,17 @@ class FAQController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, FAQ $faqs)
+    public function update(Request $request, FAQ $faq)
     {
-        $faqs->update([
+        $faq->update([
             'QUESTION' => $request->question,
             'ANSWER' => $request->answer
         ]);
 
-        return to_route('faq.index')->with('success', 'That should have updated the faq, but it does not.');
+        // dd($faqs);
+        // dd($request->question, $request->answer);
+
+        return to_route('faq.index')->with('success', 'This does not work yet');
     }
 
     /**
