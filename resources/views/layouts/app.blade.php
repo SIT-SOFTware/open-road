@@ -84,17 +84,19 @@
                                 <li><a class="dropdown-item" href="{{ route('meet-team.index') }}">Meet the Team</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('courses') }}" class="nav-link">Courses</a>
-                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Schedule<i class="bi bi-chevron-down custom-chevron"></i>
+                            <a href="" class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Courses<i class="bi bi-chevron-down custom-chevron"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Calendar</a></li>
+                                <li><a href="{{ route('courses') }}" class="dropdown-item">Course Overview</a></li>
                                 <li><a class="dropdown-item" href="{{ route('registrations.index') }}">Register</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " href="#" >
+                                Calendar
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="https://precisionpowersportsltd.com/" target=0 class="nav-link">PPS</a>
