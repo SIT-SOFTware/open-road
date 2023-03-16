@@ -152,26 +152,34 @@ class RegistrationController extends Controller
                 //grab stuff IDs
                 $stuff_ids = $stuffs->pluck('STUFF_ID')->toArray();
                 $registrations = Registration::whereIn('stuff_id', $stuff_ids)->get();
-        
-                $reg_info = [];
-                // Create Array for Course Name / Class Start Date / Other Info
-                foreach( $registrations as $registration ){
-                    //get class
-                    $pra_class = PRA_Class::where('CLASS_ID', $registration->CLASS_ID)->first();
-                    //get course
-                    $course = Course::where('COURSE_ID', $pra_class->COURSE_ID)->first();
-        
-                    $reg_info[$registration->REG_ID] = ['class_date' => $pra_class->CLASS_START,
-                                                        'course_name' => $course->COURSE_NAME,
-                                                        'course_fee' => $course->COURSE_FEE];
+
+                // Create an array of stuffs with the Stuff ID as the value and the Stuff PNAME as the displayed text
+                $stuffNameID = [];
+                foreach ($stuffs as $stuff) {
+                    $stuffNameID[$registration->STUFF_ID] = $stuff->STUFF_PNAME;
                 }
         
+                // Create Array for Course Name / Class Start Date / Other Info
+                $class_info = [];
+
+                foreach( $registrations as $registration ){
+
+                //get class
+                $pra_class = PRA_Class::where('CLASS_ID', $registration->CLASS_ID)->first();
+
+                //get course
+                $course = Course::where('COURSE_ID', $pra_class->COURSE_ID)->first();
+    
+                $class_info[$registration->REG_ID] = ['class_date' => $pra_class->CLASS_START,
+                                                    'course_name' => $course->COURSE_NAME,
+                                                    'course_fee' => $course->COURSE_FEE];
+                }
                 //go to view with all the students
                 return view('registrations.edit')->with([
                     'registration' => $registration,
+                    'class_info' => $class_info,
                     'course' => $course,
-                    'stuffs' => $stuffs,
-                    'reg_info' => $reg_info,
+                    'stuff_NameID' => $stuffNameID,
                 ]);
     }
 
