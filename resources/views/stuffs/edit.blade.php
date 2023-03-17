@@ -19,7 +19,7 @@
                         
                         <!--Page Heading -->
                         <div class="row justify-content-center">
-                            <div class="col-10">
+                            <div class="col-10 mb-2">
                                 <h1 class="card-heading text-white text-center">Editing User: &nbsp;{{ $stuff->STUFF_FNAME}}</h1>
                             </div>
                         </div>
