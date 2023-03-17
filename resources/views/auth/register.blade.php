@@ -33,10 +33,6 @@
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center mt-5">
-                                <label for="remember_me" class="flex col-2 items-center">
-                                    <x-checkbox id="remember_me" name="remember" />
-                                    <span class="ml-2 text-sm">Remember me</span>
-                                </label>
                                 
                                 <x-button class="btn btn-light ml-4 ">
                                     Register
