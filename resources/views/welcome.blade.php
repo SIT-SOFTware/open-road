@@ -4,9 +4,9 @@
     
     <x-slot name="content">
         <div class="container">
-            <div class="row">
-                <div class="col"> 
-    
+            <div class="row justify-content-center text-center py-4">
+                <div class="col-10"> 
+                    <h1>Lorem ipsum dolor sit</h1>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Esse est culpa dolorum ab ducimus repudiandae ex voluptas 
                     provident id quo, soluta, earum, quia non alias a. Culpa 
