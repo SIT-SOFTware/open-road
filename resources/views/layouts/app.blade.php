@@ -77,7 +77,7 @@
                                 About<i class="bi bi-chevron-down custom-chevron"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="return alert('this ain\'t done yet, go away!')">About Us</a></li>
 
                                 <li><a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a></li>
 
@@ -105,7 +105,7 @@
                         </li>
                         @endhasrole
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="#" >
+                            <a class="nav-link " href="#" onclick="return alert('this ain\'t done yet, go away!')" >
                                 Calendar
                             </a>
                         </li>
