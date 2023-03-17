@@ -46,7 +46,7 @@
                 <a href="{{ route('admin.courses.edit', $course) }}" class="text-customWhite text-decoration-none">
             @endif
 
-                <div class="row justify-content-center mb-3">
+                <div class="row {{ request()->routeIs('admin.trashed.courses.*') ? 'text-white' : '' }} justify-content-center mb-3">
                     <div class="col">
                         <div class="card bg-dark p-3 shadow-lg">
                             <div class="card-body">

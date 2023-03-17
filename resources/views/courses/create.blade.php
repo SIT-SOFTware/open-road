@@ -1,10 +1,11 @@
 <x-app-layout>
 
     <x-slot name="content">
-                    
+           
         <div class="container my-4">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-11">
+                    <a href="{{ route('admin.courses.index') }}" class="btn btn-dark mb-2 px-2 me-3 mt-4 fs-5">View Courses</a>         
                     <div class="card shadow-lg bg-dark text-white">
                         <div class="card-body">
         
@@ -13,7 +14,7 @@
                                 @csrf
                                 
                                 <!-- Title -->
-                                <h1 class="card-title text-center mb-5 mt-3">New Course</h1>
+                                <h1 class="card-title text-center mb-4 mt-3">New Course</h1>
         
                                 <div class="row justify-content-center my-4">
                                     
