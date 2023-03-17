@@ -24,8 +24,14 @@ class AdvertisementController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('advertisement.upload');
+    { 
+        // Get all active ads
+        $ads = Advertisement::all();
+        
+        // Get only trashed ads
+        $trashedAds = Advertisement::onlyTrashed()->get();
+
+        return view('advertisement.index')->with('ads', $ads)->with('trashedAds', $trashedAds);
     }
 
     /**
@@ -85,16 +91,25 @@ class AdvertisementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Advertisement $ad)
     {
-        //
+        //updates the DB entry
+        $ad->update([
+            'AD_SPACE_TYPE' => $request->adStatus,
+        ]);
+
+        //Return with success message
+        return back()->with('success', 'Image status updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Advertisement $ad)
     {
-        //
+        $ad->delete();
+
+        return to_route('advertisements.index')
+            ->with('success', 'Moved to Trash!');
     }
 }
