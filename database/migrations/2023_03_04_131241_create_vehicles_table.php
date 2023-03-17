@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('VEHICLE_MAKE', 20);
             $table->string('VEHICLE_MODEL', 40);
             $table->char('VEHICLE_ODO', 10);
+            // $table->enum('VEHICLE_TYPE',[ 1, 2 ]);
             $table->unsignedInteger('VEHICLE_TYPE');
             $table->string('VEHICLE_COLOR', 10)->nullable();
             $table->string('VEHICLE_SIZE', 4);
