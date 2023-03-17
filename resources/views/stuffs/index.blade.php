@@ -8,7 +8,7 @@
         
         <div class="container">
             <!-- Title -->
-            <h1 class="text-dark text-center mt-3">Available Classes</h2>
+            <h1 class="text-dark text-center mt-3">Users</h2>
             <hr class="border border-dark" />
     
             <!-- Add Class Button-->

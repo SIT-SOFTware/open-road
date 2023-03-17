@@ -41,7 +41,7 @@
                 </div>
             </div>
         @empty
-            No Poop: <a href="{{ route('registrations.create') }}" class="button">Make Registration</a>
+            <a href="{{ route('registrations.create') }}" class="btn btn-primary">Make Registration</a>
         @endforelse
     </x-slot>
     
