@@ -93,7 +93,7 @@
                     
                             
                     <!-- Delete Button --> 
-                    <form action="{{ route('admin.classes.destroy', $class) }}" method="post" class="d-lg-inline text-center float-lg-end" onsubmit="return confirm('Do you want to trash this course?')">
+                    <form action="{{ route('admin.classes.destroy', $class) }}" method="post" class="d-lg-inline text-center float-lg-end" onsubmit="return confirm('Do you want to deactivate this course?')">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-danger px-3 me-3 mt-4 fs-5"><i class="bi bi-trash3"></i></button>

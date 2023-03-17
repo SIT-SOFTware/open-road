@@ -73,7 +73,7 @@
                         @method('delete')
                         @csrf
                         
-                        <button class="btn btn-danger px-3 me-3 mt-4 fs-5" onclick="return confirm('Do you want to trash this course?')"><i class="bi bi-trash3"></i></button>
+                        <button class="btn btn-danger px-3 me-3 mt-4 fs-5" onclick="return confirm('Do you want to deactivate this course?')"><i class="bi bi-trash3"></i></button>
                     </form>
 
                 </div>

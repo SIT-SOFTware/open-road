@@ -17,11 +17,11 @@
         <a href="{{ route('admin.classes.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add Class</a>
 
         <!-- Trashed Classes Button -->
-        <a href="{{ route('admin.trashed.classes.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Trashed</a>
+        <a href="{{ route('admin.trashed.classes.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Inactive</a>
         
         @else
         <!-- Title -->
-        <h1 class="text-dark text-center mt-3">Trashed Classes</h2>
+        <h1 class="text-dark text-center mt-3">Inactive Classes</h2>
         <hr class="border border-dark" />
 
         <!-- Add back button to return from trashed page -->
