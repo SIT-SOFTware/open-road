@@ -113,9 +113,6 @@
                         <li class="nav-item">
                             <a href="{{ route('info.index') }}" class="nav-link {{ Route::is('login') ? 'active' : '' }}"><i class="bi bi-person-circle"></i></a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
-                        </li>
                         @hasrole('admin')
                         <li class="nav-item">
                             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }}"><i class="bi bi-person-badge"></i></a>
