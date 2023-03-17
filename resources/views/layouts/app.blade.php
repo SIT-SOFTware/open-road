@@ -133,12 +133,11 @@
                     <div class="row fs-5"><div class="col">QUICK LINKS</div></div>
                     <hr class="border mb-3 border-dark" />
                     <div class="fs-6">
-                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">New Inventory</div></div></a>
-                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">NON-CURRENT INVENTORY</div></div></a>
-                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">PRE-OWNED INVENTORY</div></div></a>
-                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">PARTS & ACCESSORIES</div></div></a>
-                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">PRECISION POWERSPORTS</div></div></a>
-                        <a href="#" class="text-decoration-none text-white"><div class="row"><div class="col">CONTACT</div></div></a>
+                        <a href="{{ route('faq.index') }}" class="text-decoration-none text-white"><div class="row"><div class="col">FAQ</div></div></a>
+                        <a href="{{ route('info.index') }}" class="text-decoration-none text-white"><div class="row"><div class="col">Account</div></div></a>
+                        <a href="{{ route('courses') }}" class="text-decoration-none text-white"><div class="row"><div class="col">Course Overview</div></div></a>
+                        <a href="{{ route('registrations.index') }}" class="text-decoration-none text-white"><div class="row"><div class="col">Class Registration</div></div></a>
+                        <a href="https://precisionpowersportsltd.com/" class="text-decoration-none text-white"><div class="row"><div class="col">Precision Powersports</div></div></a>
                     </div>
                 </div>
                 <div class="col-sm-3 py-4 text-center text-sm-start">
@@ -167,9 +166,9 @@
                     <div class="row-cols-1">
                         <div class="col">1505 2nd Avenue South</div>
                         <div class="col">Lethbridge, AB T1J 0E8</div>
-                        <div class="col mt-3" style="font-size: 0.8em;">T: (403) 394-6228</div>
-                        <div class="col" style="font-size: 0.8em;">TF: (888) 494-6228</div>
-                        <div class="col mt-3">
+                        <div class="col mt-3" >T: (403) 394-6228</div>
+                        <div class="col" >TF: (888) 494-6228</div>
+                        <div class="col mt-3 fs-5">
                             <a href="https://twitter.com/PrecisionLeth" target="0" class="text-white"><i class="bi bi-twitter p-1"></i></a>
                             <a href="https://www.facebook.com/PrecisionPowersportsLtd/" target="0" class="text-white"><i class="bi bi-facebook p-1" ></i></a>
                             <a href="https://www.instagram.com/precisionpowersportsltd/" target="0" class="text-white"><i class="bi bi-instagram p-1"></i></a>
