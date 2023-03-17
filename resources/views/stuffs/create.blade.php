@@ -14,7 +14,6 @@
                 <div class="card-body">
                     
                     <form action="{{ route('info.store') }}" method="post">
-                        @method('put')
                         @csrf
                         
                         <!--Page Heading -->
@@ -32,7 +31,7 @@
                                     <div class="col-md-4 col-12 mb-4 mb-md-5">
                                         <div class="input-group">
                                             <label class="input-group-text">Preferred Name</label>
-                                            <input required class="form-control" placeholder="Preferred Name" type="text" name="pName">
+                                            <input class="form-control" placeholder="Preferred Name" type="text" name="pName">
                                         </div>
                                     </div>
                                 

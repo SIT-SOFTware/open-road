@@ -14,12 +14,12 @@
             <a href="{{ route('admin.vehicles.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add vehicle</a>
 
             <!-- Go to trashed vehicles -->
-            <a href="{{ route('admin.trashed.vehicles.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Trashed</a>
+            <a href="{{ route('admin.trashed.vehicles.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Inactive</a>
 
         <!-- Checks to see if the user is looking at trashed vehicles -->
         @else
             <!-- Title -->
-            <h1 class="text-dark text-center mt-3">Trashed Vehicles</h2>
+            <h1 class="text-dark text-center mt-3">Inactive Vehicles</h2>
             <hr class="border border-dark" />
 
             <!-- Add back button to return from trashed page -->

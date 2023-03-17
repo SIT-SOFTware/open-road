@@ -19,7 +19,7 @@
             <a href="{{ route('admin.courses.create') }}" class="btn btn-success p-2 me-2 mb-2 fs-5">Add Course</a>
 
             <!-- Go to trashed courses -->
-            <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Trashed</a>
+            <a href="{{ route('admin.trashed.courses.index') }}" class="btn btn-danger p-2 mb-2 fs-5">Inactive</a>
 
         <!-- checks to see if the user is looking at courses -->
         @elseif(request()->routeIs('courses'))
@@ -31,7 +31,7 @@
         @else
 
             <!-- Trash Title -->
-            <h1 class="text-dark text-center mt-3">Trashed Courses</h2>
+            <h1 class="text-dark text-center mt-3">Inactive Courses</h2>
             <hr class="border border-dark" />
 
             <!--Back Button -->
