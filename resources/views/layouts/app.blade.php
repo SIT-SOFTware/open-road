@@ -110,7 +110,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://precisionpowersportsltd.com/" target=0 class="nav-link">PPS</a>
+                            <a href="https://precisionpowersportsltd.com/" target=0 class="nav-link">Precision Powersports</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('info.index') }}" class="nav-link {{ Route::is('login') ? 'active' : '' }}"><i class="bi bi-person-circle"></i></a>
