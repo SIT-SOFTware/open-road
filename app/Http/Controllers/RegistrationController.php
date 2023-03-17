@@ -180,6 +180,7 @@ class RegistrationController extends Controller
                     'class_info' => $class_info,
                     'course' => $course,
                     'stuff_NameID' => $stuffNameID,
+                    'stuffs' => $stuffs,
                 ]);
     }
 
