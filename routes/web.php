@@ -13,6 +13,9 @@ use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\MeetTeamController;
 use App\Http\Controllers\TrashedCourseController;
 use App\Http\Controllers\TrashedVehicleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Models\Vehicle;
 
 /*
@@ -29,6 +32,19 @@ use App\Models\Vehicle;
 Route::get('/', function(){
     return view('welcome');
 })->name('welcome');
+
+// RoleController && UserController route
+Route::resources([
+    'users' => UserController::class,
+    'roles' => RoleController::class,
+]);
+
+Route::group(['middleware' => ['auth']], function() {
+    /**
+     * Logout Route
+     */
+    Route::post('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
+});
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
@@ -49,7 +65,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::resource('/vehicles', VehicleController::class);
 
     Route::prefix('/trashed')->name('trashed.')->group(function(){
-        
+
         //Prefix for trashed courses
         Route::prefix('/courses')->name('courses.')->group(function(){
             Route::get('/', [TrashedCourseController::class, 'index'])->name('index');
@@ -74,7 +90,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     })->name('trashed');
 });
 
-//Resource Controllers 
+//Resource Controllers
 
 Route::resource('/advertisements', AdvertisementController::class);
 
@@ -82,7 +98,7 @@ Route::resource('/info', StuffController::class)->middleware('auth')->parameters
 
 Route::resource('/registrations', RegistrationController::class)->middleware('auth');
 
-//Middleware Controllers 
+//Middleware Controllers
 
 Route::middleware([
     'auth:sanctum',

@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        
+
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <!-- Stylesheets -->
         <link rel="stylesheet" href="{{ asset('css/common.css'); }}">
 
@@ -23,7 +23,7 @@
 
         <!-- Bootstrap Icons https://icons.getbootstrap.com/ -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        
+
         <title>Precision Riding Academy Ltd.</title>
 
     </head>
@@ -72,7 +72,7 @@
                             <a href="{{ route('welcome') }}" class="nav-link {{ Route::is('welcome') ? 'active' : '' }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            
+
                             <a class="nav-link {{ Route::is('faq') ? 'active' : '' }}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 About<i class="bi bi-chevron-down custom-chevron"></i>
                             </a>
@@ -80,7 +80,9 @@
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
 
                                 <li><a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a></li>
-                                
+
+                                <li><a class="dropdown-item" href="#">Meet the Team</a></li>
+
                                 <li><a class="dropdown-item" href="{{ route('meet-team.index') }}">Meet the Team</a></li>
                             </ul>
                         </li>
@@ -91,6 +93,15 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a href="{{ route('courses') }}" class="dropdown-item">Course Overview</a></li>
                                 <li><a class="dropdown-item" href="{{ route('registrations.index') }}">Register</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Manage<i class="bi bi-chevron-down custom-chevron"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('users.index') }}">Users</a></li>
+                                <li><a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -107,20 +118,35 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
                         </li>
+                        @hasrole('admin')
                         <li class="nav-item">
                             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }}"><i class="bi bi-person-badge"></i></a>
                         </li>
+                        @endhasrole
+                        @auth
+                        <li class="nav-item">
+                            <form action="{{ route('logout.perform') }}" method="post">
+                                @csrf
+                                <a href="{{ route('logout.perform') }}" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit(); "><i class="bi bi-box-arrow-right"></i></a>
+                            </form>
+                        </li>
+                        @endauth
                     </ul>
+                    {{-- <div>
+                        <x-alert-success>
+                            {{ session('success') }}
+                        </x-alert-success>
+                    </div> --}}
                 </div>
             </div>
         </nav>
-        
+
         <!-- checks to see if the slide element is in the blade being called and renders it conditionally -->
- 
+
         @isset($slide)
             {{ $slide }}
         @endisset
-        
+
         <!-- Main Content -->
         <div class="container p-3">
             {{ $content }}
@@ -128,6 +154,19 @@
 
         <!-- Footer -->
         <footer class="container-fluid bg-red mt-3 shadow-lg text-white" >
+            {{-- @if (session('success'))
+            <x-modal id="logout-message" title="Logout Message">
+                <x-slot>
+                    <x-alert-success>
+                        {{ session('success') }}
+                    </x-alert-success>
+                </x-slot>
+                <x-slot name="footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </x-slot>
+            </x-modal>
+            @endif --}}
+
             <div class="row justify-content-around  p-3">
                 <div class="col-sm-3 text-center text-sm-start py-4">
                     <div class="row fs-5"><div class="col">QUICK LINKS</div></div>
