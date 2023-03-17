@@ -48,7 +48,17 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
-Route::resource('/faq', FAQController::class);
+Route::group(['middleware' => ['permission:update FAQ|create FAQ|trash FAQ']], function () {
+    Route::resource('/faq', FAQController::class);
+});
+
+Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
+
+Route::group(['middleware' => ['permission:update teammate|create teammate|trash teammate']], function () {
+    Route::resource('/meet-team', MeetTeamController::class);
+});
+
+Route::get('/meet-team', [FAQController::class, 'index'])->name('meet-team.index');
 
 Route::resource('/meet-team', MeetTeamController::class);
 
