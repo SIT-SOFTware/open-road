@@ -93,6 +93,7 @@
                                 <li><a class="dropdown-item" href="{{ route('registrations.index') }}">Register</a></li>
                             </ul>
                         </li>
+                        @hasrole('admin')
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Manage<i class="bi bi-chevron-down custom-chevron"></i>
@@ -102,6 +103,7 @@
                                 <li><a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a></li>
                             </ul>
                         </li>
+                        @endhasrole
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="#" >
                                 Calendar
