@@ -18,11 +18,13 @@
                     name='question'
                     placeholder="Question"
                     value='' />
+                @can('create FAQ')
                 <button
                     type="submit"
                     class="btn btn-danger col-1 ms-2">
                         Add Question
                 </button>
+                @endcan
                 <label for="answer">Answer:</label>
                 <textarea
                     class="col-9 rounded"
