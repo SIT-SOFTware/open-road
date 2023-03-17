@@ -16,13 +16,17 @@
             <h2 class="col">{{ $faq->QUESTION }}</h2>
             <div class="row align-items-start">
                 <p class="col col-10">{{ $faq->ANSWER }}</p>
+                @can('update FAQ')
                 <a href="{{ route('faq.edit', $faq) }}" class="col"><button type="button" class="btn btn-danger">Edit Question</button></a>
+                @endcan
             </div>
         @empty
             <p>There are no questions yet.</p>
         @endforelse
 
+        @can('create FAQ')
         <a href="{{ route('faq.create') }}" class="col-2 mt-6"><button type="button" class="btn btn-danger">Add Question</button></a>
+        @endcan
 
     </x-slot>
 

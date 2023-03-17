@@ -81,8 +81,6 @@
 
                                 <li><a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a></li>
 
-                                <li><a class="dropdown-item" href="#">Meet the Team</a></li>
-
                                 <li><a class="dropdown-item" href="{{ route('meet-team.index') }}">Meet the Team</a></li>
                             </ul>
                         </li>

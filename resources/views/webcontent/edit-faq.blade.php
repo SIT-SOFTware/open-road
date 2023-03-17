@@ -30,9 +30,12 @@
                     value="">{{ @Old('answer', $faqs->ANSWER) }}</textarea>
             </div>
         
+            @can('update FAQ')
             <button type="submit" class="btn btn-success">Finish Editing</button>
+            @endcan
         </form>
 
+        @can('trash FAQ')
         <form action="{{ route('faq.destroy', $faqs) }}" method="POST">
             @method('delete')
             @csrf
@@ -40,6 +43,7 @@
             <button type="submit" class="btn btn-danger col-1 mt-6" onclick="return confirm('Are you sure you want to delete this question?')">Delete Question</button>
 
         </form>
+        @endcan
 
         <a href="{{ route('faq.index') }}"><button class="btn btn-danger col-1 mt-6">Cancel Editing</button></a>
 

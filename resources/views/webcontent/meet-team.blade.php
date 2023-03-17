@@ -16,9 +16,13 @@
                 {{-- TODO add conditional rendering so the link is only a link for admin --}}
                 
                 <div class="col col-6 align-items-start">
+                    @can('update teammate')
                     <a href="{{ route('meet-team.edit', $team) }}" class="col col-6 align-items-start">
+                    @endcan
                         <img src="{{ asset($team->FILEPATH) }}" class="w-50 rounded img-thumbnail">
+                    @can('update teammate')
                     </a>
+                    @endcan
                     <h2 class="col">{{ $team->NAME }}</h2>
                     <h3 class="col">Role: {{ $team->ROLE }}</h3>
                     <p>{{ $team->BIO }}</p>
@@ -28,7 +32,9 @@
             @endforelse
         </div>
 
+        @can('create teammate')
         <a href="{{ route('meet-team.create') }}" class="col-2 mt-6"><button type="button" class="btn btn-danger">Add Team Member</button></a>
+        @endcan
 
     </x-slot>
 
