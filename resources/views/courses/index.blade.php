@@ -43,10 +43,14 @@
         @forelse ( $courses as $course )
             
             @if(request()->routeIs('admin.courses.*'))
+            <!-- TODO if auth ever gets implemented this should link to the available classes of course type for non admin, then delete my next if and <a> -->
                 <a href="{{ route('admin.courses.edit', $course) }}" class="text-customWhite text-decoration-none">
             @endif
+            @if(request()->routeIs('courses'))
+                <a href="{{ route('registrations.index') }}" class="text-customWhite text-decoration-none">
+            @endif
 
-                <div class="row {{ request()->routeIs('admin.trashed.courses.*') ? 'text-white' : '' }} justify-content-center mb-3">
+                <div class="row {{ request()->routeIs('admin.trashed.courses.*', 'courses') ? 'text-white' : '' }} justify-content-center mb-3">
                     <div class="col">
                         <div class="card bg-dark p-3 shadow-lg">
                             <div class="card-body">
@@ -106,6 +110,9 @@
                     </div>
                 </div>
 
+            @if(request()->routeIs('courses'))
+                </a>
+            @endif
             @if(request()->routeIs('admin.courses.*'))
                 </a>
             @endif
