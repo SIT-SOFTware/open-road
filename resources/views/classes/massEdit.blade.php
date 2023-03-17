@@ -35,18 +35,30 @@
                                     
                                     <!-- Class Code Input --> 
                                     <div class="row text-center text-white justify-content-lg-around justify-content-center fs-4">
+                                        <!-- Class Code Input -->
                                         <div class="col-lg-2 col-8 mb-lg-2 mb-4">
                                             <div class="input-group">
                                                 <label class="input-group-text">Class Code</label>
-                                                <input required class="form-control" type="number" placeholder="{{ $class->CLASS_ID }}" name="classCode">
+                                                <input required class="form-control" type="number" placeholder="Class Code" name="classCode" value="{{  @Old('classID',$class->CLASS_ID) }}">
                                             </div>
                                         </div>
 
-                                        <!-- Course ID Input --> 
+                                        <!-- Course ID Input -->
                                         <div class="col-lg-2 col-8 mb-lg-2 mb-4">
                                             <div class="input-group">
-                                                <label class="input-group-text">Course ID</label>
-                                                <input required class="form-control" type="number" placeholder="{{ $class->COURSE_ID }}" name="courseID">
+                                                <label class="input-group-text" for="courseID">Course</label>
+                                                <select class="form-control" id="CourseID" name="courseID">
+                                                    <option selected value="{{  @Old('courseID', $class->COURSE_ID) }}">{{ $class->course->COURSE_NAME }}</option>
+                                                    @forelse($courses as $course)
+
+                                                    @if($course->COURSE_ID == @Old('courseID', $class->COURSE_ID))
+                                                        <!-- Don't print an option if it's the one that's already been selected -->
+                                                    @else
+                                                        <option value="{{  $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
+                                                    @endif
+                                                    
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
 
@@ -62,11 +74,11 @@
                                             </div>
                                         </div>
 
-                                        <!-- Start Date Selector --> 
+                                        <!-- Start Date Selector -->
                                         <div class="col-lg-3 col-8 mb-lg-2 mb-4">
                                             <div class="input-group">
                                                 <label class="input-group-text">Start Date</label>
-                                                <input required class="form-control" onfocusout=(this.type="") onfocus=(this.type="date") type="" placeholder="{{ Str::limit($class->CLASS_START, 10, '') }}" name="startDate">
+                                                <input required class="form-control" type="date" value="{{  @Old('classDate',Str::limit($class->CLASS_START, 10, '')) }}" name="startDate">
                                             </div>
                                         </div>
 
@@ -80,11 +92,10 @@
                                         </div>
                                     </div>
 
-                                    <!-- Submit Button --> 
-                                    <div class="d-lg-inline text-center float-lg-end">
-                                        <div class="col-auto">
-                                            <a href="{{ route('admin.classes.update', $class) }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
-                                        </div>
+                                    
+                                    <!-- Save Button -->
+                                    <div class="d-lg-inline text-center mt-4 float-lg-end">
+                                        <button class="btn btn-success px-2 me-3 fs-5">Save Changes</button>
                                     </div>
 
                                 </form>

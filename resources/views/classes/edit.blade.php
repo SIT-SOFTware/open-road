@@ -25,7 +25,7 @@
                             <div class="col-lg-2 col-8 mb-lg-2 mb-4">
                                 <div class="input-group">
                                     <label class="input-group-text">Class Code</label>
-                                    <input required class="form-control" type="number" placeholder="Class Code" name="classCode" value="{{ $class->CLASS_ID }}">
+                                    <input required class="form-control" type="number" placeholder="Class Code" name="classCode" value="{{  @Old('classID',$class->CLASS_ID) }}">
                                 </div>
                             </div>
 
@@ -34,13 +34,13 @@
                                 <div class="input-group">
                                     <label class="input-group-text" for="courseID">Course</label>
                                     <select class="form-control" id="CourseID" name="courseID">
-                                    <option selected value="{{ $class->COURSE_ID }}">{{ $courseName[$class->COURSE_ID] }}</option>
+                                    <option selected value="{{  @Old('courseID', $class->COURSE_ID) }}">{{ $courseName[$class->COURSE_ID] }}</option>
                                         @forelse($courses as $course)
 
                                         @if($course->COURSE_ID == @Old('courseID', $class->COURSE_ID))
                                             <!-- Don't print an option if it's the one that's already been selected -->
                                         @else
-                                            <option value="{{ $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
+                                            <option value="{{  $course->COURSE_ID }}">{{ $course->COURSE_NAME }}</option>
                                         @endif
                                         
                                         @endforeach
@@ -53,7 +53,7 @@
                                 <div class="input-group">
                                     <label class="input-group-text" for="instructorID">Instructor</label>
                                     <select class="form-control" id="InstructorID" name="instructorID">
-                                    <option selected value="{{ $class->PRIMARY_INST }}">{{ $instID[$class->PRIMARY_INST] }}</option>
+                                    <option selected value="{{  @Old('classInst',$class->PRIMARY_INST) }}">{{ $instID[$class->PRIMARY_INST] }}</option>
                                         @forelse($stuff as $instructor)
 
                                             @if(!($instructor->STUFF_ID == @Old('instructorID', $class->PRIMARY_INST)))
@@ -70,7 +70,7 @@
                             <div class="col-lg-3 col-8 mb-lg-2 mb-4">
                                 <div class="input-group">
                                     <label class="input-group-text">Start Date</label>
-                                    <input required class="form-control" type="date" value="{{ Str::limit($class->CLASS_START, 10, '') }}" name="startDate">
+                                    <input required class="form-control" type="date" value="{{  @Old('classDate',Str::limit($class->CLASS_START, 10, '')) }}" name="startDate">
                                 </div>
                             </div>
 
@@ -83,22 +83,20 @@
                                 <!-- TODO foreach loop through students with this registration -->
                             </div>
                         </div>
-
-                        <!-- Submit Button --> 
-                        <div class="d-lg-inline text-center float-lg-end">
-                            <div class="col-auto">
-                                <a href="{{ route('admin.classes.update', $class) }}" class="btn btn-success px-2 me-3 mt-4 fs-5">Save Changes</a>
-                            </div>
+                        
+                        <!-- Save Button -->
+                        <div class="d-lg-inline text-center mt-4 float-lg-end">
+                            <button class="btn btn-success px-2 me-3 fs-5">Save Changes</button>
                         </div>
 
                     </form>
                     
                             
                     <!-- Delete Button --> 
-                    <form action="{{ route('admin.classes.destroy', $class) }}" method="post" class="d-lg-inline text-center float-lg-end">
+                    <form action="{{ route('admin.classes.destroy', $class) }}" method="post" class="d-lg-inline text-center float-lg-end" onsubmit="return confirm('Do you want to trash this course?')">
                         @method('delete')
                         @csrf
-                        <button class="btn btn-danger px-3 me-3 mt-4 fs-5" onclick="return confirm('Do you want to trash this course?')"><i class="bi bi-trash3"></i></button>
+                        <button type="submit" class="btn btn-danger px-3 me-3 mt-4 fs-5"><i class="bi bi-trash3"></i></button>
                     </form>
 
                 </div>

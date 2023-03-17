@@ -36,7 +36,7 @@
             @if(!request()->routeIs('admin.trashed.classes.*'))
             <a href="{{ route('admin.classes.edit', $class) }}" class="text-customWhite text-decoration-none">
             @endif
-                <div class="row justify-content-center mb-3">
+                <div class="row {{ request()->routeIs('admin.trashed.classes.*') ? 'text-white' : '' }} justify-content-center mb-3">
                     <div class="col">
                         <div class="card bg-dark p-3 shadow-lg">
                             <div class="card-body">
