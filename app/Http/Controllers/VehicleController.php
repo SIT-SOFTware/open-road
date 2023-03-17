@@ -114,8 +114,6 @@ class VehicleController extends Controller
 
         //validate form inpur
         $request->validate([
-            'stockNo' => 'required|size:17',
-            'vin' => 'required|size:17',
             'year' => 'required|size:4',
             'make' => 'required|max:20',
             'model' => 'required|max:40',
@@ -128,8 +126,6 @@ class VehicleController extends Controller
 
         //save updated Vehicle model
         $vehicle->update([
-            'VEHICLE_STOCK_NUM' => $request->stockNo,
-            'VEHICLE_VIN' => $request->vin,
             'VEHICLE_YEAR' => $request->year,
             'VEHICLE_MAKE' => $request->make,
             'VEHICLE_MODEL' => $request->model,

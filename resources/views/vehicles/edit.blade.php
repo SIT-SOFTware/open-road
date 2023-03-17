@@ -52,26 +52,6 @@
 
                                 <div class="row justify-content-center">
 
-                                    <!-- Stock # -->
-                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                        <div class="input-group">
-                                            <label class="input-group-text" for="stockNo">Stock Number</label>
-                                            <input required type="text" class="form-control" name="stockNo" field="stockNo" placeholder="Enter Stock No." maxlength="17" autocomplete="off" value="{{ @Old('stockNo', $vehicle->VEHICLE_STOCK_NUM) }}"/>
-                                        </div>
-                                    </div>
-
-                                    <!-- VIN -->
-                                    <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                        <div class="input-group">
-                                            <label class="input-group-text">VIN</label>
-                                            <input required class="form-control" type="text" name="vin" fied="vin" placeholder="Enter VIN" maxlength="17" autocomplete="off" value="{{  @Old('vin', $vehicle->VEHICLE_VIN) }}"/>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
                                     <!-- Vehicle Type -->
                                     <div class="col-md-5 col-10 mb-4 mb-md-5">
                                         <div class="input-group">

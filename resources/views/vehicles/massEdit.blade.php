@@ -25,8 +25,9 @@
 
                     <div class="card mb-3 shadow-lg bg-dark text-white">
                         <div class="card-body">
-                            {{-- For for creating a new user uses info.store route that save a new stuff instance --}}
-                            <form action="{{ route('admin.vehicles.store') }}" method="post">
+                            
+                            <form action="{{ route('admin.vehicles.update', $bike) }}" method="post">
+                                @method('put')
                                 @csrf
 
                                 <a href="#bikeCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-customWhite" role="button">
@@ -68,33 +69,16 @@
                                 
                                 <div class="collapse" id="bikeCollapse{{$loop->iteration}}">
 
+
                                     <div class="row mt-md-4 justify-content-center">
-
-                                        <!-- Stock # -->
-                                        <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                            <div class="input-group">
-                                                <label class="input-group-text" for="stockNo">Stock Number</label>
-                                                <input required type="text" class="form-control" name="stockNo" placeholder="Enter Stock No." maxlength="17" autocomplete="off" value="{{ $bike->VEHICLE_STOCK_NUM }}"/>
-                                            </div>
-                                        </div>
-
-                                        <!-- VIN -->
-                                        <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                            <div class="input-group">
-                                                <label class="input-group-text">VIN</label>
-                                                <input required class="form-control" type="text" name="vin"  placeholder="Enter VIN" maxlength="17" autocomplete="off" value="{{ $bike->VEHICLE_VIN }}"/>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row justify-content-center">
 
                                         <!-- Vehicle Type -->
                                         <div class="col-md-5 col-10 mb-4 mb-md-5">
                                             <div class="input-group">
                                                 <label class="input-group-text">Vehicle Type</label>
-                                                <select class="form-control" placeholder="Choose Vehicle" name="type" value="{{ $bike->VEHICLE_TYPE }}">
+
+                                                <select class="form-control" placeholder="Choose Vehicle" name="type"">
+                                                    <option selected value="{{  @Old('vehicleType', $bike->VEHICLE_TYPE) }}">{{  @Old('vehicleType', $bike->VEHICLE_TYPE) == 2 ? 'ATV' : 'Motorcycle'  }}</option>
                                                     <option value="1">Motorcycle</option>
                                                     <option value="2">ATV</option>
                                                 </select>
@@ -135,7 +119,7 @@
                                     <div class="row justify-content-center mb-5 ">
                                         <div class="col-10">
                                             <div class="form-floating text-black">
-                                                <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" >{{ $bike->NOTES }}</textarea>
+                                                <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" field="notes">{{  @Old('notes', $bike->NOTES) }}</textarea>
                                                 <label for="notes" class="ps-3">Notes</label>
                                             </div>
                                         </div>
@@ -186,8 +170,9 @@
 
                     <div class="card mb-3 shadow-lg bg-dark text-white">
                         <div class="card-body">
-                            {{-- For for creating a new user uses info.store route that save a new stuff instance --}}
-                            <form action="{{ route('admin.vehicles.store') }}" method="post">
+                            
+                            <form action="{{ route('admin.vehicles.update', $atv) }}" method="post">
+                                @method('put')
                                 @csrf
 
                                 <a href="#atvCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-customWhite" role="button">
@@ -231,31 +216,13 @@
 
                                     <div class="row mt-md-4 justify-content-center">
 
-                                        <!-- Stock # -->
-                                        <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                            <div class="input-group">
-                                                <label class="input-group-text" for="stockNo">Stock Number</label>
-                                                <input required type="text" class="form-control" name="stockNo" placeholder="Enter Stock No." maxlength="17" autocomplete="off" value="{{ $atv->VEHICLE_STOCK_NUM }}"/>
-                                            </div>
-                                        </div>
-
-                                        <!-- VIN -->
-                                        <div class="col-md-5 col-10 mb-4 mb-md-5">
-                                            <div class="input-group">
-                                                <label class="input-group-text">VIN</label>
-                                                <input required class="form-control" type="text" name="vin"  placeholder="Enter VIN" maxlength="17" autocomplete="off" value="{{ $atv->VEHICLE_VIN }}"/>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row justify-content-center">
-
                                         <!-- Vehicle Type -->
                                         <div class="col-md-5 col-10 mb-4 mb-md-5">
                                             <div class="input-group">
                                                 <label class="input-group-text">Vehicle Type</label>
-                                                <select class="form-control" placeholder="Choose Vehicle" name="type" value="{{ $atv->VEHICLE_TYPE }}">
+                                                
+                                                <select class="form-control" placeholder="Choose Vehicle" name="type"">
+                                                    <option selected value="{{  @Old('vehicleType', $atv->VEHICLE_TYPE) }}">{{  @Old('vehicleType', $atv->VEHICLE_TYPE) == 2 ? 'ATV' : 'Motorcycle' }}</option>
                                                     <option value="1">Motorcycle</option>
                                                     <option value="2">ATV</option>
                                                 </select>
@@ -296,7 +263,7 @@
                                     <div class="row justify-content-center mb-5 ">
                                         <div class="col-10">
                                             <div class="form-floating text-black">
-                                                <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" >{{ $atv->NOTES }}</textarea>
+                                                <textarea class="form-control" placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" field="notes">{{  @Old('notes', $atv->NOTES) }}</textarea>
                                                 <label for="notes" class="ps-3">Notes</label>
                                             </div>
                                         </div>
@@ -335,6 +302,22 @@
             @endforeach
         </div>
         <hr class="border border-dark my-3" />
+        <!-- Dynamic Checkbox Script -->
+        <script>
+            // Get the checkbox element
+            const checkbox = document.getElementById('btn-check-outlined');
+
+            // Get the label element
+            const label = document.getElementById('availLabel');
+
+            // Set the initial text of the label
+            label.textContent = checkbox.checked ? 'Available' : 'Unavailable';
+
+            // Add an event listener to the checkbox to update the label text when it is checked or unchecked
+            checkbox.addEventListener('change', function() {
+                label.innerHTML = this.checked ? 'Available' : 'Unavailable';
+            });
+        </script>
         
     </x-slot>
     

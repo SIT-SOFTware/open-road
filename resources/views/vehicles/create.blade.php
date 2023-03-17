@@ -12,7 +12,7 @@
                                 @csrf
 
                                 <!-- Title -->
-                                <h1 class="card-title text-center mb-5 mt-4">Create Vehicle</h1>
+                                <h1 class="card-title text-center mb-4 mt-4">Create Vehicle</h1>
 
                                 <div class="row justify-content-center">
                                     <div class="col-10">

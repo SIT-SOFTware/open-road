@@ -102,11 +102,41 @@
                                         <div class="row justify-content-center mb-4 ">
                                             <div class="col-11">
                                                 <div class="form-floating text-black">
-                                                    <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" :value="@old('notes')"></textarea>
+                                                    <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" field="notes">{{  @Old('notes', $bike->NOTES) }}</textarea>
                                                     <label for="notes" class="">Notes</label>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Conditionally renders deleted tag, restore, and perma-delete buttons if user is viewing trashed vehicles -->
+                                        @if(request()->routeIs('admin.trashed.vehicles.*'))
+                                                    
+                                            <div class="row justify-content-lg-end justify-content-center mt-4">
+                                                
+                                                <!-- Deleted tag -->
+                                                <div class="text-red col-lg-10 text-lg-start text-center">
+                                                    Deleted: {{ $vehicle->deleted_at->diffForHumans() }}
+                                                </div>
+                                                
+                                                <!-- Restore and Delete buttons -->
+                                                <div class="col-auto">
+                                                    <form action="{{ route('admin.trashed.vehicles.update', $vehicle) }}" method="post" class="">
+                                                        @method('put')
+                                                        @csrf
+                                                        <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
+                                                    </form>
+                                                </div>
+                                                
+                                                <div class="col-auto">
+                                                    <form action="{{ route('admin.trashed.vehicles.destroy', $vehicle) }}" method="post" class="">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        @endif
     
                                     </div>
                                 </a>
@@ -198,8 +228,8 @@
                                     <div class="row justify-content-center mb-4 ">
                                         <div class="col-11">
                                             <div class="form-floating text-black">
-                                                <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" :value="@old('notes')"></textarea>
-                                                <label for="notes" class="">Notes</label>
+                                                <textarea class="form-control" disabled placeholder="Leave a comment here" id="notes" style="height: 100px" name="notes" field="notes">{{  @Old('notes', $atv->NOTES) }}</textarea>
+                                                <label for="notes" class="pb-4">Notes</label>
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +256,7 @@
 
         <!-- *TODO* This is the original code, which I've kept as a reference because
                     it appears there was a bug here that existed before I got here.
-                    The $vehicle variable is not being passed correctly.  -->
+                    The $vehicle variable is not being passed correctly. : Josh -->
         {{-- <x-alert-success>
             {{ session('success') }}
         </x-alert-success>  
