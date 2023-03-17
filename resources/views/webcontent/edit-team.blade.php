@@ -42,15 +42,19 @@
                     placeholder="Member Bio">{{ @Old('bio', $team->BIO) }}</textarea>
             </div>
 
+            @can('update teammate')
             <button type="submit" class="btn btn-success">Finish Editing</button>
+            @endcan
         </form>
 
+        @can('trash teammate')
         <form action="{{ route('meet-team.destroy', $team) }}" method="post">
             @method('delete')
             @csrf
 
             <button type="submit" class="btn btn-danger col-2 mt-6" onclick="return confirm('Are you sure you wish to delete this team member?')">Delete Team Member</button>
         </form>
+        @endcan
 
         <a href="{{ route('meet-team.index') }}"><button class="btn btn-danger col-1 mt-6">Cancel Editing</button></a>
 

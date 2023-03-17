@@ -38,11 +38,13 @@
                     placeholder="Member Bio"></textarea>
                 <label for="picture" class="mt-3">Team Member Picture:</label>
                 <input type="file" name="picture" class="form-control">
+                @can('create teammate')
                 <button
                     type="submit"
                     class="btn btn-danger col-1 mt-2">
                     Add Member
                 </button>
+                @endcan
             </div>
 
         </form>
