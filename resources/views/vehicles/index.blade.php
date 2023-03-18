@@ -37,7 +37,6 @@
                 <div class="col-12">
                     <div class="card mb-3 shadow-lg bg-dark text-white">
                         <div class="card-body text-center fs-4">
-                            <form action="{{ route('admin.vehicles.store') }}" method="post">
                                 @csrf
 
                                 <a href="#bikeCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-decoration-none text-customWhite" role="button">
@@ -65,8 +64,9 @@
                                         </div>
                                     </div>
                                 </a>
-    
-                                <a href="{{ route('admin.vehicles.edit', ['vehicle' => $bike]) }}" class="text-customWhite text-decoration-none">
+                                @if(!request()->routeIs('admin.trashed.vehicles.*'))
+                                <a href="{{ route('admin.vehicles.edit', ['vehicle' => $bike]) }}" class="text-customWhite text-decoration-none" onclick="return confirm('{{ $bike }}')">
+                                @endif
                                     <div class="collapse mt-3" id="bikeCollapse{{$loop->iteration}}">
                                         
                                         <div class="row justify-content-center mb-3">
@@ -107,7 +107,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                    </div>
                                         <!-- Conditionally renders deleted tag, restore, and perma-delete buttons if user is viewing trashed vehicles -->
                                         @if(request()->routeIs('admin.trashed.vehicles.*'))
                                                     
@@ -115,12 +115,12 @@
                                                 
                                                 <!-- Deleted tag -->
                                                 <div class="text-red col-lg-10 text-lg-start text-center">
-                                                    Deleted: {{ $vehicle->deleted_at->diffForHumans() }}
+                                                    Deleted: {{ $bike->deleted_at->diffForHumans() }}
                                                 </div>
                                                 
                                                 <!-- Restore and Delete buttons -->
                                                 <div class="col-auto">
-                                                    <form action="{{ route('admin.trashed.vehicles.update', $vehicle) }}" method="post" class="">
+                                                    <form action="{{ route('admin.trashed.vehicles.update', $bike) }}" method="post" class="">
                                                         @method('put')
                                                         @csrf
                                                         <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
@@ -128,7 +128,7 @@
                                                 </div>
                                                 
                                                 <div class="col-auto">
-                                                    <form action="{{ route('admin.trashed.vehicles.destroy', $vehicle) }}" method="post" class="">
+                                                    <form action="{{ route('admin.trashed.vehicles.destroy', $bike) }}" method="post" class="">
                                                         @method('delete')
                                                         @csrf
                                                         <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
@@ -137,11 +137,9 @@
                                             </div>
 
                                         @endif
-    
-                                    </div>
+                                @if(!request()->routeIs('admin.trashed.vehicles.*'))
                                 </a>
-
-                            </form>
+                                @endif
                         </div>
                     </div>
                 </div>
@@ -163,7 +161,6 @@
             <div class="col-12">
                 <div class="card mb-3 shadow-lg bg-dark text-white">
                     <div class="card-body text-center fs-4">
-                        <form action="{{ route('admin.vehicles.store') }}" method="post">
                             @csrf
 
                             <a href="#atvCollapse{{$loop->iteration}}" data-bs-toggle="collapse" class="text-decoration-none text-customWhite" role="button">
@@ -192,7 +189,9 @@
                                 </div>
                             </a>
 
+                            @if(!request()->routeIs('admin.trashed.vehicles.*'))
                             <a href="{{ route('admin.vehicles.edit', ['vehicle' => $atv]) }}" class="text-customWhite text-decoration-none">
+                            @endif
                                 <div class="collapse mt-3" id="atvCollapse{{$loop->iteration}}">
                                     
                                     <div class="row justify-content-center mb-3">
@@ -233,11 +232,39 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-                            </a>
 
-                        </form>
+                                <!-- Conditionally renders deleted tag, restore, and perma-delete buttons if user is viewing trashed vehicles -->
+                                @if(request()->routeIs('admin.trashed.vehicles.*'))           
+                                    <div class="row justify-content-lg-end justify-content-center mt-4">
+                                        
+                                        <!-- Deleted tag -->
+                                        <div class="text-red col-lg-10 text-lg-start text-center">
+                                            Deleted: {{ $atv->deleted_at->diffForHumans() }}
+                                        </div>
+                                        
+                                        <!-- Restore and Delete buttons -->
+                                        <div class="col-auto">
+                                            <form action="{{ route('admin.trashed.vehicles.update', $atv) }}" method="post" class="">
+                                                @method('put')
+                                                @csrf
+                                                <button class="btn btn-success text-white"><i class="bi bi-recycle"></i></button>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="col-auto">
+                                            <form action="{{ route('admin.trashed.vehicles.destroy', $atv) }}" method="post" class="">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger text-white"><i class="bi bi-trash3"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endif
+                            @if(!request()->routeIs('admin.trashed.vehicles.*'))
+                            </a>
+                            @endif
+
                     </div>
                 </div>
             </div>

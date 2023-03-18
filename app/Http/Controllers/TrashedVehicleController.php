@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 class TrashedVehicleController extends Controller
 {
         //shows all trashed vehicles
+        //Ignore the intelephense error on the where chain, it works :)
         public function index(){
-            $vehicles = Vehicle::onlyTrashed()->latest('updated_at');
+            $vehicles = Vehicle::onlyTrashed()->latest('updated_at')->paginate(5);
             $atvs = $vehicles->where('VEHICLE_TYPE', 2);
             $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
 
-            return view('vehicles.index')->with('bikes', $bikes)->with('atvs', $atvs);
+            return view('vehicles.index')->with([
+                'bikes' => $bikes,
+                'atvs' => $atvs,
+                'vehicles' => $vehicles
+            ]);
         }
     
         //restores a trashed vehicle
