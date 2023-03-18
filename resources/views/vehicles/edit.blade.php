@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="card shadow-lg bg-dark text-white">
                         <div class="card-body">
-                            {{-- For for creating a new user uses info.store route that save a new stuff instance --}}
+                            {{-- For for creating a new vehicle uses info.store route that save a new stuff instance --}}
                             <form action="{{ route('admin.vehicles.update', $vehicle) }}" method="post">
                                 @method('put')
                                 @csrf
