@@ -16,7 +16,7 @@ class VehicleController extends Controller
         $atvs = $vehicles->where('VEHICLE_TYPE', 2);
         $bikes =  $vehicles->where('VEHICLE_TYPE', 1);
 
-        return view('vehicles.index')->with('atvs', $atvs)->with('bikes', $bikes)->with('vehicles', $vehicles);
+        return view('vehicles.index')->with('atvs', $atvs)->with('bikes', $bikes);
     }
 
     /**

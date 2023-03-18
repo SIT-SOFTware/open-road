@@ -190,7 +190,7 @@
                             </a>
 
                             @if(!request()->routeIs('admin.trashed.vehicles.*'))
-                            <a href="{{ route('admin.vehicles.edit', ['vehicle' => $atv]) }}" class="text-customWhite text-decoration-none">
+                            <a href="{{ route('admin.vehicles.edit', ['vehicle' => $atv]) }}" class="text-customWhite text-decoration-none" onclick="return confirm('{{ $atv }}')">
                             @endif
                                 <div class="collapse mt-3" id="atvCollapse{{$loop->iteration}}">
                                     
