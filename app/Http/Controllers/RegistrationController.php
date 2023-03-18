@@ -65,6 +65,7 @@ class RegistrationController extends Controller
         
 
         // Create an array of stuffs with the Stuff ID as the value and the Stuff PNAME as the displayed text
+        // TODO: Add a condition in case STUFF_PNAME is null
         $stuff_options = [];
         foreach ($stuffs as $stuff) {
             $stuff_options[$stuff->STUFF_ID] = $stuff->STUFF_PNAME;
