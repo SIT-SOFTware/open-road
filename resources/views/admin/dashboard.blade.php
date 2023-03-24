@@ -174,6 +174,16 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-8 mb-md-3 mt-3">
+                    <div class="card bg-dark shadow-md" style="min-width: 200px;">
+                        <a href="{{ route('admin.mail') }}" class="text-decoration-none text-customWhite">
+                            <div class="card-body p-5">
+                                Send <br> Message <br> <i class="bi bi-envelope-plus"></i></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
             <hr class="border border-dark my-3" />
 

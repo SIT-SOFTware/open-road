@@ -16,6 +16,7 @@ use App\Http\Controllers\TrashedVehicleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\EmailController;
 use App\Models\Vehicle;
 
 /*
@@ -64,6 +65,7 @@ Route::resource('/meet-team', MeetTeamController::class);
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/mail', [EmailController::class, 'mail'])->name('mail');
 
     Route::get('/courses/massedit', [CourseController::class, 'massEdit'])->name('courses.massEdit');
     Route::resource('/courses', CourseController::class);
