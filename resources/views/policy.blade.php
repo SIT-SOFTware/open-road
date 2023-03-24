@@ -1,1 +1,1 @@
-policy
+{!! $policy !!}
