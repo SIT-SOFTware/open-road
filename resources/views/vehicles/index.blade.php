@@ -65,7 +65,7 @@
                                     </div>
                                 </a>
                                 @if(!request()->routeIs('admin.trashed.vehicles.*'))
-                                <a href="{{ route('admin.vehicles.edit', ['vehicle' => $bike]) }}" class="text-customWhite text-decoration-none" onclick="return confirm('{{ $bike }}')">
+                                <a href="{{ route('admin.vehicles.edit', $bike) }}" class="text-customWhite text-decoration-none" onclick="return confirm('{{ $bike }}')">
                                 @endif
                                     <div class="collapse mt-3" id="bikeCollapse{{$loop->iteration}}">
                                         
@@ -190,7 +190,7 @@
                             </a>
 
                             @if(!request()->routeIs('admin.trashed.vehicles.*'))
-                            <a href="{{ route('admin.vehicles.edit', ['vehicle' => $atv]) }}" class="text-customWhite text-decoration-none" onclick="return confirm('{{ $atv }}')">
+                            <a href="{{ route('admin.vehicles.edit', $atv) }}" class="text-customWhite text-decoration-none" onclick="return confirm('{{ $atv }}')">
                             @endif
                                 <div class="collapse mt-3" id="atvCollapse{{$loop->iteration}}">
                                     

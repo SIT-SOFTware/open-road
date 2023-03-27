@@ -14,6 +14,7 @@ class VehicleSeeder extends Seeder
     public function run(): void
     {
         DB::table('vehicles')->insert([
+            'id' => fake()->uuid(),
             'VEHICLE_STOCK_NUM' => 'yam-0998',
             'VEHICLE_VIN' => 'JYAVP11E9XA000998',
             'VEHICLE_YEAR' => '1999',
@@ -31,6 +32,7 @@ class VehicleSeeder extends Seeder
 
         ]);
         DB::table('vehicles')->insert([
+            'id' => fake()->uuid(),
             'VEHICLE_STOCK_NUM' => 'hon-0050',
             'VEHICLE_VIN' => '478TE1422XA100050',
             'VEHICLE_YEAR' => '1999',
@@ -48,6 +50,7 @@ class VehicleSeeder extends Seeder
 
         ]);
         DB::table('vehicles')->insert([
+            'id' => fake()->uuid(),
             'VEHICLE_STOCK_NUM' => 'hon-2292',
             'VEHICLE_VIN' => '3CZRM3H93DG702292',
             'VEHICLE_YEAR' => '2013',
