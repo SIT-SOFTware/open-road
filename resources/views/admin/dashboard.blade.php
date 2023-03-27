@@ -47,7 +47,7 @@
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('admin.courses.create') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Create <br> Course<br> <i class="bi bi-file-plus"></i>
+                                Create <br> Course<br> <i class="bi bi-journal-plus"></i>
                             </div>
                         </a>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('admin.courses.massEdit') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Edit <br> Courses <br> <i class="bi bi-file-arrow-up"></i>
+                                Edit <br> Courses <br> <i class="bi bi-journal-arrow-up"></i>
                             </div>
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('admin.courses.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                View <br> Courses <br> <i class="bi bi-file-text"></i>
+                                View <br> Courses <br> <i class="bi bi-journal-text"></i>
                             </div>
                         </a>
                     </div>
@@ -159,7 +159,7 @@
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('info.create') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Create <br> User <br> <i class="bi bi-person-add"></i>
+                                Create <br> Student/Staff <br> <i class="bi bi-person-add"></i>
                             </div>
                         </a>
                     </div>
@@ -169,12 +169,30 @@
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('info.index') }}" class="text-decoration-none text-customWhite">
                             <div class="card-body p-5">
-                                Edit <br> User <br> <i class="bi bi-person-gear"></i>
+                                Edit <br> Student/Staff <br> <i class="bi bi-person-up"></i>
                             </div>
                         </a>
                     </div>
                 </div>
 
+                <div class="col-lg-3 col-8 mb-md-3 mt-3">
+                    <div class="card bg-dark shadow-md" style="min-width: 200px;">
+                        <a href="{{ route('users.index') }}" class="text-decoration-none text-customWhite">
+                            <div class="card-body p-5">
+                                Manage <br> User Accounts <br> <i class="bi bi-person-gear"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border border-dark my-3" />
+
+            <a href="#userMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
+                <h1>Mailing<i class="bi bi-chevron-down custom-chevron"></i></h1>
+            </a>
+            
+            <div class="row justify-content-center collapse show" id="userMgmt">
+                
                 <div class="col-lg-3 col-8 mb-md-3 mt-3">
                     <div class="card bg-dark shadow-md" style="min-width: 200px;">
                         <a href="{{ route('admin.mail') }}" class="text-decoration-none text-customWhite">
@@ -185,7 +203,6 @@
                     </div>
                 </div>
             </div>
-            <hr class="border border-dark my-3" />
 
         </div>
 
