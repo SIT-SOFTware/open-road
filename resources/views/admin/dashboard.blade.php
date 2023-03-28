@@ -1,6 +1,11 @@
 <x-app-layout>
  
     <x-slot name="content">
+
+            <!-- Title -->
+            <h1 class="text-dark text-center mt-3">Admin Dashboard</h1>
+            <hr class="border border-dark"/>
+
         <div class="container text-center fs-2  my-4">
             <a href="#classMgmt" class="text-decoration-none text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Course Management">
                 <h1>Class Management<i class="bi bi-chevron-down custom-chevron"></i></h1>
