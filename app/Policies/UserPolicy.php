@@ -12,7 +12,7 @@ class UserPolicy
     /**
      * Determine whether the user can view any user.
      *
-     * @param \App\User $user
+     * @param \App\Models\User $user
      * @return bool
      */
     public function viewAny(User $user): bool

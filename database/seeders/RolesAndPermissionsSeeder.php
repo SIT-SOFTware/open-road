@@ -187,6 +187,22 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'update permission']);
         Permission::create(['name' => 'delete permission']);
 
+        // TODO email permissions
+        Permission::create(['name' => 'view email index']);
+        Permission::create(['name' => 'show email']);
+        Permission::create(['name' => 'create email']);
+        Permission::create(['name' => 'update email']);
+        Permission::create(['name' => 'delete email']);
+        Permission::create(['name' => 'send email']);
+
+        // file permissions
+        Permission::create(['name' => 'view file index']);
+        Permission::create(['name' => 'preview file']);
+        Permission::create(['name' => 'upload file']);
+        Permission::create(['name' => 'download file']);
+        Permission::create(['name' => 'delete file']);
+        Permission::create(['name' => 'move file']);
+
         // create admin role and assign permissions
         $adminRole = Role::create(['name' => 'admin']);
         // User permissions
@@ -221,6 +237,10 @@ class RolesAndPermissionsSeeder extends Seeder
         $adminRole->givePermissionTo(['view role index', 'show role', 'create role', 'update role', 'delete role']);
         // permission permissions
         $adminRole->givePermissionTo(['view permission index', 'show permission', 'create permission', 'update permission', 'delete permission']);
+        // email permissions
+        $adminRole->givePermissionTo(['view email index', 'show email', 'create email', 'update email', 'delete email', 'send email']);
+        // file permissions
+        $adminRole->givePermissionTo(['view file index', 'preview file', 'upload file', 'download file', 'delete file', 'move file']);
 
         // create instructor role and assign permissions
         $instructorRole = Role::create(['name' => 'instructor']);
@@ -256,6 +276,10 @@ class RolesAndPermissionsSeeder extends Seeder
         $instructorRole->givePermissionTo(['show role']);
         // permission permissions
         // NONE
+         // email permissions
+         $instructorRole->givePermissionTo(['view email index', 'show email', 'create email', 'update email', 'delete email', 'send email']);
+         // file permissions
+         $instructorRole->givePermissionTo(['view file index', 'preview file', 'upload file', 'download file',]);
 
 
         // create student role and assign permissions
@@ -292,6 +316,10 @@ class RolesAndPermissionsSeeder extends Seeder
         // NONE
         // permission permissions
         // NONE
+        // email permissions
+        $studentRole->givePermissionTo(['show email', 'create email', 'delete email','send email']);
+        // file permissions
+        $studentRole->givePermissionTo(['view file index' ,'preview file', 'download file']);
 
     }
 }
