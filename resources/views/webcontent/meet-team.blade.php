@@ -25,7 +25,7 @@
                     @endcan
                     <h2 class="col">{{ $team->NAME }}</h2>
                     <h3 class="col">Role: {{ $team->ROLE }}</h3>
-                    <p>{{ $team->BIO }}</p>
+                    <p class="fs-5">{{ $team->BIO }}</p>
                 </div>
             @empty
                 <p>There are no team members yet.</p>

@@ -15,7 +15,7 @@
         @forelse ($faqs as $faq)
             <h2 class="col">{{ $faq->QUESTION }}</h2>
             <div class="row align-items-start">
-                <p class="col col-10">{{ $faq->ANSWER }}</p>
+                <p class="col col-10 fs-5">{{ $faq->ANSWER }}</p>
                 @can('update FAQ')
                 <a href="{{ route('faq.edit', $faq) }}" class="col"><button type="button" class="btn btn-danger">Edit Question</button></a>
                 @endcan
