@@ -18,6 +18,7 @@ yarn-error.log
 /.idea
 /.vscode
 *.yaml
+*.yml
 *.dockerfile
 app.dockerfile:*
 docker-compose.yaml:*
